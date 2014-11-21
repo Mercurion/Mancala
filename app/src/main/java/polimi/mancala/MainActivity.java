@@ -44,6 +44,7 @@ public class MainActivity extends Activity {
         Intent intentNewMatch = new Intent(this, MatchActivity.class);
         startActivity(intentNewMatch);
 
+
     }
 
 }

@@ -12,6 +12,7 @@ public class MatchActivity extends Activity {
     protected void onCreate (Bundle SavedInstanceState) {
         super.onCreate(SavedInstanceState);
         setContentView(R.layout.activity_match);
+
     }
 
     /* this is a comment */
