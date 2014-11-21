@@ -5,5 +5,18 @@ package polimi.mancala;
  */
 public class User {
 
+    public User () {
+
+    }
+
+    int score;
+
+    public void setScore (int value) {
+        this.score = value;
+    }
+
+    public int getScore (){
+        return this.score;
+    }
 
 }
