@@ -1,6 +1,7 @@
 package polimi.mancala;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -40,7 +41,8 @@ public class MainActivity extends Activity {
 
 
     public void startMatch (View view){
-
+        Intent intentNewMatch = new Intent(this, MatchActivity.class);
+        startActivity(intentNewMatch);
 
     }
 
