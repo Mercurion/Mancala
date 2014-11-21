@@ -5,4 +5,8 @@ package polimi.mancala;
  */
 public class MatchHandler {
 
+    public MatchHandler() {
+
+    }
+
 }

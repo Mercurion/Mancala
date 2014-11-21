@@ -5,4 +5,5 @@ package polimi.mancala;
  */
 public class User {
 
+
 }
