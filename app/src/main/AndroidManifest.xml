@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="polimi.mancala.MatchActivity"
+            android:label="Si Gioca">
+
+        </activity>
     </application>
 
 </manifest>
