@@ -6,6 +6,7 @@ package polimi.mancala;
 public class Statistics {
 
     public void Statistics () {
+        /* TODO: INSERT SOMETHING LIKE this.maxscore = setMax(default path to file) */
 
     }
 
@@ -18,6 +19,7 @@ public class Statistics {
         return this.maxScore;
     }
 
+    //TODO: has to be done with a pathfile
     public void setMax (int value) {
         this.maxScore = value;
     }
@@ -28,5 +30,9 @@ public class Statistics {
 
     public void setGamePlayed (int value) {
         this.gamePlayed = value;
+    }
+
+    public void oneMorePlayed () {
+        //TODO: here has to be set that the game played value will be increased by one
     }
 }

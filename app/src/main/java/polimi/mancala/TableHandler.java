@@ -32,7 +32,7 @@ public class TableHandler {
 
 
     /*this
-    this method checks if there are any residual seeds. if there are return FALSE. if there are no more seeds, return TRUE
+    this method checks if there are no residual seeds. if there are return FALSE. if there are no more seeds, return TRUE
      */
     public boolean checkPlayer1Finished () {
         for (i=0; i<6; i++)
