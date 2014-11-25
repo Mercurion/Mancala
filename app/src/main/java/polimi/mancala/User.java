@@ -6,7 +6,7 @@ package polimi.mancala;
 public class User {
 
     public User () {
-
+        this.score = 0;
     }
 
     int score;

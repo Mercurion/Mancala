@@ -1,5 +1,7 @@
 package polimi.mancala;
 
+import android.util.Log;
+
 /**
  * Created by Giacomo Bianchini on 21/11/2014.
  */
@@ -14,6 +16,13 @@ public class MatchHandler {
 
     }
 
+
+    public void playGame () {
+        beginMatch();
+        Log.i("MatchHandler", " " + String.valueOf(player1.getScore())  );
+
+
+    }
 
     public void beginMatch () {
         player1.setScore(0);

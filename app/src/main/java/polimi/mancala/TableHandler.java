@@ -11,23 +11,23 @@ public class TableHandler {
 
     }
     int i;
-    ArrayList<Integer> bows = new ArrayList<Integer>();
+    ArrayList<Integer> bowls = new ArrayList<Integer>();
 
     public void initializeGameBoard() {
         for (i=0; i<12; i++) //this initialize the gameboard
-            bows.add(i, 3);
+            bowls.add(i, 3);
     }
 
     public int getSeeds (int position) {
-        return bows.get(position);
+        return bowls.get(position);
     }
 
     public void addSeed (int position) { //this add 1 seed
-        this.bows.set(position,this.bows.get(position)+1);
+        this.bowls.set(position,this.bowls.get(position)+1);
     }
 
     public void clearBows (int position) { //this method clears a bow: does not return the number of existing seeds
-        this.bows.set(position, 0);
+        this.bowls.set(position, 0);
     }
 
 
@@ -36,14 +36,14 @@ public class TableHandler {
      */
     public boolean checkPlayer1Finished () {
         for (i=0; i<6; i++)
-            if (this.bows.get(i)!=0)
+            if (this.bowls.get(i)!=0)
                 return false;
         return true;
     }
 
     public boolean checkPlayer2Finished () {
         for (i=6; i<12; i++)
-            if (this.bows.get(i)!=0)
+            if (this.bowls.get(i)!=0)
                 return false;
         return true;
     }
