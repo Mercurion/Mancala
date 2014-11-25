@@ -39,6 +39,8 @@ public class MatchHandler {
     }
 
 
+
+
     public void makeAMove (int index) {
         if ((player1.getHisTurn() && 0<=index && index <6) || player2.getHisTurn() && 6 <=index && index <12) { //checks if is possibile to pick the seeds
             int tmp;
