@@ -5,6 +5,7 @@ package polimi.mancala;
  */
 public class MatchHandler {
 
+
     User player1 = new User();
     User player2 = new User();
     TableHandler table = new TableHandler();
