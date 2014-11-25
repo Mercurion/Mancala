@@ -10,11 +10,7 @@ import android.util.Log;
 
 public class MatchActivity extends Activity {
 
-    MatchHandler game;
-
-    public MatchActivity() {
-        game = new MatchHandler();
-    }
+    MatchHandler game = new MatchHandler();
 
     @Override
     protected void onCreate (Bundle SavedInstanceState) {
@@ -24,18 +20,9 @@ public class MatchActivity extends Activity {
         delete the next string
          */
         Log.i("matchactivity", "this is an output");
-
-        game.beginMatch();
-
-        while (!game.isFinished()) {
-
-            //TODO: HERE WE PLAY
-
-        }
+        this.game.beginMatch();
+        this.game.playGame();
     }
-
-
-
 
     /* this is a comment */
 }
