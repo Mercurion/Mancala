@@ -10,6 +10,7 @@ public class User {
     }
 
     int score;
+    boolean isHisTurn;
 
     public void setScore (int value) {
         this.score = value;
@@ -19,4 +20,11 @@ public class User {
         return this.score;
     }
 
+    public void setHisTurn (boolean turn) {
+        this.isHisTurn = turn;
+    }
+
+    public boolean getHisTurn () {
+        return this.isHisTurn;
+    }
 }

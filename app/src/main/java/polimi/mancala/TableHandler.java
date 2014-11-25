@@ -26,7 +26,7 @@ public class TableHandler {
         this.bowls.set(position,this.bowls.get(position)+1);
     }
 
-    public void clearBows (int position) { //this method clears a bow: does not return the number of existing seeds
+    public void clearBowls(int position) { //this method clears a bow: does not return the number of existing seeds
         this.bowls.set(position, 0);
     }
 

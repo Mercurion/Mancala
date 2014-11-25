@@ -20,6 +20,7 @@ public class MatchActivity extends Activity {
         delete the next string
          */
         Log.i("matchactivity", "this is an output");
+        this.game.beginMatch();
         this.game.playGame();
     }
 
