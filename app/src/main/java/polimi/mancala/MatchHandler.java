@@ -4,6 +4,9 @@ import android.util.Log;
 
 /**
  * Created by Giacomo Bianchini on 21/11/2014.
+ *
+ * this class contains all the constrains for the game
+ *
  */
 public class MatchHandler {
 
@@ -24,6 +27,7 @@ public class MatchHandler {
 
         while (!isFinished())
         {
+
 
             /*
             for (i= position; i<position +number of seed; i++)

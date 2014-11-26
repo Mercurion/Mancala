@@ -3,9 +3,11 @@ package polimi.mancala;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 /**
- * Created by jack on 21/11/2014.
+ * Created by Giacomo Bianchini on 21/11/2014.
+ *
  */
 
 public class MatchActivity extends Activity {
@@ -24,5 +26,8 @@ public class MatchActivity extends Activity {
         this.game.playGame();
     }
 
+    public void bowlclicked (View v) {
+
+    }
     /* this is a comment */
 }
