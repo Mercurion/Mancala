@@ -23,7 +23,7 @@ public class MatchHandler {
     public void playGame () {
 
         Log.i("MatchHandler", " " + String.valueOf(player1.getScore())  );
-        Log.i("MatchHandler", "Seeds " + String.valueOf(table.getSeeds(3))  );
+        Log.i("MatchHandler", "Seeds " + String.valueOf(table.getNumOfSeeds(3))  );
 
         while (!isFinished())
         {
@@ -42,33 +42,73 @@ public class MatchHandler {
         }
     }
 
+    public String endOfTheGame () { //this method perform the end of the game and return the name of the winner
+        int i;
+        for (i=0; i<14; i++)
+            if (i!=6 && i!= 13)
+                pickAndPush(i);
+
+        if (this.player1.getScore() < this.player2.getScore())
+            return "Player2";
+        else
+            if (this.player2.getScore() < this.player1.getScore())
+                return "Player1";
+        else
+                return "Tie";
+    }
+
+    public void pickAndPush (int indexOfBowl) { //this method picks all the seeds from a bowl and put them in the tray
+        int points = this.table.getNumOfSeeds(indexOfBowl);
+
+        if (table.isPlayerOneBowl(indexOfBowl))
+            player1.setScore(player1.getScore()+ points);
+
+        if (table.isPlayerTwoBowl(indexOfBowl))
+            player2.setScore(player2.getScore()+ points);
+
+        this.table.clearBowls(indexOfBowl);
+    }
+
+    public void stealAndPush (int indexOfBowl) {
+        int points = this.table.getNumOfSeeds(indexOfBowl);
+
+        if (table.isPlayerOneBowl(indexOfBowl))
+            player2.setScore(player2.getScore()+ points);
+
+        if (table.isPlayerTwoBowl(indexOfBowl))
+            player1.setScore(player1.getScore()+ points);
+
+        this.table.clearBowls(indexOfBowl);
+    }
 
 
     public boolean isPossibleToMove (int index) {
-        if (this.player1.isHisTurn &&  0<= index && index <6)
+        if (this.player1.isHisTurn &&  this.table.isPlayerOneBowl(index))
             return true;
-        else if (this.player2.isHisTurn && 6<=index && index <12)
+        else if (this.player2.isHisTurn && this.table.isPlayerTwoBowl(index))
             return true;
             else return false;
-
     }
 
     public boolean isEmptyBowl (int index) { //returns true if the bowl in the index has NO MORE SEEDS
-        if (table.getSeeds(index) == 0)
+        if (table.getNumOfSeeds(index) == 0)
             return true;
         else
             return false;
     }
 
-    public void makeAMove (int index) {
+    public int makeAMove (int index) {
         int tmp;
-        tmp = table.getSeeds(index); //tmp is the number of seeds in the selected bowl
+        tmp = table.getNumOfSeeds(index); //tmp is the number of seeds in the selected bowl
         this.table.clearBowls(index);
         int i;
-        for (i = 1; i <= tmp; i++) {
-            //TODO: HANDLE THE EXCEPTIONS LIKE THE TRAY
+        for (i = 1; i <= tmp; ) {
+            //TODO: HANDLE THE EXCEPTION: THE NEXT BOWL HAS TO BE THE NUMBER 0
             this.table.addSeed(i + index);
+            i++;
         }
+
+        return tmp+index;
     }
 
     public void beginMatch () {

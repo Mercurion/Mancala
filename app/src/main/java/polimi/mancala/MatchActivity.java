@@ -29,9 +29,21 @@ public class MatchActivity extends Activity {
     public void bowlClicked(View v) {
         //TODO: here we need to give to this methods the number of the bowl (set the index) that has been clicked
         int index;
-        if (game.isPossibleToMove(5) && !game.isEmptyBowl(5))
-            game.makeAMove(5);
+        int lastBowl;
+        if (game.isPossibleToMove(5) && !game.isEmptyBowl(5)) {
+            lastBowl = game.makeAMove(5);
+            //here an if to handle the case that I put my last seed in an empty bowl
 
+            //TODO: CHECK THAT IS THE CURRENT PLAYER BOWL
+            if (this.game.table.getNumOfSeeds(lastBowl) == 0 && lastBowl!=6 && lastBowl!=13)
+                this.game.pickAndPush(lastBowl);
+                this.game.stealAndPush(12-lastBowl);
+        }
+
+        if (game.isFinished()) {
+            String winner = new String();
+            winner = game.endOfTheGame();
+        }
     }
     /* this is a comment */
 }

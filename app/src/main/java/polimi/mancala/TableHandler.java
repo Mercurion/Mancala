@@ -14,11 +14,12 @@ public class TableHandler {
     ArrayList<Integer> bowls = new ArrayList<Integer>();
 
     public void initializeGameBoard() {
-        for (i=0; i<12; i++) //this initialize the gameboard
+        for (i=0; i<14; i++) //this initialize the gameboard
+        if (i!=6 && i!= 13)
             bowls.add(i, 3);
     }
 
-    public int getSeeds (int position) {
+    public int getNumOfSeeds(int position) {
         return bowls.get(position);
     }
 
@@ -30,6 +31,19 @@ public class TableHandler {
         this.bowls.set(position, 0);
     }
 
+    public boolean isPlayerOneBowl (int index) {
+        if (0<=index && index <6)
+            return true;
+        else
+            return false;
+    }
+
+    public boolean isPlayerTwoBowl (int index) {
+        if (7<=index && index <13)
+            return true;
+        else
+            return false;
+    }
 
 
     /*this
@@ -43,7 +57,7 @@ public class TableHandler {
     }
 
     public boolean checkPlayer2Finished () {
-        for (i=6; i<12; i++)
+        for (i=7; i<13; i++)
             if (this.bowls.get(i)!=0)
                 return false;
         return true;
