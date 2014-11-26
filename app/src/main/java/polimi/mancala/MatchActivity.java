@@ -26,7 +26,11 @@ public class MatchActivity extends Activity {
         this.game.playGame();
     }
 
-    public void bowlclicked (View v) {
+    public void bowlClicked(View v) {
+        //TODO: here we need to give to this methods the number of the bowl (set the index) that has been clicked
+        int index;
+        if (game.isPossibleToMove(5) && !game.isEmptyBowl(5))
+            game.makeAMove(5);
 
     }
     /* this is a comment */

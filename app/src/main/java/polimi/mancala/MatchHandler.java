@@ -44,22 +44,31 @@ public class MatchHandler {
 
 
 
+    public boolean isPossibleToMove (int index) {
+        if (this.player1.isHisTurn &&  0<= index && index <6)
+            return true;
+        else if (this.player2.isHisTurn && 6<=index && index <12)
+            return true;
+            else return false;
+
+    }
+
+    public boolean isEmptyBowl (int index) { //returns true if the bowl in the index has NO MORE SEEDS
+        if (table.getSeeds(index) == 0)
+            return true;
+        else
+            return false;
+    }
 
     public void makeAMove (int index) {
-        if ((player1.getHisTurn() && 0<=index && index <6) || player2.getHisTurn() && 6 <=index && index <12) { //checks if is possibile to pick the seeds
-            int tmp;
-            tmp = table.getSeeds(index); //tmp is the number of seeds in the selected bowl
-            this.table.clearBowls(index);
-            int i;
-            for (i = 1 ; i <=tmp; i++) {
-                //TODO: HANDLE THE EXCEPTIONS LIKE THE TRAY
-                this.table.addSeed(i+index);
-            }
-
-        } else {
-            //TODO: this is not a good move ---> we have to handle it
+        int tmp;
+        tmp = table.getSeeds(index); //tmp is the number of seeds in the selected bowl
+        this.table.clearBowls(index);
+        int i;
+        for (i = 1; i <= tmp; i++) {
+            //TODO: HANDLE THE EXCEPTIONS LIKE THE TRAY
+            this.table.addSeed(i + index);
         }
-
     }
 
     public void beginMatch () {

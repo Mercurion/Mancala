@@ -9,5 +9,5 @@
         android:text="Test"
         android:id="@+id/button3"
         android:layout_gravity="center_horizontal"
-        android:onClick="bowlclicked"/>
+        android:onClick="bowlClicked"/>
 </LinearLayout>
