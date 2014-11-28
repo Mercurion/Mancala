@@ -7,6 +7,7 @@ public class User {
 
     public User () {
         this.score = 0;
+        this.isHisTurn = false;
     }
 
     int score;

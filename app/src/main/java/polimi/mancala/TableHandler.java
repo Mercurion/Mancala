@@ -16,7 +16,9 @@ public class TableHandler {
     public void initializeGameBoard() {
         for (i=0; i<14; i++) //this initialize the gameboard
         if (i!=6 && i!= 13)
-            bowls.add(i, 3);
+            this.bowls.add(i, 3);
+            else
+                this.bowls.add (i, 0);
     }
 
     public int getNumOfSeeds(int position) {

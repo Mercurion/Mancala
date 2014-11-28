@@ -106,11 +106,11 @@ public class MatchHandler {
     }
 
     public void beginMatch () {
-        player1.setScore(0);
-        player2.setScore(0);
-        player1.setHisTurn(true);
-        player2.setHisTurn(false);
-        table.initializeGameBoard();
+        this.player1.setScore(0);
+        this.player2.setScore(0);
+        this.player1.setHisTurn(true);
+        this.player2.setHisTurn(false);
+        this.table.initializeGameBoard();
     }
 
     public boolean isFinished () { //check if the match is over
