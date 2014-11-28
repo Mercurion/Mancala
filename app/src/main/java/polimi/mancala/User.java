@@ -24,6 +24,13 @@ public class User {
         this.isHisTurn = turn;
     }
 
+    public void changeTurn () {
+        if (this.isHisTurn == true)
+            setHisTurn(false);
+        else
+            setHisTurn(true);
+    }
+
     public boolean getHisTurn () {
         return this.isHisTurn;
     }

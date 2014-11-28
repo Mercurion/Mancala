@@ -20,28 +20,6 @@ public class MatchHandler {
     }
 
 
-    public void playGame () {
-
-        Log.i("MatchHandler", " " + String.valueOf(player1.getScore())  );
-        Log.i("MatchHandler", "Seeds " + String.valueOf(table.getNumOfSeeds(3))  );
-
-        while (!isFinished())
-        {
-
-
-            /*
-            for (i= position; i<position +number of seed; i++)
-                //add 1 seed to i-bowl
-                //check if it's going to be "players tray"
-
-            //the cycle is finished
-            //check for some contraints: 1. last tray:
-                    //if is player tray ---> an other move
-                    //if it's an empty bowl ---> pick all the opposite seed and move to tray
-                    */
-        }
-    }
-
     public String endOfTheGame () { //this method perform the end of the game and return the name of the winner
         int i;
         for (i=0; i<14; i++)
@@ -69,6 +47,11 @@ public class MatchHandler {
         this.table.clearBowls(indexOfBowl);
     }
 
+    /**
+     *
+     * @param indexOfBowl
+     *
+     */
     public void stealAndPush (int indexOfBowl) {
         int points = this.table.getNumOfSeeds(indexOfBowl);
 
@@ -81,7 +64,11 @@ public class MatchHandler {
         this.table.clearBowls(indexOfBowl);
     }
 
-
+    /**
+     *
+     * @param index
+     * @return if it's possible to move
+     */
     public boolean isPossibleToMove (int index) {
         if (this.player1.isHisTurn &&  this.table.isPlayerOneBowl(index))
             return true;
@@ -90,6 +77,13 @@ public class MatchHandler {
             else return false;
     }
 
+
+    /**
+     *
+     * @param index
+     * @return true if it's an empy bowl
+     * @see this.table.getNumOfSeeds ()
+     */
     public boolean isEmptyBowl (int index) { //returns true if the bowl in the index has NO MORE SEEDS
         if (table.getNumOfSeeds(index) == 0)
             return true;
