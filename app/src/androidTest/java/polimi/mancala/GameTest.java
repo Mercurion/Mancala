@@ -7,19 +7,51 @@ import android.test.InstrumentationTestCase;
  */
 public class GameTest extends InstrumentationTestCase {
 
-    MatchHandler game = new MatchHandler();
-    TableHandler table = new TableHandler();
+    MatchHandler gameToTest = new MatchHandler();
 
 
     public void testIfGameIsFinished () {
-        this.game.beginMatch();
-        this.game.pickAndPush(0);
-        this.game.pickAndPush(1);
-        this.game.pickAndPush(2);
-        this.game.pickAndPush(3);
-        this.game.pickAndPush(4);
-        this.game.pickAndPush(5);
-        assertTrue(this.game.isFinished());
+        this.gameToTest.beginMatch();
+        this.gameToTest.pickAndPush(0);
+        this.gameToTest.pickAndPush(1);
+        this.gameToTest.pickAndPush(2);
+        this.gameToTest.pickAndPush(3);
+        this.gameToTest.pickAndPush(4);
+        this.gameToTest.pickAndPush(5);
+        assertTrue(this.gameToTest.isFinished());
     }
+
+
+    public void testIfIsPossibleToMove () {
+        this.gameToTest.beginMatch();
+        assertTrue(this.gameToTest.isPossibleToMove(3));
+        assertFalse("The player1 can not move from a player2's bowl", this.gameToTest.isPossibleToMove(8));
+    }
+
+    public void testEndOfTheGame () {
+        this.gameToTest.beginMatch();
+        this.gameToTest.pickAndPush(0);
+        this.gameToTest.pickAndPush(1);
+        this.gameToTest.pickAndPush(2);
+        this.gameToTest.pickAndPush(3);
+        this.gameToTest.pickAndPush(4);
+        this.gameToTest.pickAndPush(5);
+
+        assertEquals(this.gameToTest.endOfTheGame(), "Tie");
+    }
+
+
+    public void testMakeAMove () {
+
+        this.gameToTest.beginMatch();
+        this.gameToTest.makeAMove(1);
+        assertEquals(this.gameToTest.table.getNumOfSeeds(1),0);
+        assertEquals(this.gameToTest.table.getNumOfSeeds(2),4);
+        assertEquals(this.gameToTest.table.getNumOfSeeds(3),4);
+        assertEquals(this.gameToTest.table.getNumOfSeeds(4),4);
+        assertEquals(this.gameToTest.table.getNumOfSeeds(5),3);
+
+    }
+
 
 }
