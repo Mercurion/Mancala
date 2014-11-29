@@ -97,7 +97,10 @@ public class MatchHandler {
         this.table.clearBowls(index);
         int i;
         for (i = 1; i <= tmp; ) {
-            //TODO: HANDLE THE EXCEPTION: THE NEXT BOWL HAS TO BE THE NUMBER 0
+            //TODO: HANDLE THE EXCEPTION: THE NEXT BOWL HAS TO BE THE NUMBER 0: should be done
+            if ((i + index) == 14) {
+                index = -i;
+            }
             this.table.addSeed(i + index);
             i++;
         }
