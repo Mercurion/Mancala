@@ -51,6 +51,16 @@ public class GameTest extends InstrumentationTestCase {
         assertEquals(this.gameToTest.table.getNumOfSeeds(4),4);
         assertEquals(this.gameToTest.table.getNumOfSeeds(5),3);
 
+        this.gameToTest.player1.changeTurn();
+        this.gameToTest.player2.changeTurn();
+        this.gameToTest.makeAMove(12);
+        assertEquals(this.gameToTest.table.getNumOfSeeds(12),0);
+        assertEquals(this.gameToTest.table.getNumOfSeeds(13),1);
+        assertEquals(this.gameToTest.table.getNumOfSeeds(0),4);
+        assertEquals(this.gameToTest.table.getNumOfSeeds(1),1);
+        assertEquals(this.gameToTest.table.getNumOfSeeds(2),4);
+
+
     }
 
 
