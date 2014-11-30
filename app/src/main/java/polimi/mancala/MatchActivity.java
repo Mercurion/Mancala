@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+
 /**
  * Created by Giacomo Bianchini on 21/11/2014
  */
@@ -24,6 +25,7 @@ public class MatchActivity extends Activity {
         this.game.beginMatch();
 
     }
+
 
     public void bowlClicked(View v) {
         //TODO: here we need to give to this methods the number of the bowl (set the index) that has been clicked

@@ -7,6 +7,19 @@ import android.test.InstrumentationTestCase;
  */
 public class UserTest extends InstrumentationTestCase {
 
+    User userToTest = new User();
+
+    public void testScore () {
+        this.userToTest.setScore(5);
+        this.userToTest.setHisTurn(true);
+        assertEquals("The User Score is well setted", 5,this.userToTest.getScore());
+    }
+
+    public void testChangeTurn () {
+        this.userToTest.setHisTurn(false);
+        this.userToTest.changeTurn();
+        assertTrue(this.userToTest.getHisTurn());
+    }
 
 
 }
