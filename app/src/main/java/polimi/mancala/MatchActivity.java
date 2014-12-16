@@ -12,7 +12,7 @@ import android.view.View;
 
 public class MatchActivity extends Activity {
 
-    MatchHandler game = new MatchHandler();
+    MatchHandler game = MatchHandler.getMatchHandler();
 
     @Override
     protected void onCreate (Bundle SavedInstanceState) {

@@ -11,14 +11,19 @@ import android.util.Log;
 public class MatchHandler {
 
 
+    private static MatchHandler instance = null;
     User player1 = new User();
     User player2 = new User();
     TableHandler table = new TableHandler();
 
-    public MatchHandler() {
-
+    private MatchHandler() {
     }
 
+    public static synchronized MatchHandler getMatchHandler () {
+        if (instance == null)
+            instance = new MatchHandler();
+        return instance;
+    }
 
     public String endOfTheGame () { //this method perform the end of the game and return the name of the winner
         int i;
