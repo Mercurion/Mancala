@@ -7,7 +7,7 @@ import android.test.InstrumentationTestCase;
  */
 public class GameTest extends InstrumentationTestCase {
 
-    MatchHandler gameToTest = new MatchHandler();
+    MatchHandler gameToTest = MatchHandler.getMatchHandler();
 
 
     public void testIfGameIsFinished () {

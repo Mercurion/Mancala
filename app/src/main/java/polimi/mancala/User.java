@@ -8,8 +8,8 @@ public class User {
 
 
     public User () {
-        this.score = 0;
-        this.isHisTurn = false;
+        score = 0;
+        isHisTurn = false;
     }
 
     int score;

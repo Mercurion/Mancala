@@ -7,7 +7,15 @@ import java.util.ArrayList;
  */
 public class TableHandler {
 
-    public TableHandler () {
+    private static TableHandler instance = null;
+
+    private TableHandler () {
+    }
+
+    public static synchronized TableHandler getInstance () {
+        if (instance == null)
+            instance = new TableHandler();
+        return instance;
 
     }
     int i;

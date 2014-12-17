@@ -5,4 +5,10 @@ package polimi.mancala;
  */
 public class Tray {
 
+    public void Tray () {
+
+    }
+
+    int numOfSeeds;
+
 }

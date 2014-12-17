@@ -7,7 +7,7 @@ import android.test.InstrumentationTestCase;
  */
 public class TableTest extends InstrumentationTestCase {
 
-    TableHandler tableToTest = new TableHandler();
+    TableHandler tableToTest = TableHandler.getInstance();
 
     public void testInitialTable () {
         tableToTest.initializeGameBoard();

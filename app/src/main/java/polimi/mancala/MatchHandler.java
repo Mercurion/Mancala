@@ -14,7 +14,7 @@ public class MatchHandler {
     private static MatchHandler instance = null;
     User player1 = new User();
     User player2 = new User();
-    TableHandler table = new TableHandler();
+    TableHandler table = TableHandler.getInstance();
 
     private MatchHandler() {
     }
@@ -40,6 +40,43 @@ public class MatchHandler {
                 return "Tie";
     }
 
+    //TODO: here we have to do something about the return type
+    public void playTheGame (int bowlClicked) {
+        int index = bowlClicked;
+        int lastBowl;
+        if (isPossibleToMove(index) && !isEmptyBowl(index)) { //here we need to set the index and pass index instead of 5
+            lastBowl = makeAMove(index);
+
+
+            //here an if to handle the case that I put my last seed in an empty bowl
+            //TODO: CHECK THAT IS THE CURRENT PLAYER BOWL should be done
+            if (table.getNumOfSeeds(lastBowl) == 0 && (table.isPlayerOneBowl(lastBowl) && player1.getHisTurn() ||
+                    table.isPlayerTwoBowl(lastBowl) && player2.getHisTurn())) {
+
+                pickAndPush(lastBowl);
+                stealAndPush(12 - lastBowl);
+            }
+
+
+            //here we check if we do need to change the turn
+
+            if (!((lastBowl == 6 && player1.getHisTurn())||(lastBowl == 13 && player2.getHisTurn()))) {
+                player1.changeTurn();
+                player2.changeTurn();
+            }
+
+        }
+
+        if (isFinished()) {
+            String winner = new String();
+            winner = endOfTheGame();
+            //TODO: graphically do something to make us understand that the game is over
+        }
+
+    }
+
+
+
     public void pickAndPush (int indexOfBowl) { //this method picks all the seeds from a bowl and put them in the tray
         int points = this.table.getNumOfSeeds(indexOfBowl);
 
@@ -52,11 +89,6 @@ public class MatchHandler {
         this.table.clearBowls(indexOfBowl);
     }
 
-    /**
-     *
-     * @param indexOfBowl
-     *
-     */
     public void stealAndPush (int indexOfBowl) {
         int points = this.table.getNumOfSeeds(indexOfBowl);
 
@@ -69,11 +101,6 @@ public class MatchHandler {
         this.table.clearBowls(indexOfBowl);
     }
 
-    /**
-     *
-     * @param index
-     * @return if it's possible to move
-     */
     public boolean isPossibleToMove (int index) {
         if (this.player1.isHisTurn &&  this.table.isPlayerOneBowl(index))
             return true;
@@ -82,13 +109,6 @@ public class MatchHandler {
             else return false;
     }
 
-
-    /**
-     *
-     * @param index
-     * @return true if it's an empy bowl
-     * @see this.table.getNumOfSeeds ()
-     */
     public boolean isEmptyBowl (int index) { //returns true if the bowl in the index has NO MORE SEEDS
         if (table.getNumOfSeeds(index) == 0)
             return true;
