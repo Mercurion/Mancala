@@ -1,5 +1,6 @@
 package polimi.mancala;
 
+
 import android.util.Log;
 
 /**
@@ -10,7 +11,7 @@ import android.util.Log;
  */
 public class MatchHandler {
 
-
+    private static final Integer num_Seed = 3;
     private static MatchHandler instance = null;
     User player1 = new User();
     User player2 = new User();
