@@ -6,8 +6,24 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:text="Test"
         android:id="@+id/button3"
         android:layout_gravity="center_horizontal"
         android:onClick="bowlClicked"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/player1bowl1"
+            android:background="@drawable/square"
+            />
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/player1bowl2"
+            android:background="@drawable/square"
+
+            />
+
+
 </LinearLayout>

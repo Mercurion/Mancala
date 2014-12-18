@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 
 /**
@@ -18,12 +20,65 @@ public class MatchActivity extends Activity {
     protected void onCreate (Bundle SavedInstanceState) {
         super.onCreate(SavedInstanceState);
         setContentView(R.layout.activity_match);
+
+
+        Button player1Bowl1 = (Button) findViewById(R.id.player1bowl1);
+        player1Bowl1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Do something in response to button click
+                UpdateUI(performMove(1, 1));
+
+            }
+        });
+
+        Button player1Bowl2 = (Button) findViewById(R.id.player1bowl2);
+        player1Bowl2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Do something in response to button click
+                UpdateUI(performMove(1, 2));
+
+
+            }
+        });
+
         /*
         delete the next string
          */
         Log.i("matchactivity", "this is an output");
         this.game.beginMatch();
 
+    }
+
+    private void UpdateUI(boolean b) {
+        if (b){
+            //No need to disable current player
+            //Keep on playing
+        }
+        else{
+            //Disable current player
+            //Enable other player
+        }
+        UpdateUIValues();
+    }
+
+    private void UpdateUIValues() {
+        Button player1bowl1 = (Button) findViewById(R.id.player1bowl1);
+        player1bowl1.setText("" + getCurrentValue(1,1));
+        Button player1bowl2 = (Button) findViewById(R.id.player1bowl2);
+        player1bowl2.setText("" + getCurrentValue(1,2));
+    }
+
+    private int getCurrentValue(int player, int bowlNumber) {
+        //Get the current value of stones in the bowl
+        // for the player passed as parameter
+        return 2; //Just to test
+    }
+
+    private boolean performMove(int player, int bowlNumber) {
+
+        //Perform move for player passed as parameter on the bowl passed as parameter
+
+        return false;
     }
 
 
