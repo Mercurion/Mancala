@@ -11,6 +11,7 @@ public class Statistics {
 
     public void Statistics () {
         /* TODO: INSERT SOMETHING LIKE this.maxscore = setMax(default path to file) */
+
     }
 
     public int maxScore;
