@@ -1,13 +1,16 @@
 package polimi.mancala;
 
+import java.io.File;
+
 /**
  * Created by jack on 21/11/2014.
  */
 public class Statistics {
 
+    File statFile;
+
     public void Statistics () {
         /* TODO: INSERT SOMETHING LIKE this.maxscore = setMax(default path to file) */
-
     }
 
     public int maxScore;
