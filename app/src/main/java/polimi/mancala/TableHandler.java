@@ -3,9 +3,11 @@ package polimi.mancala;
 import java.util.ArrayList;
 
 /**
- * Created by jack on 21/11/2014.
+ * @author Giacomo Bianchini
  */
 public class TableHandler {
+
+    private final int INITIAL_SEEDS = 3;
 
     private static TableHandler instance = null;
 
@@ -24,7 +26,7 @@ public class TableHandler {
     public void initializeGameBoard() {
         for (i=0; i<14; i++) //this initialize the gameboard
         if (i!=6 && i!= 13)
-            this.bowls.add(i, 3);
+            this.bowls.add(i, INITIAL_SEEDS);
             else
                 this.bowls.add (i, 0);
     }

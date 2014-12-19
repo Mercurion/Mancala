@@ -1,7 +1,7 @@
 package polimi.mancala;
 
 /**
- * Created by jack on 21/11/2014.
+ * @author Giacomo Bianchini
  */
 
 public class User {
@@ -13,7 +13,16 @@ public class User {
     }
 
     int score;
+    int id;
     boolean isHisTurn;
+
+    public void setId (int givenId) {
+        this.id = givenId;
+    }
+
+    public int getId () {
+        return this.id;
+    }
 
     public void setScore (int value) {
         this.score = value;

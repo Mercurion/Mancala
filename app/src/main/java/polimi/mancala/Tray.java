@@ -1,21 +1,11 @@
 package polimi.mancala;
 
 /**
- * Created by jack on 16/12/2014.
+ * @author Giacomo Bianchini
  */
-public class Tray {
+public class Tray extends Container {
 
     public void Tray () {
     }
 
-    int numOfSeeds;
-    User owner;
-
-    public void setNumOfSeeds (int seeds) {
-        this.numOfSeeds = seeds;
-    }
-
-    public int getNumOfSeeds () {
-        return numOfSeeds;
-    }
 }
