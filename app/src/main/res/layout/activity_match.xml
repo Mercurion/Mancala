@@ -49,7 +49,7 @@
             android:layout_alignParentStart="true"/>
 
     <Button
-            android:layout_width="110dp"
+            android:layout_width="120dp"
             android:layout_height="110dp"
             android:id="@+id/player1tray1"
             android:background="@drawable/square"
@@ -57,7 +57,7 @@
             android:layout_centerHorizontal="true"/>
 
     <Button
-            android:layout_width="110dp"
+            android:layout_width="120dp"
             android:layout_height="110dp"
             android:id="@+id/player2tray2"
             android:background="@drawable/square"
