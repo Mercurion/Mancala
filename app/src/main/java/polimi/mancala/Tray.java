@@ -6,9 +6,16 @@ package polimi.mancala;
 public class Tray {
 
     public void Tray () {
-
     }
 
     int numOfSeeds;
+    User owner;
 
+    public void setNumOfSeeds (int seeds) {
+        this.numOfSeeds = seeds;
+    }
+
+    public int getNumOfSeeds () {
+        return numOfSeeds;
+    }
 }
