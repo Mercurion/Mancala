@@ -69,7 +69,7 @@
             android:layout_height="90dp"
             android:id="@+id/player2bowl1"
             android:background="@drawable/square"
-            android:layout_alignParentright="true" android:layout_alignParentTop="true"
+            android:layout_alignParentTop="true"
             android:layout_alignParentRight="true" android:layout_alignParentEnd="true"/>
 
     <Button
@@ -77,32 +77,32 @@
             android:layout_height="90dp"
             android:id="@+id/player2bowl2"
             android:background="@drawable/square"
-            android:layout_alignParentright="true" android:layout_below="@+id/player2bowl1"
-            android:layout_alignParentRight="true" android:layout_alignParentEnd="true"/>
+            android:layout_alignParentRight="true" android:layout_below="@+id/player2bowl1"
+            android:layout_alignParentEnd="true"/>
 
     <Button
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:id="@+id/player2bowl3"
             android:background="@drawable/square"
-            android:layout_alignParentright="true" android:layout_below="@+id/player2bowl2"
-            android:layout_alignParentRight="true" android:layout_alignParentEnd="true"/>
+            android:layout_alignParentRight="true" android:layout_below="@+id/player2bowl2"
+            android:layout_alignParentEnd="true"/>
 
     <Button
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:id="@+id/player2bowl4"
             android:background="@drawable/square"
-            android:layout_alignParentright="true" android:layout_below="@+id/player2bowl3"
-            android:layout_alignParentRight="true" android:layout_alignParentEnd="true"/>
+            android:layout_alignParentRight="true" android:layout_below="@+id/player2bowl3"
+            android:layout_alignParentEnd="true"/>
 
     <Button
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:id="@+id/player2bowl5"
             android:background="@drawable/square"
-            android:layout_alignParentright="true" android:layout_below="@+id/player2bowl4"
-            android:layout_alignParentRight="true" android:layout_alignParentEnd="true"/>
+            android:layout_alignParentRight="true" android:layout_below="@+id/player2bowl4"
+            android:layout_alignParentEnd="true"/>
 
 </RelativeLayout>
 
