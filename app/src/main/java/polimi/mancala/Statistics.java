@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Created by jack on 21/11/2014.
+ * @author Giacomo bianchini
  */
 public class Statistics {
 

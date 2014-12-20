@@ -9,10 +9,12 @@ public abstract class Container {
 
     public int numSeeds;
     public int index;
-    public User owner;
+    public int ownerId;
 
-    public Container () {
-
+    public Container (int ownerId, int index, int numSeeds) {
+        this.ownerId = ownerId;
+        this.index= index;
+        this.numSeeds = numSeeds;
     }
 
     public boolean isBowl () {
@@ -51,6 +53,14 @@ public abstract class Container {
 
     public int getIndex () {
         return this.index;
+    }
+
+    public void setOwnerId (int userId) {
+        this.ownerId = userId;
+    }
+
+    public int getOwnerId () {
+        return this.ownerId;
     }
 
 }

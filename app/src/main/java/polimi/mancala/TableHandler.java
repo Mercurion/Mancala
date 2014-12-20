@@ -1,10 +1,13 @@
 package polimi.mancala;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * @author Giacomo Bianchini
  */
+
+
 public class TableHandler {
 
     private final int INITIAL_SEEDS = 3;
@@ -21,7 +24,33 @@ public class TableHandler {
 
     }
     int i;
+    ArrayList<Container> updatedBowls = new ArrayList<>();
     ArrayList<Integer> bowls = new ArrayList<Integer>();
+
+    public ArrayList getContainers () {
+        return this.updatedBowls;
+    }
+
+    public Container getContainerByIndex (int index) {
+        Iterator<Container> temp = getContainers().iterator();
+        while (temp.hasNext()) {
+            Container c = temp.next();
+            if (c.getIndex()==index)
+                return c;
+        }
+        return null;
+    }
+
+    public Tray getTrayByPlayer (int playerId) {
+        Iterator<Container> temp = getContainers().iterator();
+        while (temp.hasNext()) {
+            Container c = temp.next();
+            if (c.isTray() && c.ownerId == playerId) {
+                return (Tray) c;
+            }
+        }
+        return null;
+    }
 
     public void initializeGameBoard() {
         for (i=0; i<14; i++) //this initialize the gameboard
@@ -29,6 +58,13 @@ public class TableHandler {
             this.bowls.add(i, INITIAL_SEEDS);
             else
                 this.bowls.add (i, 0);
+    }
+
+    public int [] getGameBoardState() {
+        int [] actualState = {0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+        for (i =0; i<14; i++ )
+            actualState[i] = getContainerByIndex(i).getNumSeeds();
+        return actualState;
     }
 
     public int getNumOfSeeds(int position) {

@@ -13,8 +13,8 @@ public class MatchHandler {
 
     private static final Integer num_Seed = 3;
     private static MatchHandler instance = null;
-    User player1 = new User();
-    User player2 = new User();
+    User player1 = new User(1);
+    User player2 = new User(2);
     TableHandler table = TableHandler.getInstance();
 
     private MatchHandler() {
@@ -123,7 +123,6 @@ public class MatchHandler {
         this.table.clearBowls(index);
         int i;
         for (i = 1; i <= tmp; ) {
-            //TODO: HANDLE THE EXCEPTION: THE NEXT BOWL HAS TO BE THE NUMBER 0: should be done
             if ((i + index) == 14) {
                 index = -i;
             }

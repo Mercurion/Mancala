@@ -5,7 +5,7 @@ package polimi.mancala;
  */
 public class Tray extends Container {
 
-    public void Tray () {
+    public Tray(int ownerId, int index, int numSeeds) {
+        super(ownerId, index, numSeeds);
     }
-
 }

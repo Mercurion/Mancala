@@ -3,7 +3,7 @@ package polimi.mancala;
 import android.test.InstrumentationTestCase;
 
 /**
- * Created by jack on 28/11/2014.
+ * @author Giacomo bianchini
  */
 public class TableTest extends InstrumentationTestCase {
 

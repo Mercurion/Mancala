@@ -7,13 +7,14 @@ package polimi.mancala;
 public class User {
 
 
-    public User () {
+    public User (int id) {
         score = 0;
         isHisTurn = false;
+        this.id= id;
     }
 
     int score;
-    int id;
+    private Integer id;
     boolean isHisTurn;
 
     public void setId (int givenId) {
