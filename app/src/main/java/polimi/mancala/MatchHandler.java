@@ -1,8 +1,6 @@
 package polimi.mancala;
 
 
-import android.util.Log;
-
 /**
  * Created by Giacomo Bianchini on 21/11/2014.
  *
@@ -26,27 +24,27 @@ public class MatchHandler {
         return instance;
     }
 
-    public String endOfTheGame () { //this method perform the end of the game and return the name of the winner
+    public int endOfTheGame () { //this method perform the end of the game and return the name of the winner
         int i;
         for (i=0; i<14; i++)
             if (i!=6 && i!= 13)
                 pickAndPush(i);
 
-        if (this.player1.getScore() < this.player2.getScore())
-            return "Player2";
+        if (this.player1.getScore() > this.player2.getScore())
+            return this.player1.getId();
         else
-            if (this.player2.getScore() < this.player1.getScore())
-                return "Player1";
+            if (this.player2.getScore() > this.player1.getScore())
+                return this.player2.getId();
         else
-                return "Tie";
+                return 0;
     }
 
     //TODO: here we have to do something about the return type
     public void playTheGame (int bowlClicked) {
-        int index = bowlClicked;
+        int [] gameInfo;
         int lastBowl;
-        if (isPossibleToMove(index) && !isEmptyBowl(index)) { //here we need to set the index and pass index instead of 5
-            lastBowl = makeAMove(index);
+        if (isCorrectTurn(bowlClicked) && !table.getContainerByIndex(bowlClicked).isEmpty() && table.getContainerByIndex(bowlClicked).isBowl()) {
+            lastBowl = makeAMove(bowlClicked);
 
 
             //here an if to handle the case that I put my last seed in an empty bowl
@@ -69,13 +67,12 @@ public class MatchHandler {
         }
 
         if (isFinished()) {
-            String winner = new String();
+            int winner;
             winner = endOfTheGame();
             //TODO: graphically do something to make us understand that the game is over
         }
 
     }
-
 
 
     public void pickAndPush (int indexOfBowl) { //this method picks all the seeds from a bowl and put them in the tray
@@ -102,20 +99,15 @@ public class MatchHandler {
         this.table.clearBowls(indexOfBowl);
     }
 
-    public boolean isPossibleToMove (int index) {
-        if (this.player1.isHisTurn &&  this.table.isPlayerOneBowl(index))
+    public boolean isCorrectTurn(int index) {
+        if (this.player1.isHisTurn &&  this.table.getContainerByIndex(index).getOwnerId() == player1.getId())
             return true;
-        else if (this.player2.isHisTurn && this.table.isPlayerTwoBowl(index))
+        else if (this.player2.isHisTurn && this.table.getContainerByIndex(index).getOwnerId() == player2.getId())
             return true;
-            else return false;
+            else
+                return false;
     }
 
-    public boolean isEmptyBowl (int index) { //returns true if the bowl in the index has NO MORE SEEDS
-        if (table.getNumOfSeeds(index) == 0)
-            return true;
-        else
-            return false;
-    }
 
     public int makeAMove (int index) {
         int tmp;
@@ -138,14 +130,23 @@ public class MatchHandler {
         this.player2.setScore(0);
         this.player1.setHisTurn(true);
         this.player2.setHisTurn(false);
+        this.player1.setId(1);
+        this.player2.setId(2);
+        table.createInitialBoard(this.player1.getId(), this.player2.getId());
         this.table.initializeGameBoard();
     }
 
     public boolean isFinished () { //check if the match is over
-        if (this.table.checkPlayer1Finished() || this.table.checkPlayer2Finished())
+        if (table.checkPlayer1Finished() || this.table.checkPlayer2Finished())
+            return true;
+
+        if (table.checkPlayerGameIsOverById(this.player1.getId()))
             return true;
         else
-            return false;
+            if (table.checkPlayerGameIsOverById(this.player2.getId()))
+                return true;
+            else
+                return false;
     }
 
 }

@@ -10,6 +10,7 @@ public abstract class Container {
     public int numSeeds;
     public int index;
     public int ownerId;
+    public Container nextContainer;
 
     public Container (int ownerId, int index, int numSeeds) {
         this.ownerId = ownerId;
@@ -61,6 +62,21 @@ public abstract class Container {
 
     public int getOwnerId () {
         return this.ownerId;
+    }
+
+    public void setNextContainer (Container givenContainer) {
+        this.nextContainer = givenContainer;
+    }
+
+    public Container getNextContainer () {
+        return this.nextContainer;
+    }
+
+    public boolean isEmpty () {
+        if (numSeeds ==0)
+            return true;
+        else
+            return false;
     }
 
 }

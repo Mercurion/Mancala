@@ -24,8 +24,8 @@ public class GameTest extends InstrumentationTestCase {
 
     public void testIfIsPossibleToMove () {
         this.gameToTest.beginMatch();
-        assertTrue(this.gameToTest.isPossibleToMove(3));
-        assertFalse("The player1 can not move from a player2's bowl", this.gameToTest.isPossibleToMove(8));
+        assertTrue(this.gameToTest.isCorrectTurn(3));
+        assertFalse("The player1 can not move from a player2's bowl", this.gameToTest.isCorrectTurn(8));
     }
 
     public void testEndOfTheGame () {

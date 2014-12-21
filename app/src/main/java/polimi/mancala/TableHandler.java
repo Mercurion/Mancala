@@ -10,7 +10,7 @@ import java.util.Iterator;
 
 public class TableHandler {
 
-    private final int INITIAL_SEEDS = 3;
+    private final int IN_S = 3;
 
     private static TableHandler instance = null;
 
@@ -25,7 +25,7 @@ public class TableHandler {
     }
     int i;
     ArrayList<Container> updatedBowls = new ArrayList<>();
-    ArrayList<Integer> bowls = new ArrayList<Integer>();
+    ArrayList<Integer> bowls = new ArrayList<>();
 
     public ArrayList getContainers () {
         return this.updatedBowls;
@@ -55,9 +55,58 @@ public class TableHandler {
     public void initializeGameBoard() {
         for (i=0; i<14; i++) //this initialize the gameboard
         if (i!=6 && i!= 13)
-            this.bowls.add(i, INITIAL_SEEDS);
+            this.bowls.add(i, IN_S);
             else
                 this.bowls.add (i, 0);
+    }
+
+    public void createInitialBoard(int p1Id, int p2Id) {
+        int [] initialBoard = {IN_S,IN_S,IN_S,IN_S,IN_S,IN_S,0,IN_S,IN_S,IN_S,IN_S,IN_S,IN_S,0};
+        ArrayList<Container> cont = new ArrayList<>();
+        this.updatedBowls = cont;
+        Container tmp;
+        for (i=0; i<6; i++) { //here the first 6 bowls: the P1 bowls
+            tmp = new Bowl(p1Id,i,initialBoard[i]);
+            cont.add(i,tmp);
+        }
+        tmp = new Tray(1,i,0);
+        cont.add(tmp);
+        i++;
+        for (i=7; i<13; i++) { //here the first 6 bowls: the P1 bowls
+            tmp = new Bowl(p2Id,i,initialBoard[i]);
+            cont.add(i,tmp);
+        }
+        tmp = new Tray(2,i,0);
+        cont.add(tmp);
+        this.updatedBowls = cont;
+
+        setAllOppositeBowls();
+        setAllNextContainers();
+    }
+
+    private void setAllOppositeBowls() {
+        Container tmp;
+        Container opposite;
+        int i;
+        for (i=0;i<14 ;i++) {
+            tmp = getContainerByIndex(i);
+            if (tmp.isBowl()) {
+                opposite =  (this.getContainerByIndex(12-i));
+                ((Bowl) this.getContainerByIndex(i)).setOppositeBowl((Bowl) opposite);
+            }
+        }
+    }
+
+    //TODO: CHECK THIS METHOD, COULD NOT BE CORRECT
+    public void setAllNextContainers () {
+        Iterator<Container> tempIter = this.getContainers().iterator();
+        Container c = this.getContainerByIndex(0);
+        while (tempIter.hasNext()) {
+            c.setNextContainer(tempIter.next());
+            c = tempIter.next();
+        }
+        c = this.getContainerByIndex(13);
+        c.setNextContainer(this.getContainerByIndex(0));
     }
 
     public int [] getGameBoardState() {
@@ -65,6 +114,23 @@ public class TableHandler {
         for (i =0; i<14; i++ )
             actualState[i] = getContainerByIndex(i).getNumSeeds();
         return actualState;
+    }
+
+    public boolean checkPlayerGameIsOverById(int playerId) {
+        Iterator<Container> tempIter = this.getContainers().iterator();
+        Container c = this.getContainerByIndex(0);
+        while (tempIter.hasNext()) {
+            if (c.isBowl() && (c.getOwnerId() == playerId) && (c.getNumSeeds() !=0))
+                return false;
+            c= tempIter.next();
+        }
+
+        return true;
+    }
+
+    public int getNumOfSeedByIndex (int index) {
+        Container c = this.getContainerByIndex(index);
+        return c.getNumSeeds();
     }
 
     public int getNumOfSeeds(int position) {
