@@ -34,15 +34,6 @@ public class MatchHandler {
         table.createInitialBoard(this.player1.getId(), this.player2.getId());
     }
 
-    public boolean isFinished () { //check if the match is over
-        if (table.checkPlayerGameIsOverById(this.player1.getId()))
-            return true;
-        else
-        if (table.checkPlayerGameIsOverById(this.player2.getId()))
-            return true;
-        else
-            return false;
-    }
 
     public int endOfTheGame () { //this method perform the end of the game and return the name of the winner
         player1.addPoints(table.clearBoardByPlayerId(player1.getId()));
@@ -69,16 +60,16 @@ public class MatchHandler {
                 turnScore = turnScore + table.pickAndPush(lastBowl) + table.stealAndPush(lastBowl);
             }
 
-
             //here we check if we do need to change the turn
 
-            if (!((lastBowl == 6 && player1.getHisTurn())||(lastBowl == 13 && player2.getHisTurn()))) {
+            if (checkIfHasToSwapTurn(lastBowl)) {
                 player1.changeTurn();
                 player2.changeTurn();
             }
         }
 
         updateScoreByPlayerId(getActivePlayerId());
+
         if (isFinished()) {
             int winner;
             winner = endOfTheGame();
@@ -86,13 +77,28 @@ public class MatchHandler {
 
     }
 
+    public boolean isFinished () { //check if the match is over
+        if (table.checkPlayerGameIsOverById(this.player1.getId()))
+            return true;
+        else
+        if (table.checkPlayerGameIsOverById(this.player2.getId()))
+            return true;
+        else
+            return false;
+    }
 
-    public boolean checkIfCanMove (Integer clicked) {
+    private boolean checkIfCanMove (Integer clicked) {
         if (isCorrectTurn(clicked) && !table.getContainerByIndex(clicked).isEmpty() && table.getContainerByIndex(clicked).isBowl())
             return true;
         else
             return false;
+    }
 
+    public boolean checkIfHasToSwapTurn (Integer last) {
+        if (last == table.getTrayByPlayer(getActivePlayerId()).getIndex())
+            return false;
+        else
+            return true;
     }
 
     public boolean checkIfHasToSteal (Integer lastBowl) {
@@ -136,25 +142,8 @@ public class MatchHandler {
     }
 
     public int makeAMove (int index) {
-        int tmp;
-        tmp = table.getNumOfSeedByIndex(index); //tmp is the number of seeds in the bowl
-        this.table.clearBowls(index);
-        int i;
-        for (i = 1; i <= tmp; ) {
-            if ((i + index) == 14) {
-                index = -i;
-            }
-            this.table.addSeed(i + index);
-            i++;
-        }
-
-        return tmp+index;
+        return table.move(index);
     }
-
-
-
-
-
     /*
     below here is deprecated
      */

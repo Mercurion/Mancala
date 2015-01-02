@@ -25,7 +25,6 @@ public class TableHandler {
     }
     int i;
     ArrayList<Container> updatedBowls = new ArrayList<>();
-    ArrayList<Integer> bowls = new ArrayList<>();
 
     public ArrayList getContainers () {
         return this.updatedBowls;
@@ -33,11 +32,12 @@ public class TableHandler {
 
     public Container getContainerByIndex (int index) {
         Iterator<Container> temp = getContainers().iterator();
-        while (temp.hasNext()) {
+        do {
             Container c = temp.next();
             if (c.getIndex()==index)
                 return c;
-        }
+        }while (temp.hasNext());
+
         return null;
     }
 
@@ -163,46 +163,15 @@ public class TableHandler {
         return points;
     }
 
-
-
-
-    //below this is old code
-
-    public int getNumOfSeeds(int position) {
-        return bowls.get(position);
+    public int move (Integer initialIndex) {
+        Bowl initial = (Bowl) getContainerByIndex(initialIndex);
+        Container c = initial.getNextContainer();
+        int seeds = initial.pickAllSeeds();
+        for (i=1; i<=seeds; i++) {
+            c.addOneSeed();
+            c = c.getNextContainer();
+        }
+        return c.getIndex();
     }
 
-    public void addSeed (int position) { //this add 1 seed
-        this.bowls.set(position,this.bowls.get(position)+1);
-    }
-
-    public void clearBowls(int position) { //this method clears a bow: does not return the number of existing seeds
-        this.bowls.set(position, 0);
-    }
-
-    public boolean isPlayerOneBowl (int index) {
-        if (0<=index && index <6)
-            return true;
-        else
-            return false;
-    }
-
-    public boolean isPlayerTwoBowl (int index) {
-        if (7<=index && index <13)
-            return true;
-        else
-            return false;
-    }
-
-
-    /**@deprecated
-     *
-     */
-    public void initializeGameBoard() {
-        for (i=0; i<14; i++) //this initialize the gameboard
-            if (i!=6 && i!= 13)
-                this.bowls.add(i, IN_S);
-            else
-                this.bowls.add (i, 0);
-    }
 }
