@@ -8,7 +8,7 @@ import android.test.InstrumentationTestCase;
 public class TableTest extends InstrumentationTestCase {
 
     TableHandler tableToTest = TableHandler.getInstance();
-
+/*
     public void testInitialTable () {
         tableToTest.initializeGameBoard();
         assertEquals(tableToTest.getNumOfSeeds(0),3);
@@ -39,6 +39,6 @@ public class TableTest extends InstrumentationTestCase {
         tableToTest.clearBowls(4);
         assertEquals(0,tableToTest.getNumOfSeeds(4));
     }
-
+*/
 
 }

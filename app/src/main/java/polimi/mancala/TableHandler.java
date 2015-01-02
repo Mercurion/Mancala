@@ -52,13 +52,7 @@ public class TableHandler {
         return null;
     }
 
-    public void initializeGameBoard() {
-        for (i=0; i<14; i++) //this initialize the gameboard
-        if (i!=6 && i!= 13)
-            this.bowls.add(i, IN_S);
-            else
-                this.bowls.add (i, 0);
-    }
+
 
     public void createInitialBoard(int p1Id, int p2Id) {
         int [] initialBoard = {IN_S,IN_S,IN_S,IN_S,IN_S,IN_S,0,IN_S,IN_S,IN_S,IN_S,IN_S,IN_S,0};
@@ -97,7 +91,7 @@ public class TableHandler {
         }
     }
 
-    //TODO: CHECK THIS METHOD, COULD NOT BE CORRECT
+    //TODO: CHECK THIS METHOD, COULD BE UNCORRECT
     public void setAllNextContainers () {
         Iterator<Container> tempIter = this.getContainers().iterator();
         Container c = this.getContainerByIndex(0);
@@ -109,14 +103,14 @@ public class TableHandler {
         c.setNextContainer(this.getContainerByIndex(0));
     }
 
-    public int [] getGameBoardState() {
+    public int [] getGameBoardStatus() {
         int [] actualState = {0,0,0,0,0,0,0,0,0,0,0,0,0,0};
         for (i =0; i<14; i++ )
             actualState[i] = getContainerByIndex(i).getNumSeeds();
         return actualState;
     }
 
-    public boolean checkPlayerGameIsOverById(int playerId) {
+    public boolean checkPlayerGameIsOverById(Integer playerId) {
         Iterator<Container> tempIter = this.getContainers().iterator();
         Container c = this.getContainerByIndex(0);
         while (tempIter.hasNext()) {
@@ -124,7 +118,6 @@ public class TableHandler {
                 return false;
             c= tempIter.next();
         }
-
         return true;
     }
 
@@ -132,6 +125,48 @@ public class TableHandler {
         Container c = this.getContainerByIndex(index);
         return c.getNumSeeds();
     }
+
+    public Integer getPlayerIdByIndex (int index) {
+        Container c = this.getContainerByIndex(index);
+        return c.getOwnerId();
+    }
+
+    public Integer clearBoardByPlayerId (Integer idPlayer) {
+        Iterator<Container> tempIter = this.getContainers().iterator();
+        Container c = this.getContainerByIndex(0);
+        Integer points = 0;
+        do {
+            if (c.isBowl() && c.getOwnerId().equals(idPlayer))
+                points = points + pickAndPush(c.getIndex());
+            c= tempIter.next();
+        } while (tempIter.hasNext());
+        return points;
+    }
+
+    public Integer pickAndPush (Integer index) {
+        Integer idPlayer = getPlayerIdByIndex(index);
+        Container c = this.getContainerByIndex(index);
+        Tray t = getTrayByPlayer(idPlayer);
+        Integer points = c.getNumSeeds();
+        t.addSeeds(points);
+        c.setNumSeeds(0);
+        return points;
+    }
+
+    public Integer stealAndPush (Integer index) { //
+        Bowl c = (Bowl)this.getContainerByIndex(index);
+        Bowl opposite = c.getOppositeBowl();
+        Integer points = opposite.pickAllSeeds();
+        Integer idPlayer = c.getOwnerId();
+        Tray t = getTrayByPlayer(idPlayer);
+        t.addSeeds(points);
+        return points;
+    }
+
+
+
+
+    //below this is old code
 
     public int getNumOfSeeds(int position) {
         return bowls.get(position);
@@ -160,20 +195,14 @@ public class TableHandler {
     }
 
 
-    /*this
-    this method checks if there are no residual seeds. if there are return FALSE. if there are no more seeds, return TRUE
+    /**@deprecated
+     *
      */
-    public boolean checkPlayer1Finished () {
-        for (i=0; i<6; i++)
-            if (this.bowls.get(i)!=0)
-                return false;
-        return true;
-    }
-
-    public boolean checkPlayer2Finished () {
-        for (i=7; i<13; i++)
-            if (this.bowls.get(i)!=0)
-                return false;
-        return true;
+    public void initializeGameBoard() {
+        for (i=0; i<14; i++) //this initialize the gameboard
+            if (i!=6 && i!= 13)
+                this.bowls.add(i, IN_S);
+            else
+                this.bowls.add (i, 0);
     }
 }

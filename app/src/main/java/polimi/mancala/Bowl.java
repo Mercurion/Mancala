@@ -19,7 +19,7 @@ public class Bowl extends Container {
 
     public int pickAllSeeds () {
         int tmp = this.getNumSeeds();
-        this.setNumSeeds(0);
+        super.setNumSeeds(0);
         return tmp;
     }
 

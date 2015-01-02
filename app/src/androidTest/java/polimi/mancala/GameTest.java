@@ -9,7 +9,7 @@ public class GameTest extends InstrumentationTestCase {
 
     MatchHandler gameToTest = MatchHandler.getMatchHandler();
 
-
+/*
     public void testIfGameIsFinished () {
         this.gameToTest.beginMatch();
         this.gameToTest.pickAndPush(0);
@@ -63,5 +63,5 @@ public class GameTest extends InstrumentationTestCase {
 
     }
 
-
+*/
 }

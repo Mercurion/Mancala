@@ -44,10 +44,6 @@ public abstract class Container {
         this.setNumSeeds(this.getNumSeeds()+1);
     }
 
-    public void addSeeds (int seeds) {
-        this.setNumSeeds(this.getNumSeeds()+seeds);
-    }
-
     public void setIndex (int givenIndex) {
         this.index = givenIndex;
     }
@@ -60,7 +56,7 @@ public abstract class Container {
         this.ownerId = userId;
     }
 
-    public int getOwnerId () {
+    public Integer getOwnerId () {
         return this.ownerId;
     }
 

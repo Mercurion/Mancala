@@ -21,7 +21,7 @@ public class User {
         this.id = givenId;
     }
 
-    public int getId () {
+    public Integer getId () {
         return this.id;
     }
 
@@ -31,6 +31,10 @@ public class User {
 
     public int getScore (){
         return this.score;
+    }
+
+    public void addPoints (int points) {
+        setScore(getScore()+points);
     }
 
     public void setHisTurn (boolean turn) {
