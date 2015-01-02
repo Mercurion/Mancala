@@ -41,6 +41,100 @@ public class MatchActivity extends Activity {
             }
         });
 
+        Button player1Bowl3 = (Button) findViewById(R.id.player1bowl3);
+        player1Bowl1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Do something in response to button click
+                UpdateUI(performMove(1, 3));
+
+            }
+        });
+
+        Button player1Bowl4 = (Button) findViewById(R.id.player1bowl4);
+        player1Bowl1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Do something in response to button click
+                UpdateUI(performMove(1, 4));
+
+            }
+        });
+
+        Button player1Bowl5 = (Button) findViewById(R.id.player1bowl5);
+        player1Bowl1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Do something in response to button click
+                UpdateUI(performMove(1, 5));
+
+            }
+        });
+
+        Button player1tray1 = (Button) findViewById(R.id.player1tray1);
+        player1Bowl1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Do something in response to button click
+                UpdateUI(performMove(1, 1));
+
+            }
+        });
+
+
+        Button player2Bowl1 = (Button) findViewById(R.id.player2bowl1);
+        player1Bowl1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Do something in response to button click
+                UpdateUI(performMove(2, 1));
+
+            }
+        });
+
+        Button player2Bowl2 = (Button) findViewById(R.id.player2bowl2);
+        player1Bowl1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Do something in response to button click
+                UpdateUI(performMove(2, 2));
+
+            }
+        });
+
+        Button player2Bowl3 = (Button) findViewById(R.id.player2bowl3);
+        player1Bowl1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Do something in response to button click
+                UpdateUI(performMove(2, 3));
+
+            }
+        });
+
+        Button player2Bowl4 = (Button) findViewById(R.id.player2bowl4);
+        player1Bowl1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Do something in response to button click
+                UpdateUI(performMove(2, 4));
+
+            }
+        });
+
+        Button player2Bowl5 = (Button) findViewById(R.id.player2bowl5);
+        player1Bowl1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Do something in response to button click
+                UpdateUI(performMove(2, 5));
+
+            }
+        });
+
+        Button player2tray2 = (Button) findViewById(R.id.player2tray2);
+        player1Bowl1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Do something in response to button click
+                UpdateUI(performMove(2, 2));
+
+            }
+        });
+
+
+
+
         /*
         delete the next string
          */
