@@ -52,8 +52,6 @@ public class TableHandler {
         return null;
     }
 
-
-
     public void createInitialBoard(int p1Id, int p2Id) {
         int [] initialBoard = {IN_S,IN_S,IN_S,IN_S,IN_S,IN_S,0,IN_S,IN_S,IN_S,IN_S,IN_S,IN_S,0};
         ArrayList<Container> cont = new ArrayList<>();
