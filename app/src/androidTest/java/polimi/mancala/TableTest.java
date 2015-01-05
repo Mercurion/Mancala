@@ -8,37 +8,38 @@ import android.test.InstrumentationTestCase;
 public class TableTest extends InstrumentationTestCase {
 
     TableHandler tableToTest = TableHandler.getInstance();
-/*
+
     public void testInitialTable () {
-        tableToTest.initializeGameBoard();
-        assertEquals(tableToTest.getNumOfSeeds(0),3);
-        assertEquals(tableToTest.getNumOfSeeds(1),3);
-        assertEquals(tableToTest.getNumOfSeeds(2),3);
-        assertEquals(tableToTest.getNumOfSeeds(3),3);
-        assertEquals(tableToTest.getNumOfSeeds(4),3);
-        assertEquals(tableToTest.getNumOfSeeds(5),3);
-        assertEquals(tableToTest.getNumOfSeeds(6),0);
-        assertEquals(tableToTest.getNumOfSeeds(7),3);
-        assertEquals(tableToTest.getNumOfSeeds(8),3);
-        assertEquals(tableToTest.getNumOfSeeds(9),3);
-        assertEquals(tableToTest.getNumOfSeeds(10),3);
-        assertEquals(tableToTest.getNumOfSeeds(11),3);
-        assertEquals(tableToTest.getNumOfSeeds(12),3);
-        assertEquals(tableToTest.getNumOfSeeds(13),0);
+        int [] tmp;
+        tableToTest.createInitialBoard(1,2);
+        tmp = tableToTest.getGameBoardStatus();
+        assertEquals("player1's tray is well setted", 0, tableToTest.getTrayByPlayer(1).getNumSeeds());
+        assertEquals("player2's tray is well setted", 0, tableToTest.getTrayByPlayer(2).getNumSeeds());
+        assertEquals(3, tableToTest.getNumOfSeedByIndex(0));
+        assertEquals(3, tableToTest.getNumOfSeedByIndex(1));
+        assertEquals(3, tableToTest.getNumOfSeedByIndex(2));
+        assertEquals(3, tableToTest.getNumOfSeedByIndex(3));
+        assertEquals(3, tableToTest.getNumOfSeedByIndex(4));
+        assertEquals(3, tableToTest.getNumOfSeedByIndex(9));
     }
 
 
     public void testAddSeed () {
-        tableToTest.initializeGameBoard();
-        tableToTest.addSeed(5);
-        assertEquals(4,tableToTest.getNumOfSeeds(5));
     }
 
     public void testClearBowl () {
-        tableToTest.initializeGameBoard();
-        tableToTest.clearBowls(4);
-        assertEquals(0,tableToTest.getNumOfSeeds(4));
+        tableToTest.createInitialBoard(1,2);
+        int pointsP1 = tableToTest.clearBoardByPlayerId(1);
+        int pointsP2 = tableToTest.clearBoardByPlayerId(2);
+        assertTrue("Player1 board has been cleaned",tableToTest.checkPlayerGameIsOverById(1));
+        assertTrue("Player2 board has been cleaned",tableToTest.checkPlayerGameIsOverById(2));
+        assertEquals("All P1 seeds are in the right tray", pointsP1, tableToTest.getTrayByPlayer(1).getNumSeeds());
+        assertEquals("All P2 seeds are in the right tray", pointsP2, tableToTest.getTrayByPlayer(2).getNumSeeds());
     }
-*/
+
+    public void testPickAndSteal () {
+
+    }
+
 
 }

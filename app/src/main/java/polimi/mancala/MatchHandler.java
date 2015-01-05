@@ -1,6 +1,8 @@
 package polimi.mancala;
 
 
+import java.util.ArrayList;
+
 /**
  * Created by Giacomo Bianchini on 21/11/2014.
  *
@@ -50,11 +52,14 @@ public class MatchHandler {
 
     //TODO: here we have to do something about the return type
     public void playTheGame (int bowlClicked) {
-        int [] gameInfo;
+        ArrayList gameInfo = null;
+        int[] tmp;
         int turnScore =0;
-        int lastBowl;
+        int lastBowl, i;
         if (checkIfCanMove(bowlClicked)) {
             lastBowl = makeAMove(bowlClicked);
+            updateScoreByPlayerId(player1.getId());
+            updateScoreByPlayerId(player2.getId());
             //here an if to handle the case that I put my last seed in an empty bowl
             if (checkIfHasToSteal(lastBowl)) {
                 turnScore = turnScore + table.pickAndPush(lastBowl) + table.stealAndPush(lastBowl);
@@ -75,7 +80,18 @@ public class MatchHandler {
             winner = endOfTheGame();
         }
 
+        tmp = getActualBoard();
+        for (i=0; i<14;i++)
+            gameInfo.add(i, tmp[i]);
+
+
     }
+
+
+    public int[] getActualBoard() {
+        return table.getGameBoardStatus();
+    }
+
 
     public boolean isFinished () { //check if the match is over
         if (table.checkPlayerGameIsOverById(this.player1.getId()))
@@ -87,6 +103,7 @@ public class MatchHandler {
             return false;
     }
 
+
     private boolean checkIfCanMove (Integer clicked) {
         if (isCorrectTurn(clicked) && !table.getContainerByIndex(clicked).isEmpty() && table.getContainerByIndex(clicked).isBowl())
             return true;
@@ -94,14 +111,14 @@ public class MatchHandler {
             return false;
     }
 
-    public boolean checkIfHasToSwapTurn (Integer last) {
+    private boolean checkIfHasToSwapTurn (Integer last) {
         if (last == table.getTrayByPlayer(getActivePlayerId()).getIndex())
             return false;
         else
             return true;
     }
 
-    public boolean checkIfHasToSteal (Integer lastBowl) {
+    private boolean checkIfHasToSteal (Integer lastBowl) {
         if (table.getContainerByIndex(lastBowl).isTray())
             return false;
         else
@@ -120,7 +137,7 @@ public class MatchHandler {
             return player2.getId();
     }
 
-    public User getPlayerById(Integer id) {
+    private User getPlayerById(Integer id) {
         if (this.player1.getId().equals(id))
             return player1;
         else
@@ -134,7 +151,7 @@ public class MatchHandler {
         player.setScore(score);
     }
 
-    public boolean isCorrectTurn(int index) {
+    private boolean isCorrectTurn(int index) {
         if (getActivePlayerId().equals(table.getPlayerIdByIndex(index)))
             return true;
         else

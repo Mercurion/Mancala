@@ -104,7 +104,7 @@ public class TableHandler {
     public int [] getGameBoardStatus() {
         int [] actualState = {0,0,0,0,0,0,0,0,0,0,0,0,0,0};
         for (i =0; i<14; i++ )
-            actualState[i] = getContainerByIndex(i).getNumSeeds();
+            actualState[i] = getNumOfSeedByIndex(i);
         return actualState;
     }
 
