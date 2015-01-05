@@ -21,6 +21,8 @@ public class TableTest extends InstrumentationTestCase {
         assertEquals(3, tableToTest.getNumOfSeedByIndex(3));
         assertEquals(3, tableToTest.getNumOfSeedByIndex(4));
         assertEquals(3, tableToTest.getNumOfSeedByIndex(9));
+
+        assertEquals(1, tableToTest.getContainerByIndex(0).getNextContainer().getIndex());
     }
 
 

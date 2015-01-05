@@ -91,6 +91,7 @@ public class TableHandler {
 
     //TODO: CHECK THIS METHOD, COULD BE UNCORRECT
     public void setAllNextContainers () {
+        /*
         Iterator<Container> tempIter = this.getContainers().iterator();
         Container c = this.getContainerByIndex(0);
         while (tempIter.hasNext()) {
@@ -98,7 +99,11 @@ public class TableHandler {
             c = tempIter.next();
         }
         c = this.getContainerByIndex(13);
-        c.setNextContainer(this.getContainerByIndex(0));
+        c.setNextContainer(this.getContainerByIndex(0));*/
+        int i, j;
+        for (i=0; i<13; i++)
+            this.getContainerByIndex(i).setNextContainer(getContainerByIndex(i+1));
+        this.getContainerByIndex(13).setNextContainer(getContainerByIndex(0));
     }
 
     public int [] getGameBoardStatus() {
@@ -161,13 +166,13 @@ public class TableHandler {
         return points;
     }
 
-    public int move (Integer initialIndex) {
+    public int move (int initialIndex) {
         Bowl initial = (Bowl) getContainerByIndex(initialIndex);
-        Container c = initial.getNextContainer();
+        Container c = initial;
         int seeds = initial.pickAllSeeds();
         for (i=1; i<=seeds; i++) {
-            c.addOneSeed();
             c = c.getNextContainer();
+            c.addOneSeed();
         }
         return c.getIndex();
     }

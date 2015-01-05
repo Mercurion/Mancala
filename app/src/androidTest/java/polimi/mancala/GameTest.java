@@ -12,7 +12,7 @@ public class GameTest extends InstrumentationTestCase {
 
     public void testIfGameIsFinished () {
         this.gameToTest.beginMatch();
-        assertTrue(this.gameToTest.isFinished());
+        assertFalse(this.gameToTest.isFinished());
     }
 
 
@@ -25,16 +25,12 @@ public class GameTest extends InstrumentationTestCase {
     }
 
 
+
     public void testMakeAMove () {
 
         this.gameToTest.beginMatch();
-        this.gameToTest.makeAMove(1);
-
-        this.gameToTest.player1.changeTurn();
-        this.gameToTest.player2.changeTurn();
-        this.gameToTest.makeAMove(12);
-
-
+        int index = gameToTest.makeAMove(0);
+        assertEquals("the move is correct",3,index);
     }
 
 
