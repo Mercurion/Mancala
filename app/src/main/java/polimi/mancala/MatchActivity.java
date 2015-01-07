@@ -18,8 +18,58 @@ import java.util.Map;
 public class MatchActivity extends Activity {
 
     MatchHandler game = MatchHandler.getMatchHandler();
+    final Map<Button, Integer> myMap = new HashMap<Button, Integer>();
 
 
+    private void ChangePlayer(){
+        int currentPlayerId = game.getActivePlayerId();
+        ChangePlayer(currentPlayerId);
+
+
+    }
+
+    private void ChangePlayer(int currentPlayerId) {
+        EnablePlayerWithId(currentPlayerId);
+        DisablePlayerWithId(currentPlayerId);
+    }
+
+    private void DisablePlayerWithId(int currentPlayerId) {
+        for (Map.Entry<Button, Integer> entry : myMap.entrySet()) {
+            if(currentPlayerId == 1){
+                if (entry.getValue() >= 1 && entry.getValue() <= 7)
+                    (entry.getKey()).setEnabled(false);
+                else break;
+            }
+            else if (currentPlayerId == 2){
+                if (entry.getValue() >= 8 && entry.getValue() <= 14)
+                    (entry.getKey()).setEnabled(false);
+                else break;
+            }
+
+         }
+    }
+
+    private void EnablePlayerWithId(int currentPlayerId) {
+        for (Map.Entry<Button, Integer> entry : myMap.entrySet()) {
+            if(currentPlayerId == 1){
+                if (entry.getValue() >= 1 && entry.getValue() <= 7)
+                    (entry.getKey()).setEnabled(true);
+                else break;
+            }
+            else if (currentPlayerId == 2){
+                if (entry.getValue() >= 8 && entry.getValue() <= 14)
+                    (entry.getKey()).setEnabled(true);
+                else break;
+            }
+
+        }
+    }
+
+    private void CheckGameFinished() {
+        if (game.isFinished()){
+            //Show some dialog etc
+        }
+    }
 
     @Override
     protected void onCreate (Bundle SavedInstanceState) {
@@ -27,51 +77,28 @@ public class MatchActivity extends Activity {
         setContentView(R.layout.activity_match);
 
 
-        Map<String, Integer> myMap = new HashMap<>();
-        myMap.put("@+id/player1bowl1", 1);
-        myMap.put("@+id/player1bowl2", 2);
-        myMap.put("@+id/player1bowl3", 3);
-        myMap.put("@+id/player1bowl4", 4);
-        myMap.put("@+id/player1bowl5", 5);
-        myMap.put("@+id/player1bowl6", 6);
-        myMap.put("@+id/player1tray1", 7);
-        myMap.put("@+id/player2bowl1", 8);
-        myMap.put("@+id/player2bowl2", 9);
-        myMap.put("@+id/player2bowl3", 10);
-        myMap.put("@+id/player2bowl4", 11);
-        myMap.put("@+id/player2bowl5", 12);
-        myMap.put("@+id/player2bowl6", 13);
-        myMap.put("@+id/player2tray2", 14);
+
+
+
+        View.OnClickListener clickListener = new View.OnClickListener() {
+            public void onClick(View v) {
+                game.playTheGame(myMap.get(v));
+                ChangePlayer();
+                CheckGameFinished();
+            }
+        };
+
 
 
 
         Button player1Bowl1 = (Button) findViewById(R.id.player1bowl1);
-        player1Bowl1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                game.playTheGame( 1);
-                //UpdateUI(performMove(1, 1));
-
-            }
-        });
+        player1Bowl1.setOnClickListener(clickListener);
 
         Button player1Bowl2 = (Button) findViewById(R.id.player1bowl2);
-        player1Bowl2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                game.playTheGame( 2);
-                //UpdateUI(performMove(1, 2));
-
-
-            }
-        });
+        player1Bowl2.setOnClickListener(clickListener);
 
         Button player1Bowl3 = (Button) findViewById(R.id.player1bowl3);
-        player1Bowl3.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                game.playTheGame( 3);
-                //UpdateUI(performMove(1, 3));
-
-            }
-        });
+        player1Bowl3.setOnClickListener(clickListener);
 
         Button player1Bowl4 = (Button) findViewById(R.id.player1bowl4);
         player1Bowl4.setOnClickListener(new View.OnClickListener() {
@@ -174,6 +201,23 @@ public class MatchActivity extends Activity {
         });
 
 
+        myMap.put(player1Bowl1, 1);
+        myMap.put(player1Bowl2, 2);
+        myMap.put(player1Bowl3, 3);
+        /*myMap.put("@+id/player1bowl4", 4);
+        myMap.put("@+id/player1bowl5", 5);
+        myMap.put("@+id/player1bowl6", 6);
+        myMap.put("@+id/player1tray1", 7);
+        myMap.put("@+id/player2bowl1", 8);
+        myMap.put("@+id/player2bowl2", 9);
+        myMap.put("@+id/player2bowl3", 10);
+        myMap.put("@+id/player2bowl4", 11);
+        myMap.put("@+id/player2bowl5", 12);
+        myMap.put("@+id/player2bowl6", 13);
+        myMap.put("@+id/player2tray2", 14);
+
+        */
+
         /*
         delete the next string
          */
@@ -183,7 +227,9 @@ public class MatchActivity extends Activity {
 
             }
 
-            private void UpdateUI(boolean b) {
+
+
+    private void UpdateUI(boolean b) {
                 if (b) {
                     //No need to disable current player
                     //Keep on playing
