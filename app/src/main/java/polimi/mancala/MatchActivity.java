@@ -101,126 +101,59 @@ public class MatchActivity extends Activity {
         player1Bowl3.setOnClickListener(clickListener);
 
         Button player1Bowl4 = (Button) findViewById(R.id.player1bowl4);
-        player1Bowl4.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                game.playTheGame( 4);
-                //UpdateUI(performMove(1, 4));
-
-            }
-        });
+        player1Bowl4.setOnClickListener(clickListener);
 
         Button player1Bowl5 = (Button) findViewById(R.id.player1bowl5);
-        player1Bowl5.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                game.playTheGame( 5);
-                //UpdateUI(performMove(1, 5));
-
-            }
-        });
+        player1Bowl5.setOnClickListener(clickListener);
 
         Button player1Bowl6 = (Button) findViewById(R.id.player1bowl6);
-        player1Bowl6.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                game.playTheGame(6);
-                //UpdateUI(performMove(1, 6));
-            }
-
-    });
+        player1Bowl6.setOnClickListener(clickListener);
 
         Button player1tray1 = (Button) findViewById(R.id.player1tray1);
-        player1tray1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                game.playTheGame( 7);
-                //UpdateUI(performMove(1, 1));
-
-            }
-        });
-
+        player1tray1.setOnClickListener(clickListener);
 
         Button player2Bowl1 = (Button) findViewById(R.id.player2bowl1);
-        player2Bowl1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                game.playTheGame( 8);
-                //UpdateUI(performMove(2, 1));
-
-            }
-        });
+        player2Bowl1.setOnClickListener(clickListener);
 
         Button player2Bowl2 = (Button) findViewById(R.id.player2bowl2);
-        player2Bowl2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                game.playTheGame( 9);
-                //UpdateUI(performMove(2, 2));
-
-            }
-        });
+        player2Bowl2.setOnClickListener(clickListener);
 
         Button player2Bowl3 = (Button) findViewById(R.id.player2bowl3);
-        player2Bowl3.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                game.playTheGame( 10);
-                //UpdateUI(performMove(2, 3));
-
-            }
-        });
+        player2Bowl3.setOnClickListener(clickListener);
 
         Button player2Bowl4 = (Button) findViewById(R.id.player2bowl4);
-        player2Bowl4.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                game.playTheGame( 11);
-                //UpdateUI(performMove(2, 4));
-
-            }
-        });
+        player2Bowl4.setOnClickListener(clickListener);
 
         Button player2Bowl5 = (Button) findViewById(R.id.player2bowl5);
-        player2Bowl5.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                game.playTheGame( 12);
-                //UpdateUI(performMove(2, 5));
-
-            }
-        });
-
+        player2Bowl5.setOnClickListener(clickListener);
 
         Button player2Bowl6 = (Button) findViewById(R.id.player2bowl6);
-        player2Bowl6.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                game.playTheGame(13);
-            }
-        });
-
+        player2Bowl6.setOnClickListener(clickListener);
 
         Button player2tray2 = (Button) findViewById(R.id.player2tray2);
-        player2tray2.setOnClickListener(new View.OnClickListener() {
-             public void onClick(View v) {
-                game.playTheGame(14);
-                        //UpdateUI(performMove(2, 2));
-
-             }
-        });
-
+        player2tray2.setOnClickListener(clickListener);
 
         myMap.put(player1Bowl1, 1);
         myMap.put(player1Bowl2, 2);
         myMap.put(player1Bowl3, 3);
-        /*myMap.put("@+id/player1bowl4", 4);
-        myMap.put("@+id/player1bowl5", 5);
-        myMap.put("@+id/player1bowl6", 6);
-        myMap.put("@+id/player1tray1", 7);
-        myMap.put("@+id/player2bowl1", 8);
-        myMap.put("@+id/player2bowl2", 9);
-        myMap.put("@+id/player2bowl3", 10);
-        myMap.put("@+id/player2bowl4", 11);
-        myMap.put("@+id/player2bowl5", 12);
-        myMap.put("@+id/player2bowl6", 13);
-        myMap.put("@+id/player2tray2", 14);
+        myMap.put(player1Bowl4, 4);
+        myMap.put(player1Bowl5, 5);
+        myMap.put(player1Bowl6, 6);
+        myMap.put(player1tray1, 7);
+        myMap.put(player2Bowl1, 8);
+        myMap.put(player2Bowl2, 9);
+        myMap.put(player2Bowl3, 10);
+        myMap.put(player2Bowl4, 11);
+        myMap.put(player2Bowl5, 12);
+        myMap.put(player2Bowl6, 13);
+        myMap.put(player2tray2, 14);
 
-        */
+
 
         /*
         delete the next string
          */
+
                 Log.i("matchactivity", "this is an output");
                 game.beginMatch();
 
@@ -229,16 +162,7 @@ public class MatchActivity extends Activity {
 
 
 
-    private void UpdateUI(boolean b) {
-                if (b) {
-                    //No need to disable current player
-                    //Keep on playing
-                } else {
-                    //Disable current player
-                    //Enable other player
-                }
-                UpdateUIValues();
-            }
+
 
             private void UpdateUIValues() {
                 Button player1bowl1 = (Button) findViewById(R.id.player1bowl1);
