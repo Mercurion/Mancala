@@ -71,7 +71,7 @@
             android:layout_width="120dp"
             android:layout_height="110dp"
             android:id="@+id/player1tray1"
-            android:background="@drawable/score1Button"
+            android:background="@drawable/score1button"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"/>
 
@@ -79,7 +79,7 @@
             android:layout_width="120dp"
             android:layout_height="110dp"
             android:id="@+id/player2tray2"
-            android:background="@drawable/score2Button"
+            android:background="@drawable/score2button"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true" />
 
