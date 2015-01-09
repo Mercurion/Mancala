@@ -16,6 +16,7 @@ public class MatchHandler {
     User player1 = new User(1);
     User player2 = new User(2);
     TableHandler table = TableHandler.getInstance();
+    Statistics stat = new Statistics();
 
     private MatchHandler() {
     }
@@ -37,7 +38,7 @@ public class MatchHandler {
     }
 
 
-    public int endOfTheGame () { //this method perform the end of the game and return the name of the winner
+    private int endOfTheGame () { //this method perform the end of the game and return the name of the winner
         player1.addPoints(table.clearBoardByPlayerId(player1.getId()));
         player2.addPoints(table.clearBoardByPlayerId(player2.getId()));
 
@@ -145,7 +146,7 @@ public class MatchHandler {
 
     }
 
-    public void updateScoreByPlayerId (Integer idPlayer) {
+    private void updateScoreByPlayerId (Integer idPlayer) {
         int score = table.getTrayByPlayer(idPlayer).getNumSeeds();
         User player = getPlayerById(idPlayer);
         player.setScore(score);
