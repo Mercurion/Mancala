@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 
@@ -25,8 +26,21 @@ public class MainActivity extends Activity {
 
             }
         });
+
+        Button stat = (Button) findViewById(R.id.buttonStats);
+        stat.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Do something in response to button click
+                goToStat(v);
+
+            }
+        });
     }
 
+    public void goToStat(View view) {
+        Intent intentStat = new Intent(this, StatisticsActivity.class);
+        startActivity(intentStat);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -54,8 +68,6 @@ public class MainActivity extends Activity {
     public void startMatch (View view){
         Intent intentNewMatch = new Intent(this, MatchActivity.class);
         startActivity(intentNewMatch);
-
-
     }
 
 }

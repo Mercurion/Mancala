@@ -5,5 +5,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="this_is_string">ok, it is a string</string>
     <string name="action_settings">Settings</string>
+    <string name="home">Home</string>
 
 </resources>
