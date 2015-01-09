@@ -1,6 +1,7 @@
 package polimi.mancala;
 
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -74,6 +75,7 @@ public class MatchActivity extends Activity {
     @Override
     protected void onCreate (Bundle SavedInstanceState) {
         super.onCreate(SavedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_match);
 
 
