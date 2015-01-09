@@ -9,9 +9,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ToggleButton;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity{
+
+    ToggleButton t;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +36,11 @@ public class MainActivity extends Activity {
                 // Do something in response to button click
                 goToStat(v);
 
+
             }
         });
     }
+
 
     public void goToStat(View view) {
         Intent intentStat = new Intent(this, StatisticsActivity.class);
