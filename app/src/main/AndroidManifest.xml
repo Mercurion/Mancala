@@ -26,6 +26,9 @@
             android:name="polimi.mancala.StatisticsActivity"
             >
         </activity>
+
+        <service android:name=".MusicService"></service>
+
     </application>
 
 </manifest>
