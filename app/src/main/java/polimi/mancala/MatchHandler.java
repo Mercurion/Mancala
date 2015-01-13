@@ -1,6 +1,8 @@
 package polimi.mancala;
 
 
+import android.content.SharedPreferences;
+
 import java.util.ArrayList;
 
 /**
@@ -15,6 +17,8 @@ public class MatchHandler {
     private static MatchHandler instance = null;
     User player1 = new User(1);
     User player2 = new User(2);
+    Computer aI = new Computer(2);
+
     TableHandler table = TableHandler.getInstance();
     Statistics stat = new Statistics();
 
@@ -35,6 +39,7 @@ public class MatchHandler {
         this.player1.setId(1);
         this.player2.setId(2);
         table.createInitialBoard(this.player1.getId(), this.player2.getId());
+
     }
 
 
@@ -53,7 +58,7 @@ public class MatchHandler {
 
     //TODO: here we have to do something about the return type
     public void playTheGame (int bowlClicked) {
-        ArrayList gameInfo = null;
+        ArrayList<Integer> gameInfo = null;
         int[] tmp;
         int turnScore =0;
         int lastBowl, i;
@@ -84,6 +89,7 @@ public class MatchHandler {
         tmp = getActualBoard();
         for (i=0; i<14;i++)
             gameInfo.add(i, tmp[i]);
+
 
 
     }

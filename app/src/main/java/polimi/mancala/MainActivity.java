@@ -8,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ToggleButton;
 
 
@@ -61,7 +60,7 @@ public class MainActivity extends Activity{
     }
 
     private void LoadPreferences() {
-        Preferences preferences = new Preferences(getApplicationContext());
+        PreferencesActivity preferences = new PreferencesActivity(getApplicationContext());
         musicStatus = preferences.GetMusicStatus();
         SetMusic(musicStatus);
     }
@@ -75,7 +74,7 @@ public class MainActivity extends Activity{
     }
 
     private void UpdatePreferences(Boolean status){
-        Preferences preferences = new Preferences(getApplicationContext());
+        PreferencesActivity preferences = new PreferencesActivity(getApplicationContext());
         musicStatus = status;
         preferences.SetMusicStatus(musicStatus);
     }

@@ -1,35 +1,25 @@
 package polimi.mancala;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-
-
 /**
- * Created by Roxana on 12/01/15.
+ * Created by jack on 13/01/2015.
  */
-public class Preferences extends Activity{
+public class Preferences {
 
-    public static final String MUSIC = "MUSIC";
-    SharedPreferences defaultSharedPreferences;
+    private static Preferences instance;
+    private boolean humanComputerGame;
 
-    public Preferences(Context context){
-        defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-    }
-
-    public Boolean GetMusicStatus(){
-        if (defaultSharedPreferences.contains(MUSIC)){
-            return defaultSharedPreferences.getBoolean(MUSIC, false);
-        }
-        return false;
-    }
-
-    public void SetMusicStatus(Boolean status){
-        SharedPreferences.Editor editor = defaultSharedPreferences.edit();
-        editor.putBoolean(MUSIC, status);
-        editor.commit();
+    public static synchronized Preferences getPreferences () {
+        if (instance == null)
+            instance = new Preferences();
+        return instance;
     }
 
 
+    public boolean isHumanComputerGame() {
+        return humanComputerGame;
+    }
+
+    public void setHumanComputerGame(boolean humanComputerGame) {
+        this.humanComputerGame = humanComputerGame;
+    }
 }
