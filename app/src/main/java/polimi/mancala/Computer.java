@@ -25,10 +25,8 @@ public class Computer extends User {
                 for (j = 0; j < seed; j++)
                     temp = temp.getNextContainer();
 
-                if (temp.getNumSeeds() == 0 && temp.getOwnerId().equals(this.getId()))
-                    candidate.add(c.getIndex());
-
-
+                    if (temp.getNumSeeds() == 0 && temp.getOwnerId().equals(this.getId()))
+                        candidate.add(c.getIndex());
             }
         }
 
@@ -48,4 +46,63 @@ public class Computer extends User {
             return candidate.get(index);
         }
     }
+
+
+    public Integer getMovePlayAgain (TableHandler board) {
+        int i, seed, j;
+        Container c = board.getContainerByIndex(0);
+        for (i = 0; i < 14; i++) {
+            if (c.getOwnerId().equals(this.getId())) {
+                seed = c.getNumSeeds();
+                Container temp = c;
+                for (j = 0; j < seed; j++)
+                    temp = temp.getNextContainer();
+                    if (temp.isTray() && temp.getOwnerId().equals(this.getId()))
+                        return c.getIndex();
+            }
+        }
+        return -1;
+    }
+
+
+    public Integer getBowlToHavePoints (TableHandler board) {
+        int i, seed, j;
+        Container c = board.getContainerByIndex(0);
+        for (i = 0; i < 14; i++) {
+            if (c.getOwnerId().equals(this.getId())) {
+                seed = c.getNumSeeds();
+                Container temp = c;
+                for (j = 0; j < seed; j++) {
+                    temp = temp.getNextContainer();
+                    if (temp.isTray() && temp.getOwnerId().equals(this.getId()))
+                        return c.getIndex();
+                }
+            }
+        }
+        return -1;
+    }
+
+
+    public Integer getFirstAvailableBowl (TableHandler board) {
+        int i;
+        Container c = board.getContainerByIndex(0);
+        for (i = 0; i < 14; i++)
+            if (c.getOwnerId().equals(this.getId()))
+                return c.getIndex();
+
+        return -1;
+    }
+
+
+    public Integer getBestMove (TableHandler board) {
+        if (getStealAndPush(board)!=-1)
+            return getStealAndPush(board);
+        else if (getMovePlayAgain(board) !=-1)
+            return getMovePlayAgain(board);
+        else if (getBowlToHavePoints(board) !=-1)
+            return getBowlToHavePoints(board);
+        else
+        return getFirstAvailableBowl(board);
+    }
+
 }
