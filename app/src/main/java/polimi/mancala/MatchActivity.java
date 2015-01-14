@@ -1,20 +1,16 @@
 package polimi.mancala;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.ImageButton;
-import android.widget.Switch;
-
 import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.Map;
-
+import android.app.AlertDialog;
 
 /**
  * Created by Giacomo Bianchini on 21/11/2014
@@ -79,7 +75,7 @@ public class MatchActivity extends Activity {
     private Drawable getdrawable3(int numSeed) {
         switch (numSeed) {
             case 0:
-                return Drawable.createFromPath("s00.png");
+                return Drawable.createFromPath("s0000.png");
             case 1:
                 return Drawable.createFromPath("s01.png");
             case 2:
@@ -153,7 +149,7 @@ public class MatchActivity extends Activity {
             case 36:
                 return Drawable.createFromPath("s36.png");
             default:
-                return Drawable.createFromPath("s00.png");
+                return Drawable.createFromPath("s000.pngg");
         }}
 
 
@@ -204,8 +200,19 @@ public class MatchActivity extends Activity {
     }
 
     private void CheckGameFinished() {
+
         if (game.isFinished()){
-            //Show some dialog etc
+            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+            alertDialog.setTitle("THE END");
+            //if ()check returns
+            alertDialog.setMessage("abc");
+            alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    //go to main page
+                }
+            });
+            alertDialog.setIcon(R.drawable.logo);
+            alertDialog.show();
         }
     }
 
