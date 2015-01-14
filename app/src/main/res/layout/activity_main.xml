@@ -13,7 +13,7 @@
         android:layout_height="100dp"
         android:id="@+id/playbutton"
         android:onClick="startMatch"
-        android:background="@drawable/playbutton"
+        android:background="@drawable/playgamebutton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
