@@ -48,7 +48,7 @@ public class MainActivity extends Activity{
             }
         });
 
-        Button stat = (Button) findViewById(R.id.playbutton);
+        Button stat = (Button) findViewById(R.id.statistics);
         stat.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Do something in response to button click

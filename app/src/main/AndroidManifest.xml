@@ -20,8 +20,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="polimi.mancala.MatchActivity"
-            ></activity>
+            android:name="polimi.mancala.MatchActivity">
+
+            </activity>
         <activity
             android:name="polimi.mancala.StatisticsActivity"
             >
