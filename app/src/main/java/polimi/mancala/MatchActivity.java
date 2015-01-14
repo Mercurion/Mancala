@@ -208,7 +208,7 @@ public class MatchActivity extends Activity {
             alertDialog.setMessage("abc");
             alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                    //go to main page
+                    //go to main page by ok
                 }
             });
             alertDialog.setIcon(R.drawable.logo);
