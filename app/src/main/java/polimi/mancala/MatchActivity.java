@@ -79,81 +79,81 @@ public class MatchActivity extends Activity {
     private Drawable getdrawable3(int numSeed) {
         switch (numSeed) {
             case 0:
-                return Drawable.createFromPath("two00.png");
+                return Drawable.createFromPath("S00.png");
             case 1:
-                return Drawable.createFromPath("two01.png");
+                return Drawable.createFromPath("S01.png");
             case 2:
-                return Drawable.createFromPath("two02.png");
+                return Drawable.createFromPath("S02.png");
             case 3:
-                return Drawable.createFromPath("two03.png");
+                return Drawable.createFromPath("S03.png");
             case 4:
-                return Drawable.createFromPath("two04.png");
+                return Drawable.createFromPath("S04.png");
             case 5:
-                return Drawable.createFromPath("two05.png");
+                return Drawable.createFromPath("S05.png");
             case 6:
-                return Drawable.createFromPath("two06.png");
+                return Drawable.createFromPath("S06.png");
             case 7:
-                return Drawable.createFromPath("two07.png");
+                return Drawable.createFromPath("S07.png");
             case 8:
-                return Drawable.createFromPath("two08.png");
+                return Drawable.createFromPath("S08.png");
             case 9:
-                return Drawable.createFromPath("two09.png");
+                return Drawable.createFromPath("S09.png");
             case 10:
-                return Drawable.createFromPath("two10.png");
+                return Drawable.createFromPath("S10.png");
             case 11:
-                return Drawable.createFromPath("two11.png");
+                return Drawable.createFromPath("S11.png");
             case 12:
-                return Drawable.createFromPath("two12.png");
+                return Drawable.createFromPath("S12.png");
             case 13:
-                return Drawable.createFromPath("two13.png");
+                return Drawable.createFromPath("S13.png");
             case 14:
-                return Drawable.createFromPath("two14.png");
+                return Drawable.createFromPath("S14.png");
             case 15:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S15.png");
             case 16:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S16.png");
             case 17:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S17.png");
             case 18:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S18.png");
             case 19:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S19.png");
             case 20:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S20.png");
             case 21:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S21.png");
             case 22:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S22.png");
             case 23:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S23.png");
             case 24:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S24.png");
             case 25:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S25.png");
             case 26:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S26.png");
             case 27:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S27.png");
             case 28:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S28.png");
             case 29:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S29.png");
             case 30:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S30.png");
             case 31:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S31.png");
             case 32:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S32.png");
             case 33:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S33.png");
             case 34:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S34.png");
             case 35:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S35.png");
             case 36:
-                return Drawable.createFromPath("two15.png");
+                return Drawable.createFromPath("S36.png");
             default:
-                return Drawable.createFromPath("two00.png");
+                return Drawable.createFromPath("S00.png");
         }}
 
 
