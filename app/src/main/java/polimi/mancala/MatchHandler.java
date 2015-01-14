@@ -72,6 +72,7 @@ public class MatchHandler {
             if (checkIfHasToSteal(lastBowl)) {
                 turnScore = turnScore + table.pickAndPush(lastBowl) + table.stealAndPush(lastBowl);
             }
+            updateScoreByPlayerId(getActivePlayerId());
 
             //here we check if we do need to change the turn
 
@@ -91,9 +92,6 @@ public class MatchHandler {
         tmp = getActualBoard();
         for (i=0; i<14;i++)
             gameInfo.add(i, tmp[i]);
-
-
-
     }
 
 
@@ -170,8 +168,4 @@ public class MatchHandler {
     public int makeAMove (int index) {
         return table.move(index);
     }
-    /*
-    below here is deprecated
-     */
-
 }
