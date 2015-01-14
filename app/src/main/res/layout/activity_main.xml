@@ -22,20 +22,27 @@
         android:layout_height="wrap_content"
         android:id="@+id/statistics"
         android:background="@drawable/statisticsbutton1"
-        android:layout_alignTop="@+id/playbutton"
-        android:layout_toStartOf="@+id/playbutton"
-        android:layout_marginEnd="61dp" />
+        android:layout_alignBottom="@+id/togglebutton"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="56dp" />
 
     <ToggleButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:textOff=""
         android:textOn=""
         android:id="@+id/togglebutton"
         android:background="@drawable/toggleswitch"
-        android:layout_marginStart="54dp"
         android:layout_alignTop="@+id/playbutton"
-        android:layout_toEndOf="@+id/playbutton" />
+        android:layout_toStartOf="@+id/settings" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/settings"
+        android:background="@drawable/settings"
+        android:layout_alignTop="@+id/togglebutton"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>
