@@ -17,8 +17,9 @@ public class MatchHandler {
     private static MatchHandler instance = null;
     User player1 = new User(1);
     User player2 = new User(2);
-    Computer aI = new Computer(2);
+    Computer aI;
 
+    Preferences settings = Preferences.getPreferences();
     TableHandler table = TableHandler.getInstance();
     Statistics stat = new Statistics();
 
@@ -39,7 +40,8 @@ public class MatchHandler {
         this.player1.setId(1);
         this.player2.setId(2);
         table.createInitialBoard(this.player1.getId(), this.player2.getId());
-
+        if (settings.isHumanComputerGame())
+            this.aI = new Computer(player2.getId());
     }
 
 

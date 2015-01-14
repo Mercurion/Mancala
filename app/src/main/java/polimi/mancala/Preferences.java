@@ -6,8 +6,12 @@ package polimi.mancala;
 public class Preferences {
 
     private static Preferences instance;
-    private boolean humanComputerGame;
+    private boolean humanComputerGame = false;
     private String userName;
+
+    private Preferences () {
+    }
+
 
     public static synchronized Preferences getPreferences () {
         if (instance == null)

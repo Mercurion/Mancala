@@ -6,11 +6,14 @@ import java.util.Iterator;
 /**
  * Created by jack on 10/01/2015.
  */
-public class Computer extends User {
+public class Computer {
 
+
+    private Integer id;
+    private static Computer instance;
 
     public Computer(int id) {
-        super(id);
+        this.id = id;
     }
 
 
@@ -19,13 +22,13 @@ public class Computer extends User {
         ArrayList<Integer> candidate = new ArrayList();
         Container c = board.getContainerByIndex(0);
         for (i = 0; i < 14; i++) {
-            if (c.getOwnerId().equals(this.getId())) {
+            if (c.getOwnerId().equals(this.id)) {
                 seed = c.getNumSeeds();
                 Container temp = c;
                 for (j = 0; j < seed; j++)
                     temp = temp.getNextContainer();
 
-                    if (temp.getNumSeeds() == 0 && temp.getOwnerId().equals(this.getId()))
+                    if (temp.getNumSeeds() == 0 && temp.getOwnerId().equals(this.id))
                         candidate.add(c.getIndex());
             }
         }
@@ -52,12 +55,12 @@ public class Computer extends User {
         int i, seed, j;
         Container c = board.getContainerByIndex(0);
         for (i = 0; i < 14; i++) {
-            if (c.getOwnerId().equals(this.getId())) {
+            if (c.getOwnerId().equals(this.id)) {
                 seed = c.getNumSeeds();
                 Container temp = c;
                 for (j = 0; j < seed; j++)
                     temp = temp.getNextContainer();
-                    if (temp.isTray() && temp.getOwnerId().equals(this.getId()))
+                    if (temp.isTray() && temp.getOwnerId().equals(this.id))
                         return c.getIndex();
             }
         }
@@ -69,12 +72,12 @@ public class Computer extends User {
         int i, seed, j;
         Container c = board.getContainerByIndex(0);
         for (i = 0; i < 14; i++) {
-            if (c.getOwnerId().equals(this.getId())) {
+            if (c.getOwnerId().equals(this.id)) {
                 seed = c.getNumSeeds();
                 Container temp = c;
                 for (j = 0; j < seed; j++) {
                     temp = temp.getNextContainer();
-                    if (temp.isTray() && temp.getOwnerId().equals(this.getId()))
+                    if (temp.isTray() && temp.getOwnerId().equals(this.id))
                         return c.getIndex();
                 }
             }
@@ -87,7 +90,7 @@ public class Computer extends User {
         int i;
         Container c = board.getContainerByIndex(0);
         for (i = 0; i < 14; i++)
-            if (c.getOwnerId().equals(this.getId()))
+            if (c.getOwnerId().equals(this.id))
                 return c.getIndex();
 
         return -1;
