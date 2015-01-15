@@ -3,10 +3,8 @@ package polimi.mancala;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -241,19 +239,19 @@ public class MatchActivity extends Activity {
 
 
 
-        Button player1Bowl1 = (Button) findViewById(R.id.player1bowl1);
+        Button player1Bowl1 = (Button) findViewById(R.id.player2bowl1);
         player1Bowl1.setOnClickListener(clickListener);
 
-        Button player1Bowl2 = (Button) findViewById(R.id.player1bowl2);
+        Button player1Bowl2 = (Button) findViewById(R.id.player2bowl2);
         player1Bowl2.setOnClickListener(clickListener);
 
-        Button player1Bowl3 = (Button) findViewById(R.id.player1bowl3);
+        Button player1Bowl3 = (Button) findViewById(R.id.player2bowl3);
         player1Bowl3.setOnClickListener(clickListener);
 
-        Button player1Bowl4 = (Button) findViewById(R.id.player1bowl4);
+        Button player1Bowl4 = (Button) findViewById(R.id.player2bowl4);
         player1Bowl4.setOnClickListener(clickListener);
 
-        Button player1Bowl5 = (Button) findViewById(R.id.player1bowl5);
+        Button player1Bowl5 = (Button) findViewById(R.id.player2bowl5);
         player1Bowl5.setOnClickListener(clickListener);
 
         Button player1Bowl6 = (Button) findViewById(R.id.player1bowl6);
@@ -262,19 +260,19 @@ public class MatchActivity extends Activity {
         Button player1tray1 = (Button) findViewById(R.id.player1tray1);
         player1tray1.setOnClickListener(clickListener);
 
-        Button player2Bowl1 = (Button) findViewById(R.id.player2bowl1);
+        Button player2Bowl1 = (Button) findViewById(R.id.player1bowl1);
         player2Bowl1.setOnClickListener(clickListener);
 
-        Button player2Bowl2 = (Button) findViewById(R.id.player2bowl2);
+        Button player2Bowl2 = (Button) findViewById(R.id.player1bowl2);
         player2Bowl2.setOnClickListener(clickListener);
 
-        Button player2Bowl3 = (Button) findViewById(R.id.player2bowl3);
+        Button player2Bowl3 = (Button) findViewById(R.id.player1bowl3);
         player2Bowl3.setOnClickListener(clickListener);
 
-        Button player2Bowl4 = (Button) findViewById(R.id.player2bowl4);
+        Button player2Bowl4 = (Button) findViewById(R.id.player1bowl4);
         player2Bowl4.setOnClickListener(clickListener);
 
-        Button player2Bowl5 = (Button) findViewById(R.id.player2bowl5);
+        Button player2Bowl5 = (Button) findViewById(R.id.player1bowl5);
         player2Bowl5.setOnClickListener(clickListener);
 
         Button player2Bowl6 = (Button) findViewById(R.id.player2bowl6);
@@ -309,19 +307,19 @@ public class MatchActivity extends Activity {
     private void UpdateUIValues() {
 
         int [] state = game.getActualBoard();
-        Button player1bowl1 = (Button) findViewById(R.id.player1bowl1);
+        Button player1bowl1 = (Button) findViewById(R.id.player2bowl1);
         player1bowl1.setBackgroundResource(getdrawable1(state[0]));
 
-        Button player1bowl2 = (Button) findViewById(R.id.player1bowl2);
+        Button player1bowl2 = (Button) findViewById(R.id.player2bowl2);
         player1bowl2.setBackgroundResource(getdrawable1(state[1]));
 
-        Button player1bowl3 = (Button) findViewById(R.id.player1bowl3);
+        Button player1bowl3 = (Button) findViewById(R.id.player2bowl3);
         player1bowl3.setBackgroundResource(getdrawable1(state[2]));
 
-        Button player1bowl4 = (Button) findViewById(R.id.player1bowl4);
+        Button player1bowl4 = (Button) findViewById(R.id.player2bowl4);
         player1bowl4.setBackgroundResource(getdrawable1(state[3]));
 
-        Button player1bowl5 = (Button) findViewById(R.id.player1bowl5);
+        Button player1bowl5 = (Button) findViewById(R.id.player2bowl5);
         player1bowl5.setBackgroundResource(getdrawable1(state[4]));
 
         Button player1bowl6 = (Button) findViewById(R.id.player1bowl6);
@@ -330,20 +328,20 @@ public class MatchActivity extends Activity {
         Button player1tray1 = (Button) findViewById(R.id.player1tray1);
         player1tray1.setBackgroundResource(getdrawable3(state[6]));
 
-        Button player2bowl1 = (Button) findViewById(R.id.player2bowl1);
+        Button player2bowl1 = (Button) findViewById(R.id.player1bowl1);
         player2bowl1.setBackgroundResource(getdrawable2(state[7]));
 
-        Button player2bowl2 = (Button) findViewById(R.id.player2bowl2);
+        Button player2bowl2 = (Button) findViewById(R.id.player1bowl2);
         player2bowl2.setBackgroundResource(getdrawable2(state[8]));
 
-        Button player2bowl3 = (Button) findViewById(R.id.player2bowl3);
+        Button player2bowl3 = (Button) findViewById(R.id.player1bowl3);
         player2bowl3.setBackgroundResource(getdrawable2(state[9]));
 
-        Button player2bowl4 = (Button) findViewById(R.id.player2bowl4);
+        Button player2bowl4 = (Button) findViewById(R.id.player1bowl4);
         player2bowl4.setBackgroundResource(getdrawable2(state[10]));
 
 
-        Button player2bowl5 = (Button) findViewById(R.id.player2bowl5);
+        Button player2bowl5 = (Button) findViewById(R.id.player1bowl5);
         player2bowl5.setBackgroundResource(getdrawable2(state[11]));
 
         Button player2bowl6 = (Button) findViewById(R.id.player2bowl6);

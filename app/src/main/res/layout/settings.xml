@@ -16,8 +16,8 @@
         android:id="@+id/togglebutton"
         android:background="@drawable/toggleswitch"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="92dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="48dp" />
 
 
 

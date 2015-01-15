@@ -11,10 +11,11 @@
     <Button
             android:layout_width="80dp"
             android:layout_height="70dp"
-            android:id="@+id/player1bowl1"
+            android:id="@+id/player2bowl1"
             android:layout_weight="0.02"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/player1tray1" />
+        android:layout_alignStart="@+id/player1tray1"
+        android:layout_marginLeft="-30dp" />
 
     <Button
             android:layout_width="120dp"
@@ -27,91 +28,93 @@
     <Button
             android:layout_width="80dp"
             android:layout_height="70dp"
-            android:id="@+id/player2bowl1"
+            android:id="@+id/player1bowl1"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/player1tray1" />
-
-    <Button
-        android:layout_width="80dp"
-        android:layout_height="70dp"
-        android:id="@+id/player1bowl2"
-        android:layout_weight="0.02"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/player1bowl1" />
-
-    <Button
-        android:layout_width="80dp"
-        android:layout_height="70dp"
-        android:id="@+id/player1bowl3"
-        android:layout_weight="0.02"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/player1bowl2" />
-
-    <Button
-        android:layout_width="80dp"
-        android:layout_height="70dp"
-        android:id="@+id/player1bowl4"
-        android:layout_weight="0.02"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/player1bowl3" />
-
-    <Button
-        android:layout_width="80dp"
-        android:layout_height="70dp"
-        android:id="@+id/player1bowl5"
-        android:layout_weight="0.02"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/player1bowl4" />
-
-    <Button
-        android:layout_width="80dp"
-        android:layout_height="70dp"
-        android:id="@+id/player1bowl6"
-        android:layout_weight="0.02"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/player1bowl5" />
-
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="110dp"
-        android:id="@+id/player2tray2"
-        android:layout_alignTop="@+id/player1tray1"
-        android:layout_toEndOf="@+id/player1bowl5" />
+        android:layout_alignStart="@+id/player1tray1"
+        android:layout_marginLeft="-30dp" />
 
     <Button
         android:layout_width="80dp"
         android:layout_height="70dp"
         android:id="@+id/player2bowl2"
-        android:layout_alignParentBottom="true"
+        android:layout_weight="0.02"
+        android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/player2bowl1" />
 
     <Button
         android:layout_width="80dp"
         android:layout_height="70dp"
         android:id="@+id/player2bowl3"
-        android:layout_alignTop="@+id/player2bowl2"
+        android:layout_weight="0.02"
+        android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/player2bowl2" />
 
     <Button
         android:layout_width="80dp"
         android:layout_height="70dp"
         android:id="@+id/player2bowl4"
-        android:layout_alignTop="@+id/player2bowl3"
-        android:layout_alignStart="@+id/player1bowl4" />
+        android:layout_weight="0.02"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/player2bowl3" />
 
     <Button
         android:layout_width="80dp"
         android:layout_height="70dp"
         android:id="@+id/player2bowl5"
-        android:layout_alignParentBottom="true"
+        android:layout_weight="0.02"
+        android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/player2bowl4" />
 
     <Button
         android:layout_width="80dp"
         android:layout_height="70dp"
         android:id="@+id/player2bowl6"
-        android:layout_alignTop="@+id/player2bowl5"
+        android:layout_weight="0.02"
+        android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/player2bowl5" />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="110dp"
+        android:id="@+id/player2tray2"
+        android:layout_alignTop="@+id/player1tray1"
+        android:layout_toEndOf="@+id/player2bowl5"
+        android:layout_marginLeft="-50dp" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:id="@+id/player1bowl2"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/player1bowl1" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:id="@+id/player1bowl3"
+        android:layout_alignTop="@+id/player1bowl2"
+        android:layout_toEndOf="@+id/player1bowl2" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:id="@+id/player1bowl4"
+        android:layout_alignTop="@+id/player1bowl3"
+        android:layout_alignStart="@+id/player2bowl4" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:id="@+id/player1bowl5"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/player1bowl4" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:id="@+id/player1bowl6"
+        android:layout_alignTop="@+id/player1bowl5"
+        android:layout_toEndOf="@+id/player1bowl5" />
 
 </RelativeLayout>
 
