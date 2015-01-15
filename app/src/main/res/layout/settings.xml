@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".settingsActivity"
     android:orientation="horizontal"
+    android:background="@drawable/mainpage"
     android:weightSum="1">
 
     <ToggleButton
@@ -14,8 +15,9 @@
         android:textOn=""
         android:id="@+id/togglebutton"
         android:background="@drawable/toggleswitch"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="92dp" />
 
 
 
