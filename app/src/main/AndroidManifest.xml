@@ -25,17 +25,28 @@
 
         <activity
             android:name="polimi.mancala.MatchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
             </activity>
 
         <activity
-            android:name="polimi.mancala.StatisticsActivity"
-            >
+            android:name="polimi.mancala.StatisticsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
         </activity>
 
         <activity
             android:name="polimi.mancala.SettingsActivity">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
 

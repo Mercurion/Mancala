@@ -25,10 +25,10 @@ public class MatchActivity extends Activity {
     private Drawable getdrawable1 (int numSeed) {
 
         switch (numSeed){
-            case 0: return Drawable.createFromPath("one00.png");
+            case 0: return Drawable.createFromPath("drawables/one00.png");
             case 1: return Drawable.createFromPath("one01.png");
             case 2: return Drawable.createFromPath("one02.png");
-            case 3: return Drawable.createFromPath("one03.png");
+            case 3: return Drawable.createFromPath("drawables/one00.png");
             case 4: return Drawable.createFromPath("one04.png");
             case 5: return Drawable.createFromPath("one05.png");
             case 6: return Drawable.createFromPath("one06.png");
@@ -75,7 +75,7 @@ public class MatchActivity extends Activity {
     private Drawable getdrawable3(int numSeed) {
         switch (numSeed) {
             case 0:
-                return Drawable.createFromPath("s0000.png");
+                return Drawable.createFromPath("drawable/s00.png");
             case 1:
                 return Drawable.createFromPath("s01.png");
             case 2:
@@ -149,7 +149,7 @@ public class MatchActivity extends Activity {
             case 36:
                 return Drawable.createFromPath("s36.png");
             default:
-                return Drawable.createFromPath("s000.pngg");
+                return Drawable.createFromPath("s00.png");
         }}
 
 
@@ -294,62 +294,61 @@ public class MatchActivity extends Activity {
         myMap.put(player2Bowl6, 13);
         myMap.put(player2tray2, 14);
 
-                Log.i("matchactivity", "this is an output");
-                game.beginMatch();
+        Log.i("matchactivity", "this is an output");
+        game.beginMatch();
 
-
-            }
-
-
-            private void UpdateUIValues() {
-                int [] state = game.getActualBoard();
-                Button player1bowl1 = (Button) findViewById(R.id.player1bowl1);
-                player1bowl1.setBackground(getdrawable1(state[0]));
-
-                Button player1bowl2 = (Button) findViewById(R.id.player1bowl2);
-                player1bowl2.setBackground(getdrawable1(state[1]));
-
-                Button player1bowl3 = (Button) findViewById(R.id.player1bowl3);
-                player1bowl3.setBackground(getdrawable1(state[2]));
-
-                Button player1bowl4 = (Button) findViewById(R.id.player1bowl4);
-                player1bowl4.setBackground(getdrawable1(state[3]));
-
-                Button player1bowl5 = (Button) findViewById(R.id.player1bowl5);
-                player1bowl5.setBackground(getdrawable1(state[4]));
-
-                Button player1bowl6 = (Button) findViewById(R.id.player1bowl6);
-                player1bowl6.setBackground(getdrawable1(state[5]));
-
-                Button player1tray1 = (Button) findViewById(R.id.player1tray1);
-                player1tray1.setBackground(getdrawable3(state[6]));
-
-                Button player2bowl1 = (Button) findViewById(R.id.player2bowl1);
-                player2bowl1.setBackground(getdrawable2(state[7]));
-
-                Button player2bowl2 = (Button) findViewById(R.id.player2bowl2);
-                player2bowl2.setBackground(getdrawable2(state[8]));
-
-                Button player2bowl3 = (Button) findViewById(R.id.player2bowl3);
-                player2bowl3.setBackground(getdrawable2(state[9]));
-
-                Button player2bowl4 = (Button) findViewById(R.id.player2bowl4);
-                player2bowl4.setBackground(getdrawable2(state[10]));
-
-
-                Button player2bowl5 = (Button) findViewById(R.id.player2bowl5);
-                player2bowl5.setBackground(getdrawable2(state[11]));
-
-                Button player2bowl6 = (Button) findViewById(R.id.player2bowl6);
-                player2bowl6.setBackground(getdrawable2(state[12]));
-
-                Button player2tray2 = (Button) findViewById(R.id.player2tray2);
-                player2tray2.setBackground(getdrawable3(state[13]));
-            }
+        UpdateUIValues();
+    }
 
 
 
+    private void UpdateUIValues() {
 
-        }
+        int [] state = game.getActualBoard();
+        Button player1bowl1 = (Button) findViewById(R.id.player1bowl1);
+        player1bowl1.setBackground(getdrawable1(state[0]));
+
+        Button player1bowl2 = (Button) findViewById(R.id.player1bowl2);
+        player1bowl2.setBackground(getdrawable1(state[1]));
+
+        Button player1bowl3 = (Button) findViewById(R.id.player1bowl3);
+        player1bowl3.setBackground(getdrawable1(state[2]));
+
+        Button player1bowl4 = (Button) findViewById(R.id.player1bowl4);
+        player1bowl4.setBackground(getdrawable1(state[3]));
+
+        Button player1bowl5 = (Button) findViewById(R.id.player1bowl5);
+        player1bowl5.setBackground(getdrawable1(state[4]));
+
+        Button player1bowl6 = (Button) findViewById(R.id.player1bowl6);
+        player1bowl6.setBackground(getdrawable1(state[5]));
+
+        Button player1tray1 = (Button) findViewById(R.id.player1tray1);
+        player1tray1.setBackground(getdrawable3(state[6]));
+
+        Button player2bowl1 = (Button) findViewById(R.id.player2bowl1);
+        player2bowl1.setBackground(getdrawable2(state[7]));
+
+        Button player2bowl2 = (Button) findViewById(R.id.player2bowl2);
+        player2bowl2.setBackground(getdrawable2(state[8]));
+
+        Button player2bowl3 = (Button) findViewById(R.id.player2bowl3);
+        player2bowl3.setBackground(getdrawable2(state[9]));
+
+        Button player2bowl4 = (Button) findViewById(R.id.player2bowl4);
+        player2bowl4.setBackground(getdrawable2(state[10]));
 
 
+        Button player2bowl5 = (Button) findViewById(R.id.player2bowl5);
+        player2bowl5.setBackground(getdrawable2(state[11]));
+
+        Button player2bowl6 = (Button) findViewById(R.id.player2bowl6);
+        player2bowl6.setBackground(getdrawable2(state[12]));
+
+        Button player2tray2 = (Button) findViewById(R.id.player2tray2);
+        player2tray2.setBackground(getdrawable3(state[13]));
+    }
+
+
+
+}

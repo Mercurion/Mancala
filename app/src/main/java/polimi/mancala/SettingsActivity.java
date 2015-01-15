@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ToggleButton;
 
+import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+
 /**
  * Created by Roxana on 15/01/15.
  */
@@ -19,6 +21,7 @@ public class SettingsActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings);
+        setRequestedOrientation(SCREEN_ORIENTATION_LANDSCAPE);
 
 
     LoadPreferences();
