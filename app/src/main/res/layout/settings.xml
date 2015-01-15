@@ -14,7 +14,8 @@
         android:textOn=""
         android:id="@+id/togglebutton"
         android:background="@drawable/toggleswitch"
-         />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 
 
