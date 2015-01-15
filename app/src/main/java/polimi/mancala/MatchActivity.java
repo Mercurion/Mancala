@@ -47,109 +47,109 @@ public class MatchActivity extends Activity {
 
 
     //find drawables for player2 by number of seeds
-    private Drawable getdrawable2(int numSeed) {
+    private int getdrawable2(int numSeed) {
 
         switch (numSeed){
-            case 0: return Drawable.createFromPath("two00.png");
-            case 1: return Drawable.createFromPath("two01.png");
-            case 2: return Drawable.createFromPath("two02.png");
-            case 3: return Drawable.createFromPath("two03.png");
-            case 4: return Drawable.createFromPath("two04.png");
-            case 5: return Drawable.createFromPath("two05.png");
-            case 6: return Drawable.createFromPath("two06.png");
-            case 7: return Drawable.createFromPath("two07.png");
-            case 8: return Drawable.createFromPath("two08.png");
-            case 9: return Drawable.createFromPath("two09.png");
-            case 10: return Drawable.createFromPath("two10.png");
-            case 11: return Drawable.createFromPath("two11.png");
-            case 12: return Drawable.createFromPath("two12.png");
-            case 13: return Drawable.createFromPath("two13.png");
-            case 14: return Drawable.createFromPath("two14.png");
-            case 15: return Drawable.createFromPath("two15.png");
-            default: return Drawable.createFromPath("two00.png");
+            case 0: return R.drawable.two00;
+            case 1: return R.drawable.two01;
+            case 2: return R.drawable.two02;
+            case 3: return R.drawable.two03;
+            case 4: return R.drawable.two04;
+            case 5: return R.drawable.two05;
+            case 6: return R.drawable.two06;
+            case 7: return R.drawable.two07;
+            case 8: return R.drawable.two08;
+            case 9: return R.drawable.two09;
+            case 10: return R.drawable.two10;
+            case 11: return R.drawable.two11;
+            case 12: return R.drawable.two12;
+            case 13: return R.drawable.two13;
+            case 14: return R.drawable.two14;
+            case 15: return R.drawable.two15;
+            default: return R.drawable.two00;
 
     }}
 
 
     //find drawables for trays
-    private Drawable getdrawable3(int numSeed) {
+    private int getdrawable3(int numSeed) {
         switch (numSeed) {
             case 0:
-                return Drawable.createFromPath("drawable/s00.png");
+                return R.drawable.s00;
             case 1:
-                return Drawable.createFromPath("s01.png");
+                return R.drawable.s01;
             case 2:
-                return Drawable.createFromPath("s02.png");
+                return R.drawable.s02;
             case 3:
-                return Drawable.createFromPath("s03.png");
+                return R.drawable.s03;
             case 4:
-                return Drawable.createFromPath("s04.png");
+                return R.drawable.s04;
             case 5:
-                return Drawable.createFromPath("s05.png");
+                return R.drawable.s05;
             case 6:
-                return Drawable.createFromPath("s06.png");
+                return R.drawable.s06;
             case 7:
-                return Drawable.createFromPath("s07.png");
+                return R.drawable.s07;
             case 8:
-                return Drawable.createFromPath("s08.png");
+                return R.drawable.s08;
             case 9:
-                return Drawable.createFromPath("s09.png");
+                return R.drawable.s09;
             case 10:
-                return Drawable.createFromPath("s10.png");
+                return R.drawable.s10;
             case 11:
-                return Drawable.createFromPath("s11.png");
+                return R.drawable.s11;
             case 12:
-                return Drawable.createFromPath("s12.png");
+                return R.drawable.s12;
             case 13:
-                return Drawable.createFromPath("s13.png");
+                return R.drawable.s13;
             case 14:
-                return Drawable.createFromPath("s14.png");
+                return R.drawable.s14;
             case 15:
-                return Drawable.createFromPath("s15.png");
+                return R.drawable.s15;
             case 16:
-                return Drawable.createFromPath("s16.png");
+                return R.drawable.s16;
             case 17:
-                return Drawable.createFromPath("s17.png");
+                return R.drawable.s17;
             case 18:
-                return Drawable.createFromPath("s18.png");
+                return R.drawable.s18;
             case 19:
-                return Drawable.createFromPath("s19.png");
+                return R.drawable.s19;
             case 20:
-                return Drawable.createFromPath("s20.png");
+                return R.drawable.s20;
             case 21:
-                return Drawable.createFromPath("s21.png");
+                return R.drawable.s21;
             case 22:
-                return Drawable.createFromPath("s22.png");
+                return R.drawable.s22;
             case 23:
-                return Drawable.createFromPath("s23.png");
+                return R.drawable.s23;
             case 24:
-                return Drawable.createFromPath("s24.png");
+                return R.drawable.s24;
             case 25:
-                return Drawable.createFromPath("s25.png");
+                return R.drawable.s25;
             case 26:
-                return Drawable.createFromPath("s26.png");
+                return R.drawable.s26;
             case 27:
-                return Drawable.createFromPath("s27.png");
+                return R.drawable.s27;
             case 28:
-                return Drawable.createFromPath("s28.png");
+                return R.drawable.s28;
             case 29:
-                return Drawable.createFromPath("s29.png");
+                return R.drawable.s29;
             case 30:
-                return Drawable.createFromPath("s30.png");
+                return R.drawable.s30;
             case 31:
-                return Drawable.createFromPath("s31.png");
+                return R.drawable.s31;
             case 32:
-                return Drawable.createFromPath("s32.png");
+                return R.drawable.s32;
             case 33:
-                return Drawable.createFromPath("s33.png");
+                return R.drawable.s33;
             case 34:
-                return Drawable.createFromPath("s34.png");
+                return R.drawable.s34;
             case 35:
-                return Drawable.createFromPath("s35.png");
+                return R.drawable.s35;
             case 36:
-                return Drawable.createFromPath("s36.png");
+                return R.drawable.s36;
             default:
-                return Drawable.createFromPath("s00.png");
+                return R.drawable.s00;
         }}
 
 
@@ -229,6 +229,7 @@ public class MatchActivity extends Activity {
         View.OnClickListener clickListener = new View.OnClickListener() {
             public void onClick(View v) {
                 game.playTheGame(myMap.get(v));
+                UpdateUIValues();
                 ChangePlayer();
                 CheckGameFinished();
             }
@@ -324,29 +325,29 @@ public class MatchActivity extends Activity {
         player1bowl6.setBackgroundResource(getdrawable1(state[5]));
 
         Button player1tray1 = (Button) findViewById(R.id.player1tray1);
-        player1tray1.setBackground(getdrawable3(state[6]));
+        player1tray1.setBackgroundResource(getdrawable3(state[6]));
 
         Button player2bowl1 = (Button) findViewById(R.id.player2bowl1);
-        player2bowl1.setBackground(getdrawable2(state[7]));
+        player2bowl1.setBackgroundResource(getdrawable2(state[7]));
 
         Button player2bowl2 = (Button) findViewById(R.id.player2bowl2);
-        player2bowl2.setBackground(getdrawable2(state[8]));
+        player2bowl2.setBackgroundResource(getdrawable2(state[8]));
 
         Button player2bowl3 = (Button) findViewById(R.id.player2bowl3);
-        player2bowl3.setBackground(getdrawable2(state[9]));
+        player2bowl3.setBackgroundResource(getdrawable2(state[9]));
 
         Button player2bowl4 = (Button) findViewById(R.id.player2bowl4);
-        player2bowl4.setBackground(getdrawable2(state[10]));
+        player2bowl4.setBackgroundResource(getdrawable2(state[10]));
 
 
         Button player2bowl5 = (Button) findViewById(R.id.player2bowl5);
-        player2bowl5.setBackground(getdrawable2(state[11]));
+        player2bowl5.setBackgroundResource(getdrawable2(state[11]));
 
         Button player2bowl6 = (Button) findViewById(R.id.player2bowl6);
-        player2bowl6.setBackground(getdrawable2(state[12]));
+        player2bowl6.setBackgroundResource(getdrawable2(state[12]));
 
         Button player2tray2 = (Button) findViewById(R.id.player2tray2);
-        player2tray2.setBackground(getdrawable3(state[13]));
+        player2tray2.setBackgroundResource(getdrawable3(state[13]));
     }
 
 
