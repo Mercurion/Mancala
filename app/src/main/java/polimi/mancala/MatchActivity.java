@@ -280,20 +280,20 @@ public class MatchActivity extends Activity {
         Button player2tray2 = (Button) findViewById(R.id.player2tray2);
         player2tray2.setOnClickListener(clickListener);
 
-        myMap.put(player1Bowl1, 1);
-        myMap.put(player1Bowl2, 2);
-        myMap.put(player1Bowl3, 3);
-        myMap.put(player1Bowl4, 4);
-        myMap.put(player1Bowl5, 5);
-        myMap.put(player1Bowl6, 6);
-        myMap.put(player1tray1, 7);
-        myMap.put(player2Bowl1, 8);
-        myMap.put(player2Bowl2, 9);
-        myMap.put(player2Bowl3, 10);
-        myMap.put(player2Bowl4, 11);
-        myMap.put(player2Bowl5, 12);
-        myMap.put(player2Bowl6, 13);
-        myMap.put(player2tray2, 14);
+        myMap.put(player1Bowl1, 0);
+        myMap.put(player1Bowl2, 1);
+        myMap.put(player1Bowl3, 2);
+        myMap.put(player1Bowl4, 3);
+        myMap.put(player1Bowl5, 4);
+        myMap.put(player1Bowl6, 5);
+        myMap.put(player1tray1, 6);
+        myMap.put(player2Bowl1, 7);
+        myMap.put(player2Bowl2, 8);
+        myMap.put(player2Bowl3, 9);
+        myMap.put(player2Bowl4, 10);
+        myMap.put(player2Bowl5, 11);
+        myMap.put(player2Bowl6, 12);
+        myMap.put(player2tray2, 13);
 
         Log.i("matchactivity", "this is an output");
         game.beginMatch();
