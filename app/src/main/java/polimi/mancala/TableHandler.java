@@ -156,10 +156,11 @@ public class TableHandler {
         return points;
     }
 
-    public Integer stealAndPush (Integer index) { //
+    public Integer stealAndPush (Integer index) {
         Bowl c = (Bowl)this.getContainerByIndex(index);
         Bowl opposite = c.getOppositeBowl();
-        Integer points = opposite.pickAllSeeds();
+        Integer points = opposite.getNumSeeds();
+        opposite.setNumSeeds(0);
         Integer idPlayer = c.getOwnerId();
         Tray t = getTrayByPlayer(idPlayer);
         t.addSeeds(points);

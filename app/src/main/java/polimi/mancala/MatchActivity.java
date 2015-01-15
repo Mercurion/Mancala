@@ -6,7 +6,9 @@ import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import java.util.HashMap;
 import java.util.Map;
@@ -221,6 +223,7 @@ public class MatchActivity extends Activity {
         super.onCreate(SavedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_match);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 
 
@@ -230,7 +233,7 @@ public class MatchActivity extends Activity {
             public void onClick(View v) {
                 game.playTheGame(myMap.get(v));
                 UpdateUIValues();
-                ChangePlayer();
+                //ChangePlayer();
                 CheckGameFinished();
             }
         };

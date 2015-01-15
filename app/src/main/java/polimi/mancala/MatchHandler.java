@@ -118,7 +118,7 @@ public class MatchHandler {
             return false;
     }
 
-    private boolean checkIfHasToSwapTurn (Integer last) {
+    public boolean checkIfHasToSwapTurn (Integer last) {
         if (last == table.getTrayByPlayer(getActivePlayerId()).getIndex())
             return false;
         else
@@ -129,7 +129,7 @@ public class MatchHandler {
         if (table.getContainerByIndex(lastBowl).isTray())
             return false;
         else
-            if (table.getContainerByIndex(lastBowl).getNumSeeds() !=0)
+            if (table.getContainerByIndex(lastBowl).getNumSeeds() !=1)
                 return false;
             else if (getActivePlayerId().equals(table.getPlayerIdByIndex(lastBowl)))
                 return true;
