@@ -60,7 +60,7 @@ public class MatchHandler {
 
     //TODO: here we have to do something about the return type
     public void playTheGame (int bowlClicked) {
-        ArrayList<Integer> gameInfo = null;
+        ArrayList<Integer> gameInfo = new ArrayList<Integer>();
         int[] tmp;
         int turnScore =0;
         int lastBowl, i;

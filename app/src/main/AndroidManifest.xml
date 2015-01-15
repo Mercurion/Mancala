@@ -12,21 +12,32 @@
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
         <activity
             android:name="polimi.mancala.MainActivity" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
         <activity
             android:name="polimi.mancala.MatchActivity">
 
             </activity>
+
         <activity
             android:name="polimi.mancala.StatisticsActivity"
             >
         </activity>
+
+        <activity
+            android:name="polimi.mancala.SettingsActivity">
+
+        </activity>
+
 
         <service android:name=".MusicService"></service>
 

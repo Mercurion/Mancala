@@ -8,14 +8,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ToggleButton;
+
 
 
 public class MainActivity extends Activity{
 
-    ToggleButton t;
-    Intent musicService;
-    Boolean musicStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,21 +20,6 @@ public class MainActivity extends Activity{
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-        LoadPreferences();
-
-        t = (ToggleButton) findViewById(R.id.togglebutton);
-        t.setChecked(musicStatus);
-        t.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                boolean on = ((ToggleButton) v).isChecked();
-                if (on) {
-                    SetMusic(true);
-                } else {
-                    SetMusic(false);
-                }
-
-            }
-        });
 
         Button playButton = (Button) findViewById(R.id.playbutton);
         playButton.setOnClickListener(new View.OnClickListener() {
@@ -57,26 +39,22 @@ public class MainActivity extends Activity{
 
             }
         });
+
+
+        Button settings = (Button) findViewById(R.id.settings);
+        settings.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                /* Do something in response to button click */
+                    gotosettings(v);
+                            }
+
+
+            });
     }
 
-    private void LoadPreferences() {
-        PreferencesActivity preferences = new PreferencesActivity(getApplicationContext());
-        musicStatus = preferences.GetMusicStatus();
-        SetMusic(musicStatus);
-    }
-
-    private void SetMusic(Boolean status) {
-        if (musicService == null)
-            musicService=new Intent(this, MusicService.class);
-        if (status) startService(musicService);
-        else stopService(musicService);
-        UpdatePreferences(status);
-    }
-
-    private void UpdatePreferences(Boolean status){
-        PreferencesActivity preferences = new PreferencesActivity(getApplicationContext());
-        musicStatus = status;
-        preferences.SetMusicStatus(musicStatus);
+    public void gotosettings(View view) {
+        Intent intentsettings = new Intent(this, SettingsActivity.class);
+        startActivity((intentsettings));
     }
 
 
@@ -113,12 +91,6 @@ public class MainActivity extends Activity{
         startActivity(intentNewMatch);
     }
 
-    @Override
-    protected void onDestroy(){
-        super.onDestroy();
-        if (musicService != null){
-            stopService(musicService);
-        }
-    }
+
 
 }
