@@ -22,26 +22,26 @@ public class MatchActivity extends Activity {
     final Map<Button, Integer> myMap = new HashMap<Button, Integer>();
 
     //find drawables for player1 by number of seeds
-    private Drawable getdrawable1 (int numSeed) {
+    private int getdrawable1 (int numSeed) {
 
         switch (numSeed){
-            case 0: return Drawable.createFromPath("drawables/one00.png");
-            case 1: return Drawable.createFromPath("one01.png");
-            case 2: return Drawable.createFromPath("one02.png");
-            case 3: return Drawable.createFromPath("drawables/one00.png");
-            case 4: return Drawable.createFromPath("one04.png");
-            case 5: return Drawable.createFromPath("one05.png");
-            case 6: return Drawable.createFromPath("one06.png");
-            case 7: return Drawable.createFromPath("one07.png");
-            case 8: return Drawable.createFromPath("one08.png");
-            case 9: return Drawable.createFromPath("one09.png");
-            case 10: return Drawable.createFromPath("one10.png");
-            case 11: return Drawable.createFromPath("one11.png");
-            case 12: return Drawable.createFromPath("one12.png");
-            case 13: return Drawable.createFromPath("one13.png");
-            case 14: return Drawable.createFromPath("one14.png");
-            case 15: return Drawable.createFromPath("one15.png");
-            default: return Drawable.createFromPath("one00.png");
+            case 0: return R.drawable.one00;
+            case 1: return R.drawable.one01;
+            case 2: return R.drawable.one02;
+            case 3: return R.drawable.one03;
+            case 4: return R.drawable.one04;
+            case 5: return R.drawable.one05;
+            case 6: return R.drawable.one06;
+            case 7: return R.drawable.one07;
+            case 8: return R.drawable.one08;
+            case 9: return R.drawable.one09;
+            case 10: return R.drawable.one10;
+            case 11: return R.drawable.one11;
+            case 12: return R.drawable.one12;
+            case 13: return R.drawable.one13;
+            case 14: return R.drawable.one14;
+            case 15: return R.drawable.one15;
+            default: return R.drawable.one00;
 
         }}
 
@@ -306,22 +306,22 @@ public class MatchActivity extends Activity {
 
         int [] state = game.getActualBoard();
         Button player1bowl1 = (Button) findViewById(R.id.player1bowl1);
-        player1bowl1.setBackground(getdrawable1(state[0]));
+        player1bowl1.setBackgroundResource(getdrawable1(state[0]));
 
         Button player1bowl2 = (Button) findViewById(R.id.player1bowl2);
-        player1bowl2.setBackground(getdrawable1(state[1]));
+        player1bowl2.setBackgroundResource(getdrawable1(state[1]));
 
         Button player1bowl3 = (Button) findViewById(R.id.player1bowl3);
-        player1bowl3.setBackground(getdrawable1(state[2]));
+        player1bowl3.setBackgroundResource(getdrawable1(state[2]));
 
         Button player1bowl4 = (Button) findViewById(R.id.player1bowl4);
-        player1bowl4.setBackground(getdrawable1(state[3]));
+        player1bowl4.setBackgroundResource(getdrawable1(state[3]));
 
         Button player1bowl5 = (Button) findViewById(R.id.player1bowl5);
-        player1bowl5.setBackground(getdrawable1(state[4]));
+        player1bowl5.setBackgroundResource(getdrawable1(state[4]));
 
         Button player1bowl6 = (Button) findViewById(R.id.player1bowl6);
-        player1bowl6.setBackground(getdrawable1(state[5]));
+        player1bowl6.setBackgroundResource(getdrawable1(state[5]));
 
         Button player1tray1 = (Button) findViewById(R.id.player1tray1);
         player1tray1.setBackground(getdrawable3(state[6]));

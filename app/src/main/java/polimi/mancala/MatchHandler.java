@@ -18,6 +18,7 @@ public class MatchHandler {
     User player1 = new User(1);
     User player2 = new User(2);
     Computer aI;
+    int winner = -1;
 
     Preferences settings = Preferences.getPreferences();
     TableHandler table = TableHandler.getInstance();
@@ -85,8 +86,7 @@ public class MatchHandler {
         updateScoreByPlayerId(getActivePlayerId());
 
         if (isFinished()) {
-            int winner;
-            winner = endOfTheGame();
+            this.winner = endOfTheGame();
         }
 
         tmp = getActualBoard();
