@@ -12,7 +12,7 @@ import android.widget.ToggleButton;
 public class SettingsActivity extends Activity{
 
     ToggleButton t;
-    Intent musicService;
+    public static Intent musicService;
     Boolean musicStatus;
 
     @Override
@@ -57,10 +57,4 @@ public class SettingsActivity extends Activity{
         preferences.SetMusicStatus(musicStatus);
     }
 
-    @Override
-    protected void onDestroy(){
-        super.onDestroy();
-        if (musicService != null){
-            stopService(musicService);
-        }
-    }}
+   }

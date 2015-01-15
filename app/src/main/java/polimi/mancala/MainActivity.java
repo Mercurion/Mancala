@@ -91,6 +91,12 @@ public class MainActivity extends Activity{
         startActivity(intentNewMatch);
     }
 
-
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        if (SettingsActivity.musicService != null){
+            stopService(SettingsActivity.musicService);
+        }
+    }
 
 }
