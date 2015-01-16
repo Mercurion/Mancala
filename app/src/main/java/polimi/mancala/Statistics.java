@@ -1,9 +1,10 @@
 package polimi.mancala;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Environment;
 
 import java.io.File;
-import java.io.IOException;
 
 /**
  * @author Giacomo bianchini
@@ -11,20 +12,31 @@ import java.io.IOException;
 public class Statistics {
 
     File path;
+    private SharedPreferences prefs;
 
-    public void Statistics () {
-        /* TODO: INSERT SOMETHING LIKE this.maxscore = setMax(default path to file) */
-        this.path = Environment.getExternalStorageDirectory();
-        if (!path.exists())
-            try {
-                path.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
+    public void Statistics (Context ctx) {
+        prefs = ctx.getSharedPreferences("", Context.MODE_PRIVATE); //todo: set the string to app name
     }
 
     public int maxScore;
     public int gamePlayed;
+
+    public void setPrefs(String key, String value) {
+        SharedPreferences.Editor prefsEditor = prefs.edit();
+        prefsEditor.putString(key, value);
+        prefsEditor.commit();
+    }
+
+    public String getPrefs(String key, String value) {
+        return prefs.getString(key, value);
+    }
+
+    public void removePrefs(String key) {
+        SharedPreferences.Editor prefsEditor = prefs.edit();
+        prefsEditor.remove(key);
+        prefsEditor.commit();
+    }
 
     //TODO: perform setter and getter using a file
 
