@@ -13,7 +13,9 @@ public class Statistics {
     private String playedGame = "playedGame";
     private String bestScore = "MaxScore";
 
-    public void Statistics (Context ctx) {
+
+
+    public  Statistics (Context ctx) {
         prefs = ctx.getSharedPreferences("Mancala", Context.MODE_PRIVATE); //todo: set the string to app name
 
     }

@@ -23,7 +23,7 @@ public class StatisticsActivity extends Activity {
 
     Integer maxScore;
     Integer gamePlayed;
-    Statistics stat;
+    Statistics stat = new Statistics(getApplicationContext());
     Button goHome = (Button) findViewById(R.id.goHomeButton);
     Button resetButton = (Button) findViewById(R.id.resetButton);
     TextView textGamePlayed = (TextView) findViewById(R.id.textView);
@@ -52,7 +52,7 @@ public class StatisticsActivity extends Activity {
 
         this.gamePlayed = stat.getGamePlayed();
         this.maxScore = stat.getMaxScore();
-        updateText();
+//        updateText();
     }
 
 
