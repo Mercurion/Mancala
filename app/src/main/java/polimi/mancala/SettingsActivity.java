@@ -20,7 +20,7 @@ public class SettingsActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings);
+        setContentView(R.layout.activity_settings);
         setRequestedOrientation(SCREEN_ORIENTATION_LANDSCAPE);
 
 

@@ -32,6 +32,9 @@ public class StatisticsActivity extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         Button goHome = (Button) findViewById(R.id.goHomeButton);
+        goHome.setBackgroundResource(R.drawable.homebutton);
+        Button resetButton = (Button) findViewById(R.id.resetButton);
+        resetButton.setBackgroundResource(R.drawable.resetbutton);
         final TextView text = (TextView) findViewById(R.id.textView);
 
         goHome.setOnClickListener(new View.OnClickListener() {
