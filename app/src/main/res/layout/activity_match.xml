@@ -110,5 +110,21 @@
         android:layout_alignTop="@+id/player1bowl5"
         android:layout_toEndOf="@+id/player1bowl5" />
 
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:id="@+id/score1"
+        android:background="@drawable/playerscore2"
+        android:layout_above="@+id/player2tray2"
+        android:layout_alignStart="@+id/player2tray2" />
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:id="@+id/score2"
+        android:background="@drawable/playerscore1"
+        android:layout_above="@+id/player1tray1"
+        android:layout_alignStart="@+id/player1tray1" />
+
 </RelativeLayout>
 
