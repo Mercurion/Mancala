@@ -213,12 +213,12 @@ public class MatchActivity extends Activity {
 
             }
 
-            alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+           alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                    Button ok = (Button) findViewById(R.id.);
+                    Button ok = (Button) findViewById(R.id.playbutton);//TODO: check this
                     ok.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
-                /* Do something in response to button click */
+           //      Do something in response to button click
                             gotomain(v);
                         }
 
