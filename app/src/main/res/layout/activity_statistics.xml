@@ -8,16 +8,16 @@
     android:weightSum="1">
 
     <Button
-        android:layout_width="80"
-        android:layout_height="80"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/resetButton"
         android:background="@drawable/resetbutton"
         android:layout_alignParentBottom="true"
         android:layout_toStartOf="@+id/goHomeButton" />
 
     <Button
-        android:layout_width="80"
-        android:layout_height="80"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/goHomeButton"
         android:background="@drawable/homebutton"
         android:layout_alignParentBottom="true"
