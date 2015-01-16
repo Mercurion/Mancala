@@ -2,6 +2,7 @@ package polimi.mancala;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
@@ -204,17 +205,41 @@ public class MatchActivity extends Activity {
         if (game.isFinished()){
             AlertDialog alertDialog = new AlertDialog.Builder(this).create();
             alertDialog.setTitle("THE END");
-            //if ()check returns
-            alertDialog.setMessage("abc");
+            int winner = game.getWinner();
+            switch (winner){
+                case 0: alertDialog.setMessage("It Is A Tie!");
+                case 1: alertDialog.setMessage("Player One Won!");
+                case 2: alertDialog.setMessage("Player Two Won!");
+
+            }
+
             alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                    //go to main page by ok
+                    Button ok = (Button) findViewById(R.id.);
+                    ok.setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+                /* Do something in response to button click */
+                            gotomain(v);
+                        }
+
+
+                    });
+
+
                 }
             });
             alertDialog.setIcon(R.drawable.logo);
             alertDialog.show();
         }
     }
+
+
+
+    public void gotomain(View view) {
+        Intent intentmain = new Intent(this, MainActivity.class);
+        startActivity((intentmain));
+    }
+
 
     @Override
     protected void onCreate (Bundle SavedInstanceState) {
@@ -275,10 +300,10 @@ public class MatchActivity extends Activity {
         Button player2Bowl5 = (Button) findViewById(R.id.player1bowl5);
         player2Bowl5.setOnClickListener(clickListener);
 
-        Button player2Bowl6 = (Button) findViewById(R.id.player2bowl6);
+        Button player2Bowl6 = (Button) findViewById(R.id.player2bowl1);
         player2Bowl6.setOnClickListener(clickListener);
 
-        Button player2tray2 = (Button) findViewById(R.id.player2tray2);
+        Button player2tray2 = (Button) findViewById(R.id.player1tray1);
         player2tray2.setOnClickListener(clickListener);
 
         myMap.put(player1Bowl1, 0);
