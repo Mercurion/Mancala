@@ -111,6 +111,10 @@ public class MatchHandler {
     }
 
 
+    public int getWinner () {
+        return this.winner;
+    }
+
     private boolean checkIfCanMove (Integer clicked) {
         if (isCorrectTurn(clicked) && !table.getContainerByIndex(clicked).isEmpty() && table.getContainerByIndex(clicked).isBowl())
             return true;
