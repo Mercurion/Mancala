@@ -4,7 +4,7 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StatisticsActivity"
-    android:background="@drawable/mainpage"
+    android:background="@drawable/statisticsback"
     android:weightSum="1">
 
     <Button
