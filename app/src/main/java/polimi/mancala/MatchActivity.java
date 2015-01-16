@@ -215,19 +215,10 @@ public class MatchActivity extends Activity {
 
            alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                    Button ok = (Button) findViewById(R.id.playbutton);//TODO: check this
-                    ok.setOnClickListener(new View.OnClickListener() {
-                        public void onClick(View v) {
-           //      Do something in response to button click
-                            gotomain(v);
+                            gotomain();
                         }
-
-
                     });
 
-
-                }
-            });
             alertDialog.setIcon(R.drawable.logo);
             alertDialog.show();
         }
@@ -235,7 +226,7 @@ public class MatchActivity extends Activity {
 
 
 
-    public void gotomain(View view) {
+    public void gotomain() {
         Intent intentmain = new Intent(this, MainActivity.class);
         startActivity((intentmain));
     }
