@@ -264,61 +264,62 @@ public class MatchActivity extends Activity {
 
 
 
-        Button player1Bowl1 = (Button) findViewById(R.id.player2bowl6);
-        player1Bowl1.setOnClickListener(clickListener);
+        Button player2bowl6 = (Button) findViewById(R.id.player2bowl6);
+        player2bowl6.setOnClickListener(clickListener);
 
-        Button player1Bowl2 = (Button) findViewById(R.id.player2bowl5);
-        player1Bowl2.setOnClickListener(clickListener);
+        Button player2bowl5 = (Button) findViewById(R.id.player2bowl5);
+        player2bowl5.setOnClickListener(clickListener);
 
-        Button player1Bowl3 = (Button) findViewById(R.id.player2bowl4);
-        player1Bowl3.setOnClickListener(clickListener);
+        Button player2bowl4 = (Button) findViewById(R.id.player2bowl4);
+        player2bowl4.setOnClickListener(clickListener);
 
-        Button player1Bowl4 = (Button) findViewById(R.id.player2bowl3);
-        player1Bowl4.setOnClickListener(clickListener);
+        Button player2bowl3 = (Button) findViewById(R.id.player2bowl3);
+        player2bowl3.setOnClickListener(clickListener);
 
-        Button player1Bowl5 = (Button) findViewById(R.id.player2bowl2);
-        player1Bowl5.setOnClickListener(clickListener);
+        Button player2bowl2 = (Button) findViewById(R.id.player2bowl2);
+        player2bowl2.setOnClickListener(clickListener);
 
         Button player1Bowl6 = (Button) findViewById(R.id.player1bowl6);
         player1Bowl6.setOnClickListener(clickListener);
 
-        Button player1tray1 = (Button) findViewById(R.id.player2tray2);
-        player1tray1.setOnClickListener(clickListener);
-
-        Button player2Bowl1 = (Button) findViewById(R.id.player1bowl1);
-        player2Bowl1.setOnClickListener(clickListener);
-
-        Button player2Bowl2 = (Button) findViewById(R.id.player1bowl2);
-        player2Bowl2.setOnClickListener(clickListener);
-
-        Button player2Bowl3 = (Button) findViewById(R.id.player1bowl3);
-        player2Bowl3.setOnClickListener(clickListener);
-
-        Button player2Bowl4 = (Button) findViewById(R.id.player1bowl4);
-        player2Bowl4.setOnClickListener(clickListener);
-
-        Button player2Bowl5 = (Button) findViewById(R.id.player1bowl5);
-        player2Bowl5.setOnClickListener(clickListener);
-
-        Button player2Bowl6 = (Button) findViewById(R.id.player2bowl1);
-        player2Bowl6.setOnClickListener(clickListener);
-
-        Button player2tray2 = (Button) findViewById(R.id.player1tray1);
+        Button player2tray2 = (Button) findViewById(R.id.player2tray2);
         player2tray2.setOnClickListener(clickListener);
 
-        myMap.put(player1Bowl1, 0);
-        myMap.put(player1Bowl2, 1);
-        myMap.put(player1Bowl3, 2);
-        myMap.put(player1Bowl4, 3);
-        myMap.put(player1Bowl5, 4);
+        Button player1bowl1 = (Button) findViewById(R.id.player1bowl1);
+        player1bowl1.setOnClickListener(clickListener);
+
+        Button player1bowl2 = (Button) findViewById(R.id.player1bowl2);
+        player1bowl2.setOnClickListener(clickListener);
+
+        Button player1bowl3 = (Button) findViewById(R.id.player1bowl3);
+        player1bowl3.setOnClickListener(clickListener);
+
+        Button player1bowl4 = (Button) findViewById(R.id.player1bowl4);
+        player1bowl4.setOnClickListener(clickListener);
+
+        Button player1bowl5 = (Button) findViewById(R.id.player1bowl5);
+        player1bowl5.setOnClickListener(clickListener);
+
+        Button player2bowl1 = (Button) findViewById(R.id.player2bowl1);
+        player2bowl1.setOnClickListener(clickListener);
+
+        Button player1tray1 = (Button) findViewById(R.id.player1tray1);
+        player1tray1.setOnClickListener(clickListener);
+
+
+        myMap.put(player1bowl1, 0);
+        myMap.put(player1bowl2, 1);
+        myMap.put(player1bowl3, 2);
+        myMap.put(player1bowl4, 3);
+        myMap.put(player1bowl5, 4);
         myMap.put(player1Bowl6, 5);
         myMap.put(player1tray1, 6);
-        myMap.put(player2Bowl1, 7);
-        myMap.put(player2Bowl2, 8);
-        myMap.put(player2Bowl3, 9);
-        myMap.put(player2Bowl4, 10);
-        myMap.put(player2Bowl5, 11);
-        myMap.put(player2Bowl6, 12);
+        myMap.put(player2bowl1, 7);
+        myMap.put(player2bowl2, 8);
+        myMap.put(player2bowl3, 9);
+        myMap.put(player2bowl4, 10);
+        myMap.put(player2bowl5, 11);
+        myMap.put(player2bowl6, 12);
         myMap.put(player2tray2, 13);
 
         Log.i("matchactivity", "this is an output");
