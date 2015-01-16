@@ -8,17 +8,18 @@
     android:weightSum="1">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80"
+        android:layout_height="80"
         android:id="@+id/resetButton"
+        android:background="@drawable/resetbutton"
         android:layout_alignParentBottom="true"
         android:layout_toStartOf="@+id/goHomeButton" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80"
+        android:layout_height="80"
         android:id="@+id/goHomeButton"
-        android:layout_weight="0.08"
+        android:background="@drawable/homebutton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
@@ -27,7 +28,6 @@
         android:layout_height="63dp"
         android:text="New Text"
         android:id="@+id/textView"
-        android:layout_weight="0.23"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="126dp" />
