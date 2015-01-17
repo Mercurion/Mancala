@@ -1,14 +1,12 @@
 package polimi.mancala;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
+
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -18,12 +16,12 @@ import android.widget.TextView;
  * this is the activity to show all the statistics
  *
  */
-public class StatisticsActivity extends Activity {
+public class StatisticsActivity extends Activity{
 
 
     Integer maxScore;
     Integer gamePlayed;
-    Statistics stat = new Statistics(getApplicationContext());
+    Statistics stat = new Statistics();
     Button goHome = (Button) findViewById(R.id.goHomeButton);
     Button resetButton = (Button) findViewById(R.id.resetButton);
     TextView textGamePlayed = (TextView) findViewById(R.id.textView);
@@ -50,8 +48,8 @@ public class StatisticsActivity extends Activity {
             }
         });
 
-        this.gamePlayed = stat.getGamePlayed();
-        this.maxScore = stat.getMaxScore();
+//        this.gamePlayed = stat.getGamePlayed();
+//        this.maxScore = stat.getMaxScore();
 //        updateText();
     }
 

@@ -1,5 +1,6 @@
 package polimi.mancala;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -7,7 +8,7 @@ import android.content.SharedPreferences;
 /**
  * @author Giacomo bianchini
  */
-public class Statistics {
+public class Statistics extends Activity {
 
     private SharedPreferences prefs;
     private String playedGame = "playedGame";
@@ -15,8 +16,8 @@ public class Statistics {
 
 
 
-    public  Statistics (Context ctx) {
-        prefs = ctx.getSharedPreferences("Mancala", Context.MODE_PRIVATE); //todo: set the string to app name
+    public  Statistics () {
+        prefs = getApplicationContext().getSharedPreferences("My_pref", Context.MODE_PRIVATE); //todo: set the string to app name
 
     }
 

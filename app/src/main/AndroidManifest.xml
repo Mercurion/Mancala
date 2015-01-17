@@ -25,16 +25,18 @@
 
         <activity
             android:name="polimi.mancala.MatchActivity">
-
             </activity>
 
         <activity
             android:name="polimi.mancala.StatisticsActivity">
-
         </activity>
 
         <activity
             android:name="polimi.mancala.SettingsActivity">
+        </activity>
+
+        <activity
+            android:name="polimi.mancala.Statistics">
         </activity>
 
 

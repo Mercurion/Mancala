@@ -1,9 +1,10 @@
 package polimi.mancala;
 
 
-import android.content.SharedPreferences;
+
 
 import java.util.ArrayList;
+
 
 /**
  * Created by Giacomo Bianchini on 21/11/2014.
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  * this class contains all the constrains for the game
  *
  */
-public class MatchHandler {
+public class MatchHandler{
 
     private static final Integer num_Seed = 3;
     private static MatchHandler instance = null;
@@ -22,7 +23,7 @@ public class MatchHandler {
 
     Preferences settings = Preferences.getPreferences();
     TableHandler table = TableHandler.getInstance();
-    Statistics stat = new Statistics();
+//    Statistics stat = new Statistics(this.getApplicationContext());
 
     private MatchHandler() {
     }
