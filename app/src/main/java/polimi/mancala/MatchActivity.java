@@ -19,9 +19,97 @@ import android.app.AlertDialog;
 
 public class MatchActivity extends Activity {
 
-    MatchHandler game = MatchHandler.getMatchHandler();
+    MatchHandler game = MatchHandler.getMatchHandler(this);
     final Map<Button, Integer> myMap = new HashMap<Button, Integer>();
 
+
+
+    @Override
+    protected void onCreate (Bundle SavedInstanceState) {
+        super.onCreate(SavedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        setContentView(R.layout.activity_match);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+
+
+
+
+        View.OnClickListener clickListener = new View.OnClickListener() {
+            public void onClick(View v) {
+                game.playTheGame(myMap.get(v));
+                UpdateUIValues();
+                //ChangePlayer();
+                CheckGameFinished();
+            }
+        };
+
+
+
+
+        Button player2bowl6 = (Button) findViewById(R.id.player2bowl6);
+        player2bowl6.setOnClickListener(clickListener);
+
+        Button player2bowl5 = (Button) findViewById(R.id.player2bowl5);
+        player2bowl5.setOnClickListener(clickListener);
+
+        Button player2bowl4 = (Button) findViewById(R.id.player2bowl4);
+        player2bowl4.setOnClickListener(clickListener);
+
+        Button player2bowl3 = (Button) findViewById(R.id.player2bowl3);
+        player2bowl3.setOnClickListener(clickListener);
+
+        Button player2bowl2 = (Button) findViewById(R.id.player2bowl2);
+        player2bowl2.setOnClickListener(clickListener);
+
+        Button player1Bowl6 = (Button) findViewById(R.id.player1bowl6);
+        player1Bowl6.setOnClickListener(clickListener);
+
+        Button player2tray2 = (Button) findViewById(R.id.player2tray2);
+        player2tray2.setOnClickListener(clickListener);
+
+        Button player1bowl1 = (Button) findViewById(R.id.player1bowl1);
+        player1bowl1.setOnClickListener(clickListener);
+
+        Button player1bowl2 = (Button) findViewById(R.id.player1bowl2);
+        player1bowl2.setOnClickListener(clickListener);
+
+        Button player1bowl3 = (Button) findViewById(R.id.player1bowl3);
+        player1bowl3.setOnClickListener(clickListener);
+
+        Button player1bowl4 = (Button) findViewById(R.id.player1bowl4);
+        player1bowl4.setOnClickListener(clickListener);
+
+        Button player1bowl5 = (Button) findViewById(R.id.player1bowl5);
+        player1bowl5.setOnClickListener(clickListener);
+
+        Button player2bowl1 = (Button) findViewById(R.id.player2bowl1);
+        player2bowl1.setOnClickListener(clickListener);
+
+        Button player1tray1 = (Button) findViewById(R.id.player1tray1);
+        player1tray1.setOnClickListener(clickListener);
+
+
+        myMap.put(player1bowl1, 0);
+        myMap.put(player1bowl2, 1);
+        myMap.put(player1bowl3, 2);
+        myMap.put(player1bowl4, 3);
+        myMap.put(player1bowl5, 4);
+        myMap.put(player1Bowl6, 5);
+        myMap.put(player1tray1, 6);
+        myMap.put(player2bowl1, 7);
+        myMap.put(player2bowl2, 8);
+        myMap.put(player2bowl3, 9);
+        myMap.put(player2bowl4, 10);
+        myMap.put(player2bowl5, 11);
+        myMap.put(player2bowl6, 12);
+        myMap.put(player2tray2, 13);
+
+        Log.i("matchactivity", "this is an output");
+        game.beginMatch();
+
+        UpdateUIValues();
+    }
     //find drawables for player1 by number of seeds
     private int getdrawable1 (int numSeed) {
 
@@ -232,92 +320,7 @@ public class MatchActivity extends Activity {
     }
 
 
-    @Override
-    protected void onCreate (Bundle SavedInstanceState) {
-        super.onCreate(SavedInstanceState);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        setContentView(R.layout.activity_match);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-
-
-
-
-        View.OnClickListener clickListener = new View.OnClickListener() {
-            public void onClick(View v) {
-                game.playTheGame(myMap.get(v));
-                UpdateUIValues();
-                //ChangePlayer();
-                CheckGameFinished();
-            }
-        };
-
-
-
-
-        Button player2bowl6 = (Button) findViewById(R.id.player2bowl6);
-        player2bowl6.setOnClickListener(clickListener);
-
-        Button player2bowl5 = (Button) findViewById(R.id.player2bowl5);
-        player2bowl5.setOnClickListener(clickListener);
-
-        Button player2bowl4 = (Button) findViewById(R.id.player2bowl4);
-        player2bowl4.setOnClickListener(clickListener);
-
-        Button player2bowl3 = (Button) findViewById(R.id.player2bowl3);
-        player2bowl3.setOnClickListener(clickListener);
-
-        Button player2bowl2 = (Button) findViewById(R.id.player2bowl2);
-        player2bowl2.setOnClickListener(clickListener);
-
-        Button player1Bowl6 = (Button) findViewById(R.id.player1bowl6);
-        player1Bowl6.setOnClickListener(clickListener);
-
-        Button player2tray2 = (Button) findViewById(R.id.player2tray2);
-        player2tray2.setOnClickListener(clickListener);
-
-        Button player1bowl1 = (Button) findViewById(R.id.player1bowl1);
-        player1bowl1.setOnClickListener(clickListener);
-
-        Button player1bowl2 = (Button) findViewById(R.id.player1bowl2);
-        player1bowl2.setOnClickListener(clickListener);
-
-        Button player1bowl3 = (Button) findViewById(R.id.player1bowl3);
-        player1bowl3.setOnClickListener(clickListener);
-
-        Button player1bowl4 = (Button) findViewById(R.id.player1bowl4);
-        player1bowl4.setOnClickListener(clickListener);
-
-        Button player1bowl5 = (Button) findViewById(R.id.player1bowl5);
-        player1bowl5.setOnClickListener(clickListener);
-
-        Button player2bowl1 = (Button) findViewById(R.id.player2bowl1);
-        player2bowl1.setOnClickListener(clickListener);
-
-        Button player1tray1 = (Button) findViewById(R.id.player1tray1);
-        player1tray1.setOnClickListener(clickListener);
-
-
-        myMap.put(player1bowl1, 0);
-        myMap.put(player1bowl2, 1);
-        myMap.put(player1bowl3, 2);
-        myMap.put(player1bowl4, 3);
-        myMap.put(player1bowl5, 4);
-        myMap.put(player1Bowl6, 5);
-        myMap.put(player1tray1, 6);
-        myMap.put(player2bowl1, 7);
-        myMap.put(player2bowl2, 8);
-        myMap.put(player2bowl3, 9);
-        myMap.put(player2bowl4, 10);
-        myMap.put(player2bowl5, 11);
-        myMap.put(player2bowl6, 12);
-        myMap.put(player2tray2, 13);
-
-        Log.i("matchactivity", "this is an output");
-        game.beginMatch();
-
-        UpdateUIValues();
-    }
 
 
 

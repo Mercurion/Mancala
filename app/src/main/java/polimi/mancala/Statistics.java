@@ -3,6 +3,8 @@ package polimi.mancala;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.util.Log;
 
 
 /**
@@ -10,64 +12,76 @@ import android.content.SharedPreferences;
  */
 public class Statistics extends Activity {
 
-    private SharedPreferences prefs;
-    private String playedGame = "playedGame";
-    private String bestScore = "MaxScore";
+    String game = "gamePlayed";
+    String score = "maxScore";
+    public static final String PREFNAME = "MY_PREF";
+    private static Statistics instance = null;
+    Context cont;
 
 
+    public static synchronized Statistics getStatistics (Context ctx) {
+        if (instance == null)
+            instance = new Statistics(ctx);
+        return instance;
+    }
 
-    public  Statistics () {
-        prefs = getApplicationContext().getSharedPreferences("My_pref", Context.MODE_PRIVATE); //todo: set the string to app name
+    private Statistics (Context ctx) {
+        this.cont = ctx;
+    }
 
+    public static synchronized Statistics getStatistics () {
+        if (instance == null)
+            instance = new Statistics();
+        return instance;
+    }
+
+    private Statistics () {
     }
 
 
-    private void setPrefs(String key, int value) {
-        SharedPreferences.Editor prefsEditor = prefs.edit();
-        prefsEditor.putInt(key, value);
-        prefsEditor.commit();
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
-    private int getPrefs(String key) {
-        int value =0;
-        return prefs.getInt(key, value);
+    public int getGamePlayed() {
+        SharedPreferences statistics = cont.getSharedPreferences(PREFNAME, MODE_PRIVATE);
+        return statistics.getInt(game, 0);
     }
 
-    private void removePrefs(String key) {
-        SharedPreferences.Editor prefsEditor = prefs.edit();
-        prefsEditor.remove(key);
-        prefsEditor.commit();
+    public int getMaxScore () {
+        SharedPreferences statistics = cont.getSharedPreferences(PREFNAME, MODE_PRIVATE);
+        return statistics.getInt(score, 0);
     }
 
-    public int getMaxScore(){
-        return getPrefs(bestScore);
+
+    public void resetAll () {
+        SharedPreferences statistics = cont.getSharedPreferences(PREFNAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = statistics.edit();
+        editor.putInt(game,0 );
+        editor.putInt(score, 0);
+        editor.commit();
     }
 
-    private void setMaxScore(int value) {
-        setPrefs(bestScore, value);
+    public void setMaxScore (int value) {
+        SharedPreferences.Editor editor = cont.getSharedPreferences(PREFNAME, MODE_PRIVATE).edit();
+        editor.putInt(score, value);
+        editor.commit();
     }
 
-    public int getGamePlayed () {
-        return getPrefs(playedGame);
-    }
-
-    public void setGamePlayed (int value) {
-        setPrefs(playedGame, value);
-    }
-
-    public void updateBestScore (int value) {
+    public void updateMaxScore (int value) {
         if (value > getMaxScore())
             setMaxScore(value);
     }
 
-    public void addOneGamePlayed () {
-        int i = getGamePlayed();
-        setGamePlayed(i+1);
+    public void setGamePlayed (int value) {
+        SharedPreferences.Editor editor = cont.getSharedPreferences(PREFNAME, MODE_PRIVATE).edit();
+        editor.putInt(game, value);
+        editor.commit();
     }
 
-    public void resetAll () {
-        setGamePlayed(0);
-        setMaxScore(0);
+    public void oneMorePlayed () {
+        setGamePlayed(getGamePlayed()+1);
     }
 
 }

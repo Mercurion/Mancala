@@ -4,6 +4,7 @@ package polimi.mancala;
 
 
 import java.util.ArrayList;
+import android.content.Context;
 
 
 /**
@@ -20,17 +21,19 @@ public class MatchHandler{
     User player2 = new User(2);
     Computer aI;
     int winner = -1;
+    int lastBowl;
+    Context cont;
 
     Preferences settings = Preferences.getPreferences();
     TableHandler table = TableHandler.getInstance();
-//    Statistics stat = new Statistics(this.getApplicationContext());
 
-    private MatchHandler() {
+    private MatchHandler(Context ctx) {
+        this.cont = ctx;
     }
 
-    public static synchronized MatchHandler getMatchHandler () {
+    public static synchronized MatchHandler getMatchHandler (Context ctx) {
         if (instance == null)
-            instance = new MatchHandler();
+            instance = new MatchHandler(ctx);
         return instance;
     }
 
@@ -50,12 +53,21 @@ public class MatchHandler{
     private int endOfTheGame () { //this method perform the end of the game and return the name of the winner
         player1.addPoints(table.clearBoardByPlayerId(player1.getId()));
         player2.addPoints(table.clearBoardByPlayerId(player2.getId()));
+        updateScoreByPlayerId(player1.getId());
+        updateScoreByPlayerId(player2.getId());
+        Statistics stat = Statistics.getStatistics(cont);
 
-        if (this.player1.getScore() > this.player2.getScore())
+        if (this.player1.getScore() > this.player2.getScore()) {
+            stat.updateMaxScore(player1.getScore());
+            stat.oneMorePlayed();
             return this.player1.getId();
+        }
         else
-            if (this.player2.getScore() > this.player1.getScore())
+            if (this.player2.getScore() > this.player1.getScore()) {
+                stat.updateMaxScore(player2.getScore());
+                stat.oneMorePlayed();
                 return this.player2.getId();
+            }
         else
                 return 0;
     }
@@ -64,21 +76,22 @@ public class MatchHandler{
     public void playTheGame (int bowlClicked) {
         ArrayList<Integer> gameInfo = new ArrayList<Integer>();
         int[] tmp;
-        int turnScore =0;
-        int lastBowl, i;
+        int tmplastBowl, i;
         if (checkIfCanMove(bowlClicked)) {
-            lastBowl = makeAMove(bowlClicked);
+            tmplastBowl = makeAMove(bowlClicked);
+            this.lastBowl = tmplastBowl;
             updateScoreByPlayerId(player1.getId());
             updateScoreByPlayerId(player2.getId());
             //here an if to handle the case that I put my last seed in an empty bowl
-            if (checkIfHasToSteal(lastBowl)) {
-                turnScore = turnScore + table.pickAndPush(lastBowl) + table.stealAndPush(lastBowl);
+            if (checkIfHasToSteal(tmplastBowl)) {
+                table.pickAndPush(tmplastBowl);
+                table.stealAndPush(tmplastBowl);
             }
             updateScoreByPlayerId(getActivePlayerId());
 
             //here we check if we do need to change the turn
 
-            if (checkIfHasToSwapTurn(lastBowl)) {
+            if (checkIfHasToSwapTurn(tmplastBowl)) {
                 player1.changeTurn();
                 player2.changeTurn();
             }
@@ -123,7 +136,14 @@ public class MatchHandler{
             return false;
     }
 
-    public boolean checkIfHasToSwapTurn (Integer last) {
+    public boolean checkToSwap () {
+        if (this.lastBowl == table.getTrayByPlayer(getActivePlayerId()).getIndex())
+            return false;
+        else
+            return true;
+    }
+
+    private boolean checkIfHasToSwapTurn (Integer last) {
         if (last == table.getTrayByPlayer(getActivePlayerId()).getIndex())
             return false;
         else

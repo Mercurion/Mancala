@@ -19,22 +19,33 @@ import android.widget.TextView;
 public class StatisticsActivity extends Activity{
 
 
-    Integer maxScore;
-    Integer gamePlayed;
-    Statistics stat = new Statistics();
-    Button goHome = (Button) findViewById(R.id.goHomeButton);
-    Button resetButton = (Button) findViewById(R.id.resetButton);
-    TextView textGamePlayed = (TextView) findViewById(R.id.textView);
-    TextView textMaxScore = (TextView) findViewById(R.id.textView2);
 
+    Integer maxScore =0;
+    Integer gamePlayed;
+    Statistics stat;
+
+    @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        Button goHome = (Button) findViewById(R.id.goHomeButton);
+        Button resetButton = (Button) findViewById(R.id.resetButton);
+        TextView textGamePlayed = (TextView) findViewById(R.id.textView);
+        TextView textMaxScore = (TextView) findViewById(R.id.textView2);
+
+        stat = Statistics.getStatistics(this);
 
         goHome.setBackgroundResource(R.drawable.homebutton);
         resetButton.setBackgroundResource(R.drawable.resetbutton);
+        Button prova = (Button) findViewById(R.id.provabutton);
+
+        prova.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+ //               updateMaxScore();
+            }
+        });
 
         goHome.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -48,26 +59,31 @@ public class StatisticsActivity extends Activity{
             }
         });
 
-//        this.gamePlayed = stat.getGamePlayed();
-//        this.maxScore = stat.getMaxScore();
-//        updateText();
+        this.gamePlayed = stat.getGamePlayed();
+        this.maxScore = stat.getMaxScore();
+        updateText();
     }
 
 
     private void updateText () {
-        textGamePlayed.setText(gamePlayed);
-        textMaxScore.setText(gamePlayed);
+        TextView textGamePlayed = (TextView) findViewById(R.id.textView);
+        TextView textMaxScore = (TextView) findViewById(R.id.textView2);
+        this.gamePlayed = stat.getGamePlayed();
+        this.maxScore = stat.getMaxScore();
+        textMaxScore.setText(maxScore.toString());
+        textGamePlayed.setText(gamePlayed.toString());
     }
 
-    public void goBack (View v) {
+    private void goBack (View v) {
         Intent comeback = new Intent(this, MainActivity.class);
         startActivity(comeback);
     }
 
-    public void reset () {
+    private void reset () {
         stat.resetAll();
         this.gamePlayed = stat.getGamePlayed();
         this.maxScore = stat.getMaxScore();
         updateText();
     }
+
 }
