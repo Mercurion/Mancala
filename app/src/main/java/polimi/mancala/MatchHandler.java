@@ -51,8 +51,8 @@ public class MatchHandler{
 
 
     private int endOfTheGame () { //this method perform the end of the game and return the name of the winner
-        player1.addPoints(table.clearBoardByPlayerId(player1.getId()));
-        player2.addPoints(table.clearBoardByPlayerId(player2.getId()));
+        table.clearBoardByPlayerId(player1.getId());
+        table.clearBoardByPlayerId(player2.getId());
         updateScoreByPlayerId(player1.getId());
         updateScoreByPlayerId(player2.getId());
         Statistics stat = Statistics.getStatistics(cont);
@@ -178,9 +178,10 @@ public class MatchHandler{
     }
 
     private void updateScoreByPlayerId (Integer idPlayer) {
-        int score = table.getTrayByPlayer(idPlayer).getNumSeeds();
-        User player = getPlayerById(idPlayer);
-        player.setScore(score);
+        if (idPlayer.equals(player1.getId()))
+            player1.setScore(table.getTrayByPlayer(player1.getId()).getNumSeeds());
+        else
+            player2.setScore(table.getTrayByPlayer(player2.getId()).getNumSeeds());
     }
 
     private boolean isCorrectTurn(int index) {

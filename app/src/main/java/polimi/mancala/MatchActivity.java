@@ -296,9 +296,13 @@ public class MatchActivity extends Activity {
             int winner = game.getWinner();
             switch (winner){
                 case 0: alertDialog.setMessage("It Is A Tie!");
-                case 1: alertDialog.setMessage("Player One Won!");
+                    break;
+                case 1: alertDialog.setMessage("Player ONE Won!");
+                    break;
                 case 2: alertDialog.setMessage("Player Two Won!");
-
+                    break;
+                default: alertDialog.setMessage("A Problem has been encountered!");
+                    break;
             }
 
            alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
