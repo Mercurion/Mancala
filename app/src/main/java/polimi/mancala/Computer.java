@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 /**
  * Created by jack on 10/01/2015.
+ *
+ * this class handles the H-C game. here it's decided the best move to be performed.
  */
 public class Computer {
 

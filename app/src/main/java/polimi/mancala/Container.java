@@ -2,6 +2,8 @@ package polimi.mancala;
 
 /**
  * @author Giacomo Bianchini
+ *
+ * this is the super-class for bowls and trays
  */
 
 

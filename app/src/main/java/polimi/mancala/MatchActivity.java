@@ -254,15 +254,7 @@ public class MatchActivity extends Activity {
         }
     }
 
-    private void ChangePlayer(){
-        int currentPlayerId = game.getActivePlayerId();
-        ChangePlayer(currentPlayerId);
-    }
 
-    private void ChangePlayer(int currentPlayerId) {
-        EnablePlayerWithId(currentPlayerId);
-        DisablePlayerWithId(currentPlayerId);
-    }
 
     private void DisablePlayerWithId(int currentPlayerId) {
         for (Map.Entry<Button, Integer> entry : myMap.entrySet()) {

@@ -4,11 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 
 
 /**
- * @author Giacomo bianchini
+ * @author Giacomo Bianchini
+ *
  */
 public class Statistics extends Activity {
 
