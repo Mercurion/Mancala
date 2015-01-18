@@ -32,21 +32,13 @@ public class StatisticsActivity extends Activity{
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         Button goHome = (Button) findViewById(R.id.goHomeButton);
         Button resetButton = (Button) findViewById(R.id.resetButton);
-        TextView textGamePlayed = (TextView) findViewById(R.id.textView);
-        TextView textMaxScore = (TextView) findViewById(R.id.textView2);
+        Button scoreButton = (Button) findViewById(R.id.bestScoreButton);
+        Button gamePlayedButton = (Button) findViewById(R.id.gamePlayedButton);
 
         stat = Statistics.getStatistics(this);
 
         goHome.setBackgroundResource(R.drawable.homebutton);
         resetButton.setBackgroundResource(R.drawable.resetbutton);
-        Button prova = (Button) findViewById(R.id.provabutton);
-
-        prova.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
- //               updateMaxScore();
-            }
-        });
-
         goHome.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 goBack(v);
@@ -66,12 +58,12 @@ public class StatisticsActivity extends Activity{
 
 
     private void updateText () {
-        TextView textGamePlayed = (TextView) findViewById(R.id.textView);
-        TextView textMaxScore = (TextView) findViewById(R.id.textView2);
+        Button scoreButton = (Button) findViewById(R.id.bestScoreButton);
+        Button gamePlayedButton = (Button) findViewById(R.id.gamePlayedButton);
         this.gamePlayed = stat.getGamePlayed();
         this.maxScore = stat.getMaxScore();
-        textMaxScore.setText(maxScore.toString());
-        textGamePlayed.setText(gamePlayed.toString());
+        scoreButton.setText(maxScore.toString());
+        gamePlayedButton.setText(gamePlayed.toString());
     }
 
     private void goBack (View v) {
