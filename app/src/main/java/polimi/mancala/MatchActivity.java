@@ -37,7 +37,6 @@ public class MatchActivity extends Activity {
             public void onClick(View v) {
                 game.playTheGame(myMap.get(v));
                 UpdateUIValues();
-                //ChangePlayer();
                 CheckGameFinished();
             }
         };
@@ -111,12 +110,6 @@ public class MatchActivity extends Activity {
     private void performAiMove() {
         DisablePlayerWithId(game.player1.getId());
         DisablePlayerWithId(game.player2.getId());
-/*        try {
-            wait(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
-
         game.aIMove();
         EnablePlayerWithId(game.player1.getId());
         EnablePlayerWithId(game.player2.getId());
@@ -392,11 +385,9 @@ public class MatchActivity extends Activity {
             turnPlayer2.setBackgroundResource(R.drawable.greenturn);
         }
 
-        if (isSinglePlayerGame() && game.checkIfAIMove())
+        if (isSinglePlayerGame() && game.checkIfAIMove()) {
             performAiMove();
-
+        }
     }
-
-
 
 }

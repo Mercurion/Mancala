@@ -89,18 +89,8 @@ public class TableHandler {
         }
     }
 
-    //TODO: CHECK THIS METHOD, COULD BE UNCORRECT
     public void setAllNextContainers () {
-        /*
-        Iterator<Container> tempIter = this.getContainers().iterator();
-        Container c = this.getContainerByIndex(0);
-        while (tempIter.hasNext()) {
-            c.setNextContainer(tempIter.next());
-            c = tempIter.next();
-        }
-        c = this.getContainerByIndex(13);
-        c.setNextContainer(this.getContainerByIndex(0));*/
-        int i, j;
+         int i;
         for (i=0; i<13; i++)
             this.getContainerByIndex(i).setNextContainer(getContainerByIndex(i+1));
         this.getContainerByIndex(13).setNextContainer(getContainerByIndex(0));

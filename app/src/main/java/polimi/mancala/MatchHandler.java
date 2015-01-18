@@ -5,6 +5,7 @@ package polimi.mancala;
 
 import java.util.ArrayList;
 import android.content.Context;
+import android.util.Log;
 
 
 /**
@@ -110,11 +111,11 @@ public class MatchHandler{
 
     public void aIMove () {
         ArrayList<Integer> gameInfo = new ArrayList<Integer>();
-        int bowlClicked;
+        Integer bowlClicked;
         int[] tmp;
         int tmplastBowl, i;
         bowlClicked = aI.getBestMove(table);
- //       bowlClicked = 7;
+        Log.i("matchactivity", bowlClicked.toString());
         if (checkIfCanMove(bowlClicked)) {
             tmplastBowl = makeAMove(bowlClicked);
             this.lastBowl = tmplastBowl;

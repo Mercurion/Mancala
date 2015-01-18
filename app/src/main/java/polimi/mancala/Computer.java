@@ -34,16 +34,15 @@ public class Computer {
     private Integer getStealAndPush(TableHandler board) { //check if i can do a steal&push
         int i, seed, j;
         ArrayList<Integer> candidate = new ArrayList();
-        Container c = board.getContainerByIndex(0);
         for (i = 0; i < 14; i++) {
+            Container c = board.getContainerByIndex(i);
             if (c.getOwnerId().equals(this.id)) {
                 seed = c.getNumSeeds();
                 Container temp = c;
                 for (j = 0; j < seed; j++)
                     temp = temp.getNextContainer();
-
-                    if (temp.getNumSeeds() == 0 && temp.getOwnerId().equals(this.id))
-                        candidate.add(c.getIndex());
+                if (temp.getNumSeeds() == 0 && temp.getOwnerId().equals(this.id))
+                    candidate.add(c.getIndex());
             }
         }
 
@@ -67,8 +66,8 @@ public class Computer {
 
     private Integer getMovePlayAgain (TableHandler board) {
         int i, seed, j;
-        Container c = board.getContainerByIndex(0);
         for (i = 0; i < 14; i++) {
+            Container c = board.getContainerByIndex(i);
             if (c.getOwnerId().equals(this.id)) {
                 seed = c.getNumSeeds();
                 Container temp = c;
@@ -84,9 +83,9 @@ public class Computer {
 
     private Integer getBowlToHavePoints (TableHandler board) {
         int i, seed, j;
-        Container c = board.getContainerByIndex(0);
         for (i = 0; i < 14; i++) {
-            if (c.getOwnerId().equals(this.id)) {
+            Container c = board.getContainerByIndex(i);
+            if (c.getOwnerId()==this.id) {
                 seed = c.getNumSeeds();
                 Container temp = c;
                 for (j = 0; j < seed; j++) {
@@ -102,10 +101,12 @@ public class Computer {
 
     private Integer getFirstAvailableBowl (TableHandler board) {
         int i;
-        Container c = board.getContainerByIndex(0);
-        for (i = 0; i < 14; i++)
-            if (c.getOwnerId().equals(this.id))
+        Container c;
+        for (i = 0; i < 14; i++) {
+            c= board.getContainerByIndex(i);
+            if (c.getOwnerId() == this.id && c.getNumSeeds() !=0)
                 return c.getIndex();
+        }
 
         return -1;
     }

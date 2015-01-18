@@ -27,12 +27,4 @@ public class Preferences {
     public void setHumanComputerGame(boolean humanComputerGame) {
         this.humanComputerGame = humanComputerGame;
     }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 }
