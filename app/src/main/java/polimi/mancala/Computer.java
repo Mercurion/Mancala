@@ -115,9 +115,9 @@ public class Computer {
 
 
     public Integer getBestMove (TableHandler board) {
-        if (getStealAndPush(board)>-1 && getStealAndPush(board)<14)
-            return getStealAndPush(board);
-        else if (getMovePlayAgain(board) >-1 && getMovePlayAgain(board)<14)
+//        if (getStealAndPush(board)>-1 && getStealAndPush(board)<14)
+  //          return getStealAndPush(board);
+        /*else*/ if (getMovePlayAgain(board) >-1 && getMovePlayAgain(board)<14)
             return getMovePlayAgain(board);
         else if (getBowlToHavePoints(board) >-1 && getBowlToHavePoints(board)<14)
             return getBowlToHavePoints(board);
