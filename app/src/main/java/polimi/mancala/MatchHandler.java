@@ -114,7 +114,7 @@ public class MatchHandler{
         int[] tmp;
         int tmplastBowl, i;
         bowlClicked = aI.getBestMove(table);
-        bowlClicked = 7;
+ //       bowlClicked = 7;
         if (checkIfCanMove(bowlClicked)) {
             tmplastBowl = makeAMove(bowlClicked);
             this.lastBowl = tmplastBowl;
