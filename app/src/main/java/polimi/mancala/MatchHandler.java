@@ -15,7 +15,6 @@ import android.content.Context;
  */
 public class MatchHandler{
 
-    private static final Integer num_Seed = 3;
     private static MatchHandler instance = null;
     User player1 = new User(1);
     User player2 = new User(2);
@@ -183,14 +182,14 @@ public class MatchHandler{
     }
 
     public boolean checkToSwap () {
-        if (this.lastBowl == table.getTrayByPlayer(getActivePlayerId()).getIndex())
+        if (this.lastBowl == table.getTrayByPlayerId(getActivePlayerId()).getIndex())
             return false;
         else
             return true;
     }
 
     private boolean checkIfHasToSwapTurn (Integer last) {
-        if (last == table.getTrayByPlayer(getActivePlayerId()).getIndex())
+        if (last == table.getTrayByPlayerId(getActivePlayerId()).getIndex())
             return false;
         else
             return true;
@@ -225,9 +224,9 @@ public class MatchHandler{
 
     private void updateScoreByPlayerId (Integer idPlayer) {
         if (idPlayer.equals(player1.getId()))
-            player1.setScore(table.getTrayByPlayer(player1.getId()).getNumSeeds());
+            player1.setScore(table.getTrayByPlayerId(player1.getId()).getNumSeeds());
         else
-            player2.setScore(table.getTrayByPlayer(player2.getId()).getNumSeeds());
+            player2.setScore(table.getTrayByPlayerId(player2.getId()).getNumSeeds());
     }
 
     private boolean isCorrectTurn(int index) {

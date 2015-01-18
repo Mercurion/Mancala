@@ -1,7 +1,6 @@
 package polimi.mancala;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * Created by jack on 10/01/2015.

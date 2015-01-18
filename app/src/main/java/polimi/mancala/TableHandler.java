@@ -41,7 +41,7 @@ public class TableHandler {
         return null;
     }
 
-    public Tray getTrayByPlayer (int playerId) {
+    public Tray getTrayByPlayerId(int playerId) {
         Iterator<Container> temp = getContainers().iterator();
         while (temp.hasNext()) {
             Container c = temp.next();
@@ -149,7 +149,7 @@ public class TableHandler {
     public Integer pickAndPush (Integer index) {
         Integer idPlayer = getPlayerIdByIndex(index);
         Container c = this.getContainerByIndex(index);
-        Tray t = getTrayByPlayer(idPlayer);
+        Tray t = getTrayByPlayerId(idPlayer);
         Integer points = c.getNumSeeds();
         t.addSeeds(points);
         c.setNumSeeds(0);
@@ -162,7 +162,7 @@ public class TableHandler {
         Integer points = opposite.getNumSeeds();
         opposite.setNumSeeds(0);
         Integer idPlayer = c.getOwnerId();
-        Tray t = getTrayByPlayer(idPlayer);
+        Tray t = getTrayByPlayerId(idPlayer);
         t.addSeeds(points);
         return points;
     }
