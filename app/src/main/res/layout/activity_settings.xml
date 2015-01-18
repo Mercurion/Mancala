@@ -9,22 +9,32 @@
     android:weightSum="1">
 
     <ToggleButton
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:textOff=""
         android:textOn=""
         android:id="@+id/toggleButtonMusic"
         android:background="@drawable/toggleswitch"
+        android:layout_marginBottom="64dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_toEndOf="@+id/imageMusicButton" />
 
-    <ToggleButton
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/imageMusicButton"
+        android:background="@drawable/music"
+        android:layout_marginStart="52dp"
+        android:layout_alignTop="@+id/toggleButtonMusic"
+        android:layout_alignParentStart="true" />
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New ToggleButton"
-        android:id="@+id/toggleButton"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/multiPlayerButton"
+        android:layout_alignBottom="@+id/toggleButtonMusic"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="81dp" />
 
 
 </RelativeLayout>

@@ -373,6 +373,18 @@ public class MatchActivity extends Activity {
 
         Button player2tray2 = (Button) findViewById(R.id.player2tray2);
         player2tray2.setBackgroundResource(getdrawable3(state[13]));
+
+        Button turnPlayer1 = (Button) findViewById(R.id.turnPlayer1);
+        Button turnPlayer2 = (Button) findViewById(R.id.turnPlayer2);
+        if (game.getActivePlayerId().equals(1)) {
+            turnPlayer1.setBackgroundResource(R.drawable.greenturn);
+            turnPlayer2.setBackgroundResource(R.drawable.redturn);
+        }
+        else {
+            turnPlayer1.setBackgroundResource(R.drawable.redturn);
+            turnPlayer2.setBackgroundResource(R.drawable.greenturn);
+        }
+
     }
 
 

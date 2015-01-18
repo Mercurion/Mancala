@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ToggleButton;
 
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
@@ -26,6 +27,21 @@ public class SettingsActivity extends Activity{
         setRequestedOrientation(SCREEN_ORIENTATION_LANDSCAPE);
         LoadPreferences();
 
+        Button multiPlayerButton = (Button) findViewById(R.id.multiPlayerButton);
+        if (settings.isHumanComputerGame())
+            multiPlayerButton.setBackgroundResource(R.drawable.twoplayergame);
+        else
+            multiPlayerButton.setBackgroundResource(R.drawable.oneplayergame);
+
+        multiPlayerButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Do something in response to button click
+                swapTypeOfGame(v);
+
+            }
+        });
+
+
         t = (ToggleButton) findViewById(R.id.toggleButtonMusic);
         t.setChecked(musicStatus);
         t.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +54,6 @@ public class SettingsActivity extends Activity{
             }
         });
     }
-
 
     private void LoadPreferences() {
         PreferencesActivity preferences = new PreferencesActivity(getApplicationContext());
@@ -60,10 +75,17 @@ public class SettingsActivity extends Activity{
         preferences.SetMusicStatus(musicStatus);
     }
 
-    private void swapTypeOfGame () {
+    private void swapTypeOfGame (View v) {
         if (settings.isHumanComputerGame())
             settings.setHumanComputerGame(false);
         else
             settings.setHumanComputerGame(true);
+
+        Button multiPlayerButton = (Button) findViewById(R.id.multiPlayerButton);
+        if (settings.isHumanComputerGame())
+            multiPlayerButton.setBackgroundResource(R.drawable.twoplayergame);
+        else
+            multiPlayerButton.setBackgroundResource(R.drawable.oneplayergame);
+
     }
 }

@@ -123,5 +123,23 @@
         android:layout_above="@+id/player1tray1"
         android:layout_alignStart="@+id/player1tray1" />
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/turnPlayer2"
+        android:layout_above="@+id/score1"
+        android:layout_toStartOf="@+id/player2bowl6" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/turnPlayer1"
+        android:layout_below="@+id/score2"
+        android:layout_alignTop="@+id/player1bowl6"
+        android:layout_toStartOf="@+id/player2bowl6" />
+
+
 </RelativeLayout>
 
