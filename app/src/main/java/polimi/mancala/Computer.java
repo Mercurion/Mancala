@@ -17,7 +17,7 @@ public class Computer {
     }
 
 
-    public Integer getStealAndPush(TableHandler board) { //check if i can do a steal&push
+    private Integer getStealAndPush(TableHandler board) { //check if i can do a steal&push
         int i, seed, j;
         ArrayList<Integer> candidate = new ArrayList();
         Container c = board.getContainerByIndex(0);
@@ -51,7 +51,7 @@ public class Computer {
     }
 
 
-    public Integer getMovePlayAgain (TableHandler board) {
+    private Integer getMovePlayAgain (TableHandler board) {
         int i, seed, j;
         Container c = board.getContainerByIndex(0);
         for (i = 0; i < 14; i++) {
@@ -68,7 +68,7 @@ public class Computer {
     }
 
 
-    public Integer getBowlToHavePoints (TableHandler board) {
+    private Integer getBowlToHavePoints (TableHandler board) {
         int i, seed, j;
         Container c = board.getContainerByIndex(0);
         for (i = 0; i < 14; i++) {
@@ -86,7 +86,7 @@ public class Computer {
     }
 
 
-    public Integer getFirstAvailableBowl (TableHandler board) {
+    private Integer getFirstAvailableBowl (TableHandler board) {
         int i;
         Container c = board.getContainerByIndex(0);
         for (i = 0; i < 14; i++)
@@ -106,6 +106,11 @@ public class Computer {
             return getBowlToHavePoints(board);
         else
         return getFirstAvailableBowl(board);
+    }
+
+
+    public Integer getId () {
+        return this.id;
     }
 
 }

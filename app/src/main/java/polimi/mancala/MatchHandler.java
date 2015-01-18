@@ -109,6 +109,52 @@ public class MatchHandler{
     }
 
 
+    public void aIMove () {
+        ArrayList<Integer> gameInfo = new ArrayList<Integer>();
+        int bowlClicked;
+        int[] tmp;
+        int tmplastBowl, i;
+        bowlClicked = aI.getBestMove(table);
+        if (checkIfCanMove(bowlClicked)) {
+            tmplastBowl = makeAMove(bowlClicked);
+            this.lastBowl = tmplastBowl;
+            updateScoreByPlayerId(player1.getId());
+            updateScoreByPlayerId(player2.getId());
+            //here an if to handle the case that I put my last seed in an empty bowl
+            if (checkIfHasToSteal(tmplastBowl)) {
+                table.pickAndPush(tmplastBowl);
+                table.stealAndPush(tmplastBowl);
+            }
+            updateScoreByPlayerId(getActivePlayerId());
+
+            //here we check if we do need to change the turn
+
+            if (checkIfHasToSwapTurn(tmplastBowl)) {
+                player1.changeTurn();
+                player2.changeTurn();
+            }
+        }
+
+        updateScoreByPlayerId(getActivePlayerId());
+
+        if (isFinished()) {
+            this.winner = endOfTheGame();
+        }
+
+        tmp = getActualBoard();
+        for (i=0; i<14;i++)
+            gameInfo.add(i, tmp[i]);
+
+    }
+
+    public boolean checkIfAIMove() {
+        if (getActivePlayerId().equals(aI.getId()) && settings.isHumanComputerGame())
+            return true;
+        else
+            return false;
+    }
+
+
     public int[] getActualBoard() {
         return table.getGameBoardStatus();
     }
