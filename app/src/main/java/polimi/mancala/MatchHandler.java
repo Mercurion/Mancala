@@ -18,7 +18,7 @@ public class MatchHandler{
     private static MatchHandler instance = null;
     User player1 = new User(1);
     User player2 = new User(2);
-    Computer aI;
+    Computer aI = Computer.getComputer(2);
     int winner = -1;
     int lastBowl;
     Context cont;
@@ -44,8 +44,8 @@ public class MatchHandler{
         this.player1.setId(1);
         this.player2.setId(2);
         table.createInitialBoard(this.player1.getId(), this.player2.getId());
-        if (settings.isHumanComputerGame())
-            this.aI = new Computer(player2.getId());
+/*        if (settings.isHumanComputerGame())
+            this.aI = new Computer(player2.getId());*/
     }
 
 
@@ -114,6 +114,7 @@ public class MatchHandler{
         int[] tmp;
         int tmplastBowl, i;
         bowlClicked = aI.getBestMove(table);
+        bowlClicked = 7;
         if (checkIfCanMove(bowlClicked)) {
             tmplastBowl = makeAMove(bowlClicked);
             this.lastBowl = tmplastBowl;

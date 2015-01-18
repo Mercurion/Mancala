@@ -11,10 +11,25 @@ public class Computer {
     private Integer id;
     private static Computer instance;
 
-    public Computer(int id) {
+
+    private Computer(int id) {
         this.id = id;
     }
 
+    public static synchronized Computer getComputer (int id) {
+        if (instance == null)
+            instance = new Computer(id);
+        return instance;
+    }
+
+    public static synchronized Computer getComputer () {
+        if (instance == null)
+            instance = new Computer();
+        return instance;
+    }
+
+    private Computer() {
+    }
 
     private Integer getStealAndPush(TableHandler board) { //check if i can do a steal&push
         int i, seed, j;
@@ -97,11 +112,11 @@ public class Computer {
 
 
     public Integer getBestMove (TableHandler board) {
-        if (getStealAndPush(board)!=-1)
+        if (getStealAndPush(board)>-1 && getStealAndPush(board)<14)
             return getStealAndPush(board);
-        else if (getMovePlayAgain(board) !=-1)
+        else if (getMovePlayAgain(board) >-1 && getMovePlayAgain(board)<14)
             return getMovePlayAgain(board);
-        else if (getBowlToHavePoints(board) !=-1)
+        else if (getBowlToHavePoints(board) >-1 && getBowlToHavePoints(board)<14)
             return getBowlToHavePoints(board);
         else
         return getFirstAvailableBowl(board);
