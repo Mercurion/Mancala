@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ToggleButton;
 
@@ -26,12 +27,20 @@ public class SettingsActivity extends Activity{
         setContentView(R.layout.activity_settings);
         setRequestedOrientation(SCREEN_ORIENTATION_LANDSCAPE);
         LoadPreferences();
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        Button goHome = (Button) findViewById(R.id.goHomeButton1);
+        goHome.setBackgroundResource(R.drawable.homebutton);
+        goHome.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                goHome();
+            }
+        });
 
         Button multiPlayerButton = (Button) findViewById(R.id.multiPlayerButton);
         if (settings.isHumanComputerGame())
-            multiPlayerButton.setBackgroundResource(R.drawable.twoplayergame);
-        else
             multiPlayerButton.setBackgroundResource(R.drawable.oneplayergame);
+        else
+            multiPlayerButton.setBackgroundResource(R.drawable.twoplayergame);
 
         multiPlayerButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -83,9 +92,13 @@ public class SettingsActivity extends Activity{
 
         Button multiPlayerButton = (Button) findViewById(R.id.multiPlayerButton);
         if (settings.isHumanComputerGame())
-            multiPlayerButton.setBackgroundResource(R.drawable.twoplayergame);
-        else
             multiPlayerButton.setBackgroundResource(R.drawable.oneplayergame);
+        else
+            multiPlayerButton.setBackgroundResource(R.drawable.twoplayergame);
+    }
 
+    private void goHome () {
+        Intent comeback = new Intent(this, MainActivity.class);
+        startActivity(comeback);
     }
 }

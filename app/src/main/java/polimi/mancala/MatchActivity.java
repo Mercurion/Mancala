@@ -33,9 +33,6 @@ public class MatchActivity extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 
-
-
-
         View.OnClickListener clickListener = new View.OnClickListener() {
             public void onClick(View v) {
                 game.playTheGame(myMap.get(v));
@@ -44,8 +41,6 @@ public class MatchActivity extends Activity {
                 CheckGameFinished();
             }
         };
-
-
 
 
         Button player2bowl6 = (Button) findViewById(R.id.player2bowl6);
@@ -111,8 +106,32 @@ public class MatchActivity extends Activity {
 
         UpdateUIValues();
     }
+
+
+    private void performAiMove() {
+        DisablePlayerWithId(game.player1.getId());
+        DisablePlayerWithId(game.player2.getId());
+/*        try {
+            wait(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
+
+        game.aIMove();
+        EnablePlayerWithId(game.player1.getId());
+        EnablePlayerWithId(game.player2.getId());
+        UpdateUIValues();
+    }
+
+    private boolean isSinglePlayerGame() {
+        if (this.settings.isHumanComputerGame())
+            return true;
+        else
+            return false;
+    }
+
     //find drawables for player1 by number of seeds
-    private int getdrawable1 (int numSeed) {
+    private int getDrawable1(int numSeed) {
 
         switch (numSeed){
             case 0: return R.drawable.one00;
@@ -137,8 +156,7 @@ public class MatchActivity extends Activity {
 
 
     //find drawables for player2 by number of seeds
-    private int getdrawable2(int numSeed) {
-
+    private int getDrawable2(int numSeed) {
         switch (numSeed){
             case 0: return R.drawable.two00;
             case 1: return R.drawable.two01;
@@ -157,12 +175,12 @@ public class MatchActivity extends Activity {
             case 14: return R.drawable.two14;
             case 15: return R.drawable.two15;
             default: return R.drawable.two00;
-
-    }}
+        }
+    }
 
 
     //find drawables for trays
-    private int getdrawable3(int numSeed) {
+    private int getDrawableTrays(int numSeed) {
         switch (numSeed) {
             case 0:
                 return R.drawable.s00;
@@ -240,16 +258,12 @@ public class MatchActivity extends Activity {
                 return R.drawable.s36;
             default:
                 return R.drawable.s00;
-        }}
-
-
-
+        }
+    }
 
     private void ChangePlayer(){
         int currentPlayerId = game.getActivePlayerId();
         ChangePlayer(currentPlayerId);
-
-
     }
 
     private void ChangePlayer(int currentPlayerId) {
@@ -308,7 +322,7 @@ public class MatchActivity extends Activity {
 
            alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                            gotomain();
+                            goToMain();
                         }
                     });
 
@@ -317,62 +331,55 @@ public class MatchActivity extends Activity {
         }
     }
 
-
-
-    public void gotomain() {
+    public void goToMain() {
         Intent intentmain = new Intent(this, MainActivity.class);
         startActivity((intentmain));
     }
-
-
-
-
-
 
     private void UpdateUIValues() {
 
         int [] state = game.getActualBoard();
         Button player1bowl1 = (Button) findViewById(R.id.player1bowl1);
-        player1bowl1.setBackgroundResource(getdrawable1(state[0]));
+        player1bowl1.setBackgroundResource(getDrawable1(state[0]));
 
         Button player1bowl2 = (Button) findViewById(R.id.player1bowl2);
-        player1bowl2.setBackgroundResource(getdrawable1(state[1]));
+        player1bowl2.setBackgroundResource(getDrawable1(state[1]));
 
         Button player1bowl3 = (Button) findViewById(R.id.player1bowl3);
-        player1bowl3.setBackgroundResource(getdrawable1(state[2]));
+        player1bowl3.setBackgroundResource(getDrawable1(state[2]));
 
         Button player1bowl4 = (Button) findViewById(R.id.player1bowl4);
-        player1bowl4.setBackgroundResource(getdrawable1(state[3]));
+        player1bowl4.setBackgroundResource(getDrawable1(state[3]));
 
         Button player1bowl5 = (Button) findViewById(R.id.player1bowl5);
-        player1bowl5.setBackgroundResource(getdrawable1(state[4]));
+        player1bowl5.setBackgroundResource(getDrawable1(state[4]));
 
         Button player1bowl6 = (Button) findViewById(R.id.player1bowl6);
-        player1bowl6.setBackgroundResource(getdrawable1(state[5]));
+        player1bowl6.setBackgroundResource(getDrawable1(state[5]));
 
         Button player1tray1 = (Button) findViewById(R.id.player1tray1);
-        player1tray1.setBackgroundResource(getdrawable3(state[6]));
+        player1tray1.setBackgroundResource(getDrawableTrays(state[6]));
 
         Button player2bowl1 = (Button) findViewById(R.id.player2bowl1);
-        player2bowl1.setBackgroundResource(getdrawable2(state[7]));
+        player2bowl1.setBackgroundResource(getDrawable2(state[7]));
 
         Button player2bowl2 = (Button) findViewById(R.id.player2bowl2);
-        player2bowl2.setBackgroundResource(getdrawable2(state[8]));
+        player2bowl2.setBackgroundResource(getDrawable2(state[8]));
 
         Button player2bowl3 = (Button) findViewById(R.id.player2bowl3);
-        player2bowl3.setBackgroundResource(getdrawable2(state[9]));
+        player2bowl3.setBackgroundResource(getDrawable2(state[9]));
 
         Button player2bowl4 = (Button) findViewById(R.id.player2bowl4);
-        player2bowl4.setBackgroundResource(getdrawable2(state[10]));
+        player2bowl4.setBackgroundResource(getDrawable2(state[10]));
 
         Button player2bowl5 = (Button) findViewById(R.id.player2bowl5);
-        player2bowl5.setBackgroundResource(getdrawable2(state[11]));
+        player2bowl5.setBackgroundResource(getDrawable2(state[11]));
 
         Button player2bowl6 = (Button) findViewById(R.id.player2bowl6);
-        player2bowl6.setBackgroundResource(getdrawable2(state[12]));
+        player2bowl6.setBackgroundResource(getDrawable2(state[12]));
 
         Button player2tray2 = (Button) findViewById(R.id.player2tray2);
-        player2tray2.setBackgroundResource(getdrawable3(state[13]));
+        player2tray2.setBackgroundResource(getDrawableTrays(state[13]));
 
         Button turnPlayer1 = (Button) findViewById(R.id.turnPlayer1);
         Button turnPlayer2 = (Button) findViewById(R.id.turnPlayer2);
@@ -384,6 +391,9 @@ public class MatchActivity extends Activity {
             turnPlayer1.setBackgroundResource(R.drawable.redturn);
             turnPlayer2.setBackgroundResource(R.drawable.greenturn);
         }
+
+        if (isSinglePlayerGame() && game.checkIfAIMove())
+            performAiMove();
 
     }
 

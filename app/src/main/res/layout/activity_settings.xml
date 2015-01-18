@@ -36,5 +36,13 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="81dp" />
 
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/goHomeButton1"
+        android:background="@drawable/homebutton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>
