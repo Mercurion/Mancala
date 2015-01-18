@@ -21,6 +21,7 @@ public class MatchActivity extends Activity {
 
     MatchHandler game = MatchHandler.getMatchHandler(this);
     final Map<Button, Integer> myMap = new HashMap<Button, Integer>();
+    Preferences settings = Preferences.getPreferences();
 
 
 

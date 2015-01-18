@@ -13,7 +13,7 @@
         android:layout_height="60dp"
         android:textOff=""
         android:textOn=""
-        android:id="@+id/togglebutton"
+        android:id="@+id/toggleButtonMusic"
         android:background="@drawable/toggleswitch"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />

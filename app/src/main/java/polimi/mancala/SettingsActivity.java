@@ -16,30 +16,30 @@ public class SettingsActivity extends Activity{
     ToggleButton t;
     public static Intent musicService;
     Boolean musicStatus;
+    Preferences settings = Preferences.getPreferences();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         setRequestedOrientation(SCREEN_ORIENTATION_LANDSCAPE);
+        LoadPreferences();
 
-
-    LoadPreferences();
-
-    t = (ToggleButton) findViewById(R.id.togglebutton);
-    t.setChecked(musicStatus);
-    t.setOnClickListener(new View.OnClickListener() {
+        t = (ToggleButton) findViewById(R.id.toggleButtonMusic);
+        t.setChecked(musicStatus);
+        t.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) {
             boolean on = ((ToggleButton) v).isChecked();
             if (on) {
                 SetMusic(true);
             } else {
-                SetMusic(false);
+                SetMusic(false);}
             }
+        });
+    }
 
-        }
-    });
-}
+
     private void LoadPreferences() {
         PreferencesActivity preferences = new PreferencesActivity(getApplicationContext());
         musicStatus = preferences.GetMusicStatus();
@@ -60,4 +60,10 @@ public class SettingsActivity extends Activity{
         preferences.SetMusicStatus(musicStatus);
     }
 
-   }
+    private void swapTypeOfGame () {
+        if (settings.isHumanComputerGame())
+            settings.setHumanComputerGame(false);
+        else
+            settings.setHumanComputerGame(true);
+    }
+}
