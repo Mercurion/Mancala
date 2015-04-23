@@ -1,4 +1,4 @@
-package polimi.mancala;
+package mercurion.mancala;
 
 /**
  * Created by Giacomo Bianchini on 13/01/2015.

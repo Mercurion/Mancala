@@ -1,4 +1,4 @@
-package polimi.mancala;
+package mercurion.mancala.logic;
 
 /**
  * @author Giacomo Bianchini

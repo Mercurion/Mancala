@@ -1,4 +1,4 @@
-package polimi.mancala;
+package mercurion.mancala;
 
 import android.test.InstrumentationTestCase;
 

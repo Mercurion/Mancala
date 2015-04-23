@@ -1,4 +1,4 @@
-package polimi.mancala;
+package mercurion.mancala;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ToggleButton;
+
+import mercurion.mancala.activities.MainActivity;
 
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
 

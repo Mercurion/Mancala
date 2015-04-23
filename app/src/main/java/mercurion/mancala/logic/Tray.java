@@ -1,4 +1,6 @@
-package polimi.mancala;
+package mercurion.mancala.logic;
+
+import mercurion.mancala.logic.Container;
 
 /**
  * @author Giacomo Bianchini

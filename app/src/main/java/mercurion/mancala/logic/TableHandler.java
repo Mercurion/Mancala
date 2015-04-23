@@ -1,4 +1,4 @@
-package polimi.mancala;
+package mercurion.mancala.logic;
 
 import java.util.ArrayList;
 import java.util.Iterator;

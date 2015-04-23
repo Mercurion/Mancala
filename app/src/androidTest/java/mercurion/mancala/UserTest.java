@@ -1,6 +1,8 @@
-package polimi.mancala;
+package mercurion.mancala;
 
 import android.test.InstrumentationTestCase;
+
+import mercurion.mancala.logic.User;
 
 /**
  * @author Giacomo Bianchini
