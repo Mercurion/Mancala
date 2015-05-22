@@ -32,6 +32,7 @@ public class DBManager extends SQLiteOpenHelper {
         db.execSQL(DATABASE_CREATE);
     }
 
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.w(DBManager.class.getName(),
