@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by jack on 21/05/2015.
  */
@@ -69,9 +72,35 @@ public class DBManager extends SQLiteOpenHelper {
             cursor.moveToFirst();
 
         Matches match = new Matches(Integer.parseInt(cursor.getString(0)),
-                cursor.getString(1), cursor.getInt(2));
+                cursor.getString(2), cursor.getInt(1));
         // return match
         return match;
+    }
+
+
+    // Getting All Contacts
+    public List<Matches> getAllMatches() {
+        List<Matches> matchesList = new ArrayList<Matches>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_MATCHES;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Matches match = new Matches();
+                match.setId(Integer.parseInt(cursor.getString(0)));
+                match.setBest_score(cursor.getInt(1));
+                match.setWinner(cursor.getString(2));
+                // Adding contact to list
+                matchesList.add(match);
+            } while (cursor.moveToNext());
+        }
+
+        // return match list
+        return matchesList;
     }
 
 

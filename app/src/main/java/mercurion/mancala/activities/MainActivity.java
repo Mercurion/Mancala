@@ -9,11 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import java.io.File;
-
 import mercurion.mancala.R;
-import mercurion.mancala.SettingsActivity;
-import mercurion.mancala.StatisticsActivity;
 
 
 public class MainActivity extends Activity{

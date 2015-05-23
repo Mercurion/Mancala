@@ -9,6 +9,9 @@ public class Matches {
     String winner;
     int best_score;
 
+    public Matches () {
+    }
+
     public Matches (int id, String winner, int best_score) {
         this.id = id;
         this.winner = winner;

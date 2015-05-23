@@ -1,4 +1,4 @@
-package mercurion.mancala;
+package mercurion.mancala.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,8 @@ import android.view.WindowManager;
 
 import android.widget.Button;
 
+import mercurion.mancala.R;
+import mercurion.mancala.Statistics;
 import mercurion.mancala.activities.MainActivity;
 
 /**

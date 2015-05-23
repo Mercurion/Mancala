@@ -1,4 +1,4 @@
-package mercurion.mancala;
+package mercurion.mancala.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,10 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ToggleButton;
 
+import mercurion.mancala.MusicService;
+import mercurion.mancala.Preferences;
+import mercurion.mancala.PreferencesActivity;
+import mercurion.mancala.R;
 import mercurion.mancala.activities.MainActivity;
 
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;

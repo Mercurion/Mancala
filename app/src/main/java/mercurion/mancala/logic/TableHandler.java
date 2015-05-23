@@ -55,7 +55,6 @@ public class TableHandler {
     public void createInitialBoard(int p1Id, int p2Id) {
         int [] initialBoard = {IN_S,IN_S,IN_S,IN_S,IN_S,IN_S,0,IN_S,IN_S,IN_S,IN_S,IN_S,IN_S,0};
         ArrayList<Container> cont = new ArrayList<>();
-        this.updatedBowls = cont;
         Container tmp;
         for (i=0; i<6; i++) { //here the first 6 bowls: the P1 bowls
             tmp = new Bowl(p1Id,i,initialBoard[i]);
@@ -90,7 +89,7 @@ public class TableHandler {
     }
 
     public void setAllNextContainers () {
-         int i;
+        int i;
         for (i=0; i<13; i++)
             this.getContainerByIndex(i).setNextContainer(getContainerByIndex(i+1));
         this.getContainerByIndex(13).setNextContainer(getContainerByIndex(0));
