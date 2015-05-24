@@ -1,5 +1,6 @@
 package mercurion.mancala.activities;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,6 +16,8 @@ import android.app.AlertDialog;
 
 import mercurion.mancala.Preferences;
 import mercurion.mancala.R;
+import mercurion.mancala.database.DBHelper;
+import mercurion.mancala.database.Matches;
 import mercurion.mancala.logic.MatchHandler;
 
 /**
@@ -296,12 +299,19 @@ public class MatchActivity extends Activity {
         }
     }
 
+    @SuppressLint("LongLogTag")
     private void CheckGameFinished() {
 
         if (game.isFinished()){
             AlertDialog alertDialog = new AlertDialog.Builder(this).create();
             alertDialog.setTitle("THE END");
             int winner = game.getWinner();
+            Log.d("Insert in the database a new match: ", "Inserting ..");
+
+            DBHelper db = new DBHelper(this.getApplicationContext());
+            Matches played = new Matches(game.player1.getScore(),game.player2.getScore(), game.getWinner());
+            db.addNewMatch(played);
+
             switch (winner){
                 case 0: alertDialog.setMessage("It Is A Tie!");
                     break;

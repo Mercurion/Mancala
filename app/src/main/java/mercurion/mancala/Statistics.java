@@ -5,6 +5,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import mercurion.mancala.database.DBHelper;
+import mercurion.mancala.database.Matches;
+
 
 /**
  * @author Giacomo Bianchini
@@ -18,6 +24,9 @@ public class Statistics extends Activity {
     private static Statistics instance = null;
     Context cont;
 
+    List<Matches> matchesList = new ArrayList<Matches>();
+    DBHelper db;
+
 
     public static synchronized Statistics getStatistics (Context ctx) {
         if (instance == null)
@@ -27,6 +36,7 @@ public class Statistics extends Activity {
 
     private Statistics (Context ctx) {
         this.cont = ctx;
+        db = new DBHelper(ctx);
     }
 
     public static synchronized Statistics getStatistics () {

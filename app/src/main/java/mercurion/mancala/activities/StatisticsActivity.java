@@ -11,7 +11,7 @@ import android.widget.Button;
 
 import mercurion.mancala.R;
 import mercurion.mancala.Statistics;
-import mercurion.mancala.activities.MainActivity;
+import mercurion.mancala.database.DBHelper;
 
 /**
  * Created by jack on 26/11/2014.
@@ -23,12 +23,14 @@ public class StatisticsActivity extends Activity{
 
 
 
+    DBHelper db;
     Integer maxScore =0;
     Integer gamePlayed;
     Statistics stat;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
+        db = new DBHelper(this.getApplicationContext());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);

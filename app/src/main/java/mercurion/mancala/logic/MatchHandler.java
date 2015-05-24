@@ -9,6 +9,8 @@ import android.util.Log;
 
 import mercurion.mancala.Preferences;
 import mercurion.mancala.Statistics;
+import mercurion.mancala.database.DBHelper;
+import mercurion.mancala.database.Matches;
 
 
 /**
