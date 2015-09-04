@@ -87,6 +87,7 @@ public class MainActivity extends Activity{
     }
 
 
+
     public void startMatch (View view){
         Intent intentNewMatch = new Intent(this, MatchActivity.class);
         startActivity(intentNewMatch);
