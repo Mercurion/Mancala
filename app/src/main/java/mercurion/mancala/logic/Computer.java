@@ -70,7 +70,7 @@ public class Computer {
         int i, seed, j;
         for (i = 0; i < 14; i++) {
             Container c = board.getContainerByIndex(i);
-            if (c.getOwnerId().equals(this.id)) {
+            if (c.getOwnerId().equals(this.id) && c.isBowl()) {
                 seed = c.getNumSeeds();
                 Container temp = c;
                 for (j = 0; j < seed; j++)
