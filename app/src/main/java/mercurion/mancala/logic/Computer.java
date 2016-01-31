@@ -38,7 +38,7 @@ public class Computer {
         ArrayList<Integer> candidate = new ArrayList();
         for (i = 0; i < 14; i++) {
             Container c = board.getContainerByIndex(i);
-            if (c.getOwnerId().equals(this.id)) {
+            if (c.getOwnerId().equals(this.id) && c.isBowl()) {
                 seed = c.getNumSeeds();
                 Container temp = c;
                 for (j = 0; j < seed; j++)
@@ -87,7 +87,7 @@ public class Computer {
         int i, seed, j;
         for (i = 0; i < 14; i++) {
             Container c = board.getContainerByIndex(i);
-            if (c.getOwnerId()==this.id) {
+            if (c.getOwnerId()==this.id && c.isBowl()) {
                 seed = c.getNumSeeds();
                 Container temp = c;
                 for (j = 0; j < seed; j++) {
@@ -106,7 +106,7 @@ public class Computer {
         Container c;
         for (i = 0; i < 14; i++) {
             c= board.getContainerByIndex(i);
-            if (c.getOwnerId() == this.id && c.getNumSeeds() !=0)
+            if (c.getOwnerId() == this.id && c.getNumSeeds() !=0 && c.isBowl())
                 return c.getIndex();
         }
 
